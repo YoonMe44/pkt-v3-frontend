@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <>
+    <div className="relative">
       <div className="py-4 lg:py-12 lg:px-12 w-full grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 ">
         <div className="">
           <div className="flex flex-col items-center">
@@ -240,10 +240,18 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-full h-14 bg-red-600 text-center py-4 text-white text-sm  font-san">
+      <div className="w-full h-14 bg-red-600 text-center py-4 text-white text-sm font-san font-semibold">
         © 2020 PKT Education Center All Rights Reserved.
       </div>
-    </>
+      <div className="absolute bottom-24 right-5 p-4 bg-white shadow-xl border rounded-full">
+        <Image 
+        src={'/images/arrow.png'}
+        width={30}
+        height={30}
+        alt="arrow"
+        />
+      </div>
+    </div>
   );
 };
 
