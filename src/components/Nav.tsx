@@ -34,7 +34,7 @@ const Nav = () => {
                             <li className='pt-0'>
                                 <Link href="#">
                                     <Image
-                                        src="/statics/images/japan.png"
+                                        src="/statics/images/Japan.png"
                                         alt="main-logo.svg"
                                         width={20}
                                         height={0}
