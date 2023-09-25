@@ -6,13 +6,19 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
- 
+
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: null,
   theme: {
     extend: {
+      boxShadow: {
+        custom: "3px 3px 3px #dee3f3",
+      },
+      backgroundColor: {
+        "custom-white-17": "rgba(255, 255, 255, 0.17)",
+      },
       screens: {
           xs: '375px',
       },
@@ -46,5 +52,4 @@ module.exports = {
   },
   },
   plugins: [],
-}
-
+};
