@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="relative">
-      <div className="py-4 lg:py-12 lg:px-12 w-full grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 ">
+      <div className="py-4 lg:py-12 lg:px-12 w-full grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 space-x-28">
         <div className="">
           <div className="flex flex-col items-center">
             <Image
@@ -104,8 +103,8 @@ const Footer = () => {
             <div className="flex mt-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
+                width="50"
+                height="50"
                 viewBox="0 0 800 800"
                 version="1.1"
               >
@@ -118,7 +117,7 @@ const Footer = () => {
               </svg>
               <a
                 href="#"
-                className="w-full pr-24 ml-4 text-zinc-700 text-sm"
+                className="max-w-60  ml-4 text-zinc-700 text-sm"
               >
                 No(71), Room A, Ground Floor, Upper Pazundaung Road Mingalar
                 Taung Nyunt Township,Yangon.
@@ -240,7 +239,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-full h-14 bg-red-600 text-center py-4 text-white text-sm font-san font-semibold">
+      <div className="w-full h-14 bg-red-600 text-center py-4 text-white text-[10px] font-san font-semibold">
         © 2020 PKT Education Center All Rights Reserved.
       </div>
       <div className="absolute bottom-24 right-5 p-4 bg-white shadow-xl border rounded-full">

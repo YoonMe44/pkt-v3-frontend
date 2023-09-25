@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'; // Import useRouter from 'next/router'
 import React, { useState, useEffect } from 'react';
 
+
 const Nav: React.FC = () => {
   const router = useRouter(); // Use useRouter
   const [activeNav, setActiveNav] = useState('home');
