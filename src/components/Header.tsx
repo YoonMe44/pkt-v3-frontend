@@ -7,7 +7,7 @@ const Header: React.FC = () => {
     return (
         <>
             {/* <Mainvisual /> */}
-            <Nav /> {/* Use the Nav component */}
+            <Nav /> 
         </>
     );
 }
