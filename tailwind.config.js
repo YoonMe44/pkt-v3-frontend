@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +10,7 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: null,
   theme: {
     extend: {
       boxShadow: {
@@ -16,18 +19,37 @@ module.exports = {
       backgroundColor: {
         "custom-white-17": "rgba(255, 255, 255, 0.17)",
       },
-      custom: {
-        cta: "relative mx-auto p-2 px-5 transition-transform border-none bg-transparent group",
-        "cta:before":
-          "group:hover:block absolute top-0 left-0 rounded-full bg-white w-9 h-9 transition-transform transition-transform",
-        "cta span": "relative font-bold text-red-600",
-        "cta svg":
-          "relative top-0 ml-2 fill-none stroke-current stroke-2 transform -translate-x-5 transition-transform",
-        "cta:hover:before": "w-full bg-white",
-        "cta:hover svg": "transform translate-x-0",
-        "cta:active": "scale-95",
+      screens: {
+          xs: '375px',
       },
-    },
+      fontFamily: {
+          // sans: ['var(--font-noto)', ...defaultTheme.fontFamily.sans],
+          // dela: ['var(--font-dela)', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+          'black': '#000000',
+          'red-main': '#ED1C24',
+          'yellow-pale': '#FFF7BA',
+          'orange-main': '#FF8C29',
+          'purple-main': '#DC7EE0',
+          'gray-light': '#EFEFEF',
+          'yellow-light': '#FFEB00',
+          'yellow-dark': '#F1D959',
+          'green-dark': '#509164',
+          'green-darker': '#17770F',
+          'green-light': '#EEF7DC',
+          'magenta-main': '#E22D79',
+          'lemon-stick': '#faf7e0',
+          'orange-main': '#FF8822',
+      },
+      backgroundImage: {
+          'triangle-yellow': "url('/static/image/yellow-triangle.svg')",
+          'triangle-yellow-reverse':
+              "url('/static/image/triangle-yellow-reverse.svg')",
+          'white-gray': "url('/static/bg/white-gray-cropped.png')",
+          'horse-shoe': "url('/static/icons/horse_shoe.svg')",
+      },
+  },
   },
   plugins: [],
 };
