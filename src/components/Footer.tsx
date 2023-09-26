@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <>
-      <div className="max-w-screen-xl  flex-rows justify-between mx-auto p-4 space-x-4 hidden lg:flex">
+    <div className="bg-[#F3F3F3] ">
+      <div className="max-w-screen-xl  flex-rows justify-between mx-auto py-20 space-x-4 hidden lg:flex">
         <div className="w-1/2 flex flex-col">
           <div className="w-contain mx-auto mb-2">
             <Image
@@ -87,7 +87,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="sm:grid lg:hidden md:hidden grid-row-3">
+      <div className="sm:grid lg:hidden md:hidden grid-row-3 py-6">
         <div className="my-3 w-full flex flex-col">
           <div className="w-contain mx-auto mb-2">
             <Image
@@ -176,7 +176,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-full lg:hidden sm:hidden md:block">
+
+      {/* e */}
+      <div className="w-full pt-12 lg:hidden hidden md:block">                  
         <div className="flex flex-col items-center justify-center">
           <Image
             src={"/statics/images/pkt.png"}
@@ -190,7 +192,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className=" grid-cols-2 my-8 hidden lg:hidden md:grid">
+      <div className=" pb-12 grid-cols-2 my-8 hidden lg:hidden md:grid">
         <div className="w-1/2 mx-auto">
           <h1 className="text-xl font-medium text-red-main mb-4">
             Information For
@@ -261,9 +263,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-full bg-red-main p-2">
-        <p className="w-fit mx-auto text-xs md:text-sm lg:text-sm text-white font-medium italic">© 2020 PKT Education Center All Rights Reserve</p>
+        <p className="w-fit mx-auto text-xs md:text-sm lg:text-sm text-white font-medium italic">
+          © 2020 PKT Education Center All Rights Reserve
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -56,7 +56,8 @@ const Nav: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <button type="button" className="focus:outline-none text-white bg-[#ED1C24] hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Login</button>
+                <a href='#' type="button" className="text-white bg-gradient-to-r from-[#aa0a11] via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</a>
+                {/* <button type="button" className="text-white text-md bg-gradient-to-r from-[#aa0a11] via-red-300 to-[#ffcb08] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-[#aa0a11] dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button> */}
               </li>
             </ul>
           </div>
@@ -73,7 +74,7 @@ const Nav: React.FC = () => {
               <Link
                 href="/"
                 className={`mr-5 block py-2 text-md font-bold pb-[10px] ${activeNav === 'home' ? 'text-red-main border-b-[3px] border-red-500' : 'text-black'
-                    } md:bg-transparent hover:text-red-main`}
+                  } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick('home')}
               >
                 Home
@@ -83,7 +84,7 @@ const Nav: React.FC = () => {
               <Link
                 href="/about"
                 className={`mr-5 block py-2 text-md font-bold pb-[10px] ${activeNav === 'about' ? 'text-red-main !important border-b-[3px] border-red-500 !important' : 'text-black'
-                    } md:bg-transparent hover:text-red-main`}
+                  } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick('about')}
               >
                 About Us
@@ -93,7 +94,7 @@ const Nav: React.FC = () => {
               <Link
                 href="/courses"
                 className={`mr-5 block py-2 text-md font-bold pb-[10px] ${activeNav === 'courses' ? 'text-red-main border-b-[3px] border-red-500' : 'text-black'
-                    } md:bg-transparent hover:text-red-main`}
+                  } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick('courses')}
               >
                 Courses
@@ -103,27 +104,27 @@ const Nav: React.FC = () => {
               <Link
                 href="/news"
                 className={`mr-5 block py-2 text-md font-bold pb-[10px] ${activeNav === 'news' ? 'text-red-main border-b-[3px] border-red-500' : 'text-black'
-                    } md:bg-transparent hover:text-red-main`}
+                  } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick('news')}
               >
                 News
               </Link>
             </li>
             <li>
-            <Link
+              <Link
                 href="/contact"
                 className={`mr-5 block py-2 text-md font-bold pb-[10px] ${activeNav === 'contact' ? 'text-red-main border-b-[3px] border-red-500' : 'text-black'
-                    } md:bg-transparent hover:text-red-main`}
+                  } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick('contact')}
               >
                 Contact Us
               </Link>
             </li>
             <li>
-            <Link
+              <Link
                 href="/faq"
                 className={`mr-5 block py-2 text-md font-bold pb-[10px] ${activeNav === 'faq' ? 'text-red-main border-b-[3px] border-red-500' : 'text-black'
-                    } md:bg-transparent hover:text-red-main`}
+                  } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick('faq')}
               >
                 FAQ

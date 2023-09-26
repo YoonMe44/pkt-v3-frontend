@@ -1,12 +1,15 @@
-import React from 'react';
-import PageTitle from '../components/PageTitle';
+import CourseOutline from '@/components/CourseOutline';
+import OurCapacity from '@/components/OurCapacity';
 
-const Home: React.FC = () => {
-  return (
-    <div>
-      <PageTitle title="Home Page" />
-    </div>
-  );
-};
+const TopPage = () => {
+    return (
+        <>
+            <CourseOutline />
+            <OurCapacity />
+        </>
+    );
+  };
+  
+  export default TopPage;
+  
 
-export default Home;
