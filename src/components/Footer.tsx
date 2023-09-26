@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -199,9 +200,10 @@ const Footer = () => {
           </h1>
           <div className="flex space-x-16">
             <ul className="text-sm space-y-2">
-              <li>Home</li>
-              <li>About us</li>
-              <li>Local Classroom</li>
+              <li><Link href={'#'}>Home</Link></li>
+              <li><Link href={'#'}>About us</Link></li>
+              <li><Link href={'#'}>Local Classroom</Link></li>
+              <li><Link href={'#'}>About us</Link></li>
               <li>Online Classroom</li>
               <li>FAQ</li>
             </ul>
