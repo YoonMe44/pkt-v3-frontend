@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -24,15 +25,26 @@ const Footer = () => {
           </h1>
           <div className="flex space-x-16">
             <ul className="text-md space-y-2">
-              <li>Home</li>
-              <li>About us</li>
-              <li>Local Classroom</li>
-              <li>Online Classroom</li>
-              <li>FAQ</li>
+              <li>
+                <Link href={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link href={"/about"}>About us</Link>
+              </li>
+              <li>
+                <Link href={"/contact"}>Contact us</Link>
+              </li>
+              <li>
+                <Link href={"/"}>FAQ</Link>
+              </li>
             </ul>
             <ul className="text-md space-y-2">
-              <li>News</li>
-              <li>Contact us</li>
+              <li>
+                <Link href={"/"}>Local Classroom</Link>
+              </li>
+              <li>
+                <Link href={"/"}>Online Classroom</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -111,15 +123,26 @@ const Footer = () => {
           </h1>
           <div className="w-fit mx-auto flex space-x-4">
             <ul className="text-xs space-y-2">
-              <li>Home</li>
-              <li>About us</li>
-              <li>Local Classroom</li>
-              <li>Online Classroom</li>
-              <li>FAQ</li>
+              <li>
+                <Link href={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link href={"/about"}>About us</Link>
+              </li>
+              <li>
+                <Link href={"/contact"}>Contact us</Link>
+              </li>
+              <li>
+                <Link href={"/"}>FAQ</Link>
+              </li>
             </ul>
             <ul className="text-xs space-y-2">
-              <li>News</li>
-              <li>Contact us</li>
+              <li>
+                <Link href={"/"}>Local Classroom</Link>
+              </li>
+              <li>
+                <Link href={"/"}>Online Classroom</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -178,7 +201,7 @@ const Footer = () => {
       </div>
 
       {/* e */}
-      <div className="w-full pt-12 lg:hidden hidden md:block">                  
+      <div className="w-full pt-12 lg:hidden hidden md:block">
         <div className="flex flex-col items-center justify-center">
           <Image
             src={"/statics/images/pkt.png"}
@@ -199,15 +222,26 @@ const Footer = () => {
           </h1>
           <div className="flex space-x-16">
             <ul className="text-sm space-y-2">
-              <li>Home</li>
-              <li>About us</li>
-              <li>Local Classroom</li>
-              <li>Online Classroom</li>
-              <li>FAQ</li>
+              <li>
+                <Link href={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link href={"/about"}>About us</Link>
+              </li>
+              <li>
+                <Link href={"/contact"}>Contact us</Link>
+              </li>
+              <li>
+                <Link href={"/"}>FAQ</Link>
+              </li>
             </ul>
             <ul className="text-sm space-y-2">
-              <li>News</li>
-              <li>Contact us</li>
+              <li>
+                <Link href={"/"}>Local Classroom</Link>
+              </li>
+              <li>
+                <Link href={"/"}>Online Classroom</Link>
+              </li>
             </ul>
           </div>
         </div>
