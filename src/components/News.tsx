@@ -9,7 +9,7 @@ const News = () => {
         <div className="flex w-full min-h-5  mx-auto my-4 border shadow-lg rounded-3xl bg-[#F3F3F3]">
           <Image
             src="/images/news1.jpg"
-            width={350}
+            width={300}
             height={300}
             alt="news-img"
             className="rounded-l-3xl flex-grow-3 w-25 "
