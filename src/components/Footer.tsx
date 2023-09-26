@@ -32,18 +32,21 @@ const Footer = () => {
                 <Link href={"/about"}>About us</Link>
               </li>
               <li>
-                <Link href={"/contact"}>Contact us</Link>
-              </li>
-              <li>
-                <Link href={"/"}>FAQ</Link>
-              </li>
-            </ul>
-            <ul className="text-md space-y-2">
-              <li>
                 <Link href={"/"}>Local Classroom</Link>
               </li>
               <li>
                 <Link href={"/"}>Online Classroom</Link>
+              </li>
+            </ul>
+            <ul className="text-md space-y-2">
+              <li>
+                <Link href={"/news"}>News</Link>
+              </li>
+              <li>
+                <Link href={"/"}>FAQ</Link>
+              </li>
+              <li>
+                <Link href={"/contact"}>Contact us</Link>
               </li>
             </ul>
           </div>
@@ -130,18 +133,21 @@ const Footer = () => {
                 <Link href={"/about"}>About us</Link>
               </li>
               <li>
-                <Link href={"/contact"}>Contact us</Link>
-              </li>
-              <li>
-                <Link href={"/"}>FAQ</Link>
-              </li>
-            </ul>
-            <ul className="text-xs space-y-2">
-              <li>
                 <Link href={"/"}>Local Classroom</Link>
               </li>
               <li>
                 <Link href={"/"}>Online Classroom</Link>
+              </li>
+            </ul>
+            <ul className="text-xs space-y-2">
+              <li>
+                <Link href={"/news"}>News</Link>
+              </li>
+              <li>
+                <Link href={"/"}>FAQ</Link>
+              </li>
+              <li>
+                <Link href={"/contact"}>Contact us</Link>
               </li>
             </ul>
           </div>
@@ -229,23 +235,26 @@ const Footer = () => {
                 <Link href={"/about"}>About us</Link>
               </li>
               <li>
-                <Link href={"/contact"}>Contact us</Link>
-              </li>
-              <li>
-                <Link href={"/"}>FAQ</Link>
-              </li>
-            </ul>
-            <ul className="text-sm space-y-2">
-              <li>
                 <Link href={"/"}>Local Classroom</Link>
               </li>
               <li>
                 <Link href={"/"}>Online Classroom</Link>
               </li>
             </ul>
+            <ul className="text-sm space-y-2">
+            <li>
+                <Link href={"/news"}>News</Link>
+              </li>
+              <li>
+                <Link href={"/"}>FAQ</Link>
+              </li>
+              <li>
+                <Link href={"/contact"}>Contact us</Link>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="w-1/2 mx-auto">
+        <div className="w-1/2 xs:w-full mx-auto">
           <h1 className="text-xl font-medium text-red-main mb-4">Address</h1>
           <div className="flex space-x-16">
             <ul className="text-sm space-y-2">
