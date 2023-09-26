@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MoreBtn from "./MoreBtn";m
+import MoreBtn from "./MoreBtn";
 
 const News = () => {
   return (
