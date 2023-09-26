@@ -42,7 +42,7 @@ const CourseOutline = () => {
         <div className="md:flex mx-auto w-2/3 p-4 m-4 justify-center shadow-md rounded-3xl">
           <div className="md:w-1/3 flex-1 p-4 bg-white flex flex-col items-center">
               <Image
-                src="static/images/registeredStudent.svg"
+                src="statics/images/registeredStudent.svg"
                 width={70}
                 height={70}
                 alt="registered student"
@@ -55,7 +55,7 @@ const CourseOutline = () => {
           
           <div className="md:w-1/3 flex-1 p-4 bg-white flex flex-col items-center">
               <Image
-                src="static/images/onlineStudent.svg"
+                src="statics/images/onlineStudent.svg"
                 width={70}
                 height={70}
                 alt="registered student"
@@ -68,7 +68,7 @@ const CourseOutline = () => {
 
           <div className="md:w-1/3 flex-1 p-4 bg-white flex flex-col items-center">
               <Image
-                src="static/images/trainer.svg"
+                src="statics/images/trainer.svg"
                 width={70}
                 height={70}
                 alt="registered student"
