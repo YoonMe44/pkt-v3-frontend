@@ -14,6 +14,7 @@ const News = () => {
             alt="news-img"
             className="rounded-l-3xl flex-grow-3 w-25 "
           />
+          
           <div className="flex flex-col justify-center">
             <p className="p-12 w-full">
               Many young Myanmar people, including myself, go abroad to work in
