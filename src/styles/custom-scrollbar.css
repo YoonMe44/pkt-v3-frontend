@@ -1,0 +1,17 @@
+/* custom-scrollbar.css */
+
+/* Webkit-based browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    /* Adjust the color as needed */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+    /* Adjust the hover color as needed */
+}

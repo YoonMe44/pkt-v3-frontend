@@ -1,0 +1,76 @@
+/* responsive.css */
+
+/* For small screens (mobile) */
+@media (max-width: 640px) {
+
+    /* Adjust container width for small screens */
+    .w-full.max-w-screen-lg {
+        width: 100%;
+    }
+
+    /* Remove rounded borders for small screens */
+    .rounded-tl-[26px].rounded-bl-[26px] {
+        border-radius: 0;
+    }
+
+    /* Adjust image size for small screens */
+    .news-image {
+        width: 100%;
+        /* Make the image width 100% of its container */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
+    /* Adjust font size for small screens */
+    .text-lg {
+        font-size: 16px;
+    }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 641px) and (max-width: 1024px) {
+
+    /* Adjust container width for medium screens */
+    .w-full.max-w-screen-lg {
+        width: 90%;
+        /* Adjust container width as needed */
+    }
+
+    /* Adjust image size for medium screens */
+    .news-image {
+        width: 100%;
+        /* Make the image width 100% of its container */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
+    /* Adjust font size for medium screens */
+    .text-lg {
+        font-size: 18px;
+        /* Increase font size for better readability */
+    }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+
+    /* Keep the container width at a maximum size for large screens */
+    .w-full.max-w-screen-lg {
+        max-width: 1200px;
+        /* Adjust container max-width as needed */
+    }
+
+    /* Keep image size within a reasonable range for large screens */
+    .news-image {
+        max-width: 100%;
+        /* Limit image width to its container */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
+    /* Adjust font size for large screens */
+    .text-lg {
+        font-size: 20px;
+        /* Further increase font size for large screens */
+    }
+}
