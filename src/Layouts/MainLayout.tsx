@@ -7,7 +7,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
     return (
         <div>
             <Header />
-            <main className="max-w-screen-xl flex flex-wrap justify-between mx-auto p-4">{children}</main>
+            <main className="max-w-screen-xl flex flex-wrap justify-between mx-auto px-4 py-20">{children}</main>
             <Footer/>
         </div>
     )
