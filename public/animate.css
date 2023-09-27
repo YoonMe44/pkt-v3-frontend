@@ -56,3 +56,8 @@
 .cta:active {
     transform: scale(0.95);
 }
+.oval{
+    border-radius: 100% 59% 100% 63% / 100% 71% 100% 69%;
+    transform: rotate(349deg);
+    z-index: -2;
+}
