@@ -1,58 +1,98 @@
 .cta {
-    position: relative!important;
-    margin: auto!important;
-    padding: 7px 18px;
-    transition: all 0.2s ease!important;
-    border: none;
-    background: none;
+  position: relative !important;
+  margin: auto !important;
+  padding: 7px 18px;
+  transition: all 0.2s ease !important;
+  border: none;
+  background: none;
 }
 
 .cta:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 50px;
-    background: #ffffff;
-    width: 35px;
-    height: 35px  ;
-    transition: all 0.3s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #ffffff;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
 }
 
 .cta span {
-    position: relative;
-    font-family: 'Fredoka', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #ed1c24;
+  position: relative;
+  font-family: "Fredoka", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ed1c24;
 }
 
 .cta svg {
-    display: inline !important;
-    position: relative;
-    top: 0;
-    margin-left: 10px;
-    margin-right: 0px!important;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #234567;
-    stroke-width: 2;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
+  display: inline !important;
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  margin-right: 0px !important;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
 }
 
 .cta:hover:before {
-    width: 100%;
-    background: #ffffff;
+  width: 100%;
+  background: #ffffff;
 }
 
 .cta:hover svg {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .cta:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.newElement2::-webkit-scrollbar {
+  width: 40px;
+  height: 24px;
+}
+
+.newElement2::-webkit-scrollbar-thumb {
+  border: 9px solid#D9D9D9;
+  background: #f3f3f3;
+  border-radius: 30px;
+  margin: 0px auto;
+  height: 100px;
+}
+
+.newElement2::-webkit-scrollbar-track {
+  background: #d9d9d9;
+  box-shadow: inset 0px 8px 4px #c9d4de;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.newElement::-webkit-scrollbar {
+  width: 40px;
+  height: 24px;
+}
+
+.newElement::-webkit-scrollbar-thumb {
+  border: 9px solid#D9D9D9;
+  background: #f3f3f3;
+  border-radius: 30px;
+  margin: 0px auto;
+  height: 100px;
+}
+
+.newElement::-webkit-scrollbar-track {
+  background: #d9d9d9;
+  box-shadow: inset 0px 8px 4px #c9d4de;
+  border-radius: 30px;
+  padding: 10px;
 }
