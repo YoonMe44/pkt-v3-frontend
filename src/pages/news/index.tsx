@@ -1,6 +1,6 @@
 import PageTitle from "@/components/PageTitle";
 
-import News from "../../components/NewsCard";
+import NewsCard from "../../components/NewsCard";
 
 const NewsPage = () => {
   return (
