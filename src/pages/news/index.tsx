@@ -1,5 +1,5 @@
 import PageTitle from "@/components/PageTitle";
-import News from "../../components/News";
+import NewsCard from "../../components/NewsCard";
 import 'animate.css';
 const NewsPage = () => {
   return (
@@ -25,7 +25,7 @@ const NewsPage = () => {
         </div> */}
         </div>
       </div>
-      <div><News /></div>
+      <div><NewsCard /></div>
     </div>
   )
 

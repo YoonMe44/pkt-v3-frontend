@@ -1,7 +1,7 @@
 import Image from "next/image";
 import MoreBtn from "./MoreBtn";
 
-const News = () => {
+const NewsCard = () => {
   return (
     <div className="sm:w-[50%] md:w-[50%] lg:w-[76%] mx-auto ">
       <div className="bg-[#F0F0F0] container h-[450px] lg:h-[600px] mx-auto rounded-lg lg:rounded-3xl my-4 py-10 px-8 lg:px-20 overflow-y-scroll scroll scroll2">
@@ -127,4 +127,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default NewsCard;
