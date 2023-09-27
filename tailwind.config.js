@@ -15,10 +15,11 @@ module.exports = {
     extend: {
       boxShadow: {
         custom: "3px 3px 3px #dee3f3",
-        card: '4px 4px 4px #dee3f3',
+        card: "4px 4px 4px #dee3f3",
       },
       backgroundColor: {
         "custom-white-17": "rgba(255, 255, 255, 0.17)",
+        "custom-white-4": "rgba(235, 235, 235, 0.4)",
       },
       screens: {
         xs: "375px",

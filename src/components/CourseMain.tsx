@@ -2,7 +2,7 @@ import CourseCard from "./CourseCard";
 const CourseMain = () => {
     return (
       <div>
-        <CourseCard />
+        <CourseCard/>
       </div>
     );
     
