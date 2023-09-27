@@ -29,16 +29,16 @@ export default function Home() {
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
           <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
             {/* <Image
-            src="/images/sample.jpg"
+            src="/statics/images/batchTwo.png"
             alt="sample.jpg"
-            width={500}
+            width={1000}
             height={100}
           /> */}
             <Image
-              width={0}
-              height={0}
+              width={1000}
+              height={1000}
               className="transform rotate-11"
-              src="/images/test.jpg"
+              src="/statics/images/batchTwo.png"
               alt=""
             />
           </div>
@@ -50,12 +50,12 @@ export default function Home() {
         <CourseOutline />
       </div>
       {/* About Us School */}
-      <h2 className="text-2xl text-red-600 font-semibold text-center mt-4">
+      <h2 className="text-2xl text-red-600 font-semibold text-center mt-8">
         About Us
       </h2>
 
       <div className="md:flex mx-auto p-4 space-x-4 justify-center rounded-3xl mb-10">
-        <div className="w-[80%] p-8 bg-white grid grid-cols-2 items-center shadow-md rounded-2xl">
+        <div className="w-[84%] p-8 bg-white grid grid-cols-2 items-center shadow-card rounded-2xl">
           <div>
             <div>
               <Image
@@ -98,7 +98,7 @@ export default function Home() {
       {/* Managing Director */}
 
       <div className="md:flex mx-auto p-4 space-x-4 justify-center rounded-3xl my-10">
-        <div className="w-[80%] p-8 bg-white grid grid-cols-3 gap-4 items-center shadow-md rounded-2xl">
+        <div className="w-[84%] p-8 bg-white grid grid-cols-3 gap-4 items-center shadow-card rounded-2xl">
           <div>
             <div>
               <Image
