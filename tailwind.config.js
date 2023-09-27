@@ -14,7 +14,6 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        custom: "3px 3px 3px #dee3f3",
         card: '4px 4px 4px #dee3f3',
       },
       backgroundColor: {
