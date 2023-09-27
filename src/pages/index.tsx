@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 import Instructor from '@/components/Instructor'
 import CourseOutline from '@/components/CourseOutline'
 import OurCapacity from '@/components/OurCapacity'
-import News from '@/components/News'
+import NewsCard from '@/components/NewsCard'
 export default function Home() {
   return (
     <div>
@@ -133,7 +133,7 @@ export default function Home() {
       </div>
 
       <div>
-        <News />
+        <NewsCard />
       </div>
     </div>
   );
