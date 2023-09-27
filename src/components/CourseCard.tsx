@@ -11,9 +11,11 @@ const CourseCard = () => {
             src="/statics/images/n3.jpg"
             alt=""
           />
-          <p className="text-center text-red-main mt-[10px]">Basic N3</p>
+          <p className="text-center text-red-main mt-[8px] font-sans font-medium text-[20px]">
+            Basic N3
+          </p>
           <p className="text-center m-[10px]">Onlne Class</p>
-            <RedButton title="More Detail"/>
+          <RedButton title="More Detail" />
         </div>
       </div>
     );

@@ -11,6 +11,7 @@ import Instructor from '@/components/Instructor'
 import CourseOutline from '@/components/CourseOutline'
 import OurCapacity from '@/components/OurCapacity'
 import News from '@/components/News'
+
 export default function Home() {
   return (
     <div>
@@ -93,7 +94,7 @@ export default function Home() {
       </div>
 
       {/* Trainers */}
-      <div>{/* <Instructor /> */}</div>
+      <div><Instructor /></div>
 
       {/* Managing Director */}
 
