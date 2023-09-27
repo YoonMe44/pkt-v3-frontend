@@ -12,7 +12,7 @@ const Nav: React.FC = () => {
     setActiveNav(navItem);
   };
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="bg-transparent border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap justify-between mx-auto p-4">
         <div>
           <Image
@@ -24,7 +24,7 @@ const Nav: React.FC = () => {
         </div>
         <div className="flex md:order-2">
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul className="items-center float-right font-medium flex flex-col p-4 md:p-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="items-center float-right font-medium flex flex-col p-4 md:p-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li className='pt-0'>
                 <Link href="#">
                   <Image
@@ -69,7 +69,7 @@ const Nav: React.FC = () => {
           </button>
         </div>
         <div className="justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language">
-          <ul className="items-center pt-3 font-medium flex flex-col p-4 md:pt-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="items-center pt-3 font-medium flex flex-col p-4 md:pt-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
                 href="/"
