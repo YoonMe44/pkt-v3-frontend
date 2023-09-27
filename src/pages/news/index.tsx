@@ -1,6 +1,6 @@
 import PageTitle from "@/components/PageTitle";
 import NewsCard from "../../components/NewsCard";
-import 'animate.css';
+
 const NewsPage = () => {
   return (
     <div>
