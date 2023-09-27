@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import 'animate.css';
 import Image from 'next/image'
 import PageTitle from '@/components/PageTitle';
 import Instructor from '@/components/Instructor';
