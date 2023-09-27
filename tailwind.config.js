@@ -24,7 +24,7 @@ module.exports = {
         xs: "375px",
       },
       fontFamily: {
-        // sans: ['var(--font-noto)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-fredoka)', ...defaultTheme.fontFamily.sans],
         // dela: ['var(--font-dela)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
