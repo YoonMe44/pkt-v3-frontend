@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const NewsDetail = () => {
   return (
@@ -75,15 +76,43 @@ const NewsDetail = () => {
           </p>
         </div>
       </div>
-      <div className="sm:w-[50%] md:w-[50%] lg:w-[90%] flex justify-end my-6 mx-0">
-        <button className=" font-bold p-4 rounded-full border shadow-custom hover:w-[150px] hover:ease-in-out duration-500">
-          <Image
-            src={"/statics/images/share.png"}
-            width={20}
-            height={20}
-            alt="share-button"
-          />
-        </button>   
+      <div className="group sm:w-[50%] md:w-[50%] lg:w-[90%] flex justify-end my-6">
+        <div className="h-[70px] w-[70px] hover:w-[280px] hover:ease-in-out hover:duration-500 hover:flex-row-reverse overflow-hidden border rounded-full shadow-card">
+          <div className="w-[280px] grid grid-cols-4  place-items-center my-3 ">
+            
+              <Image
+                src={"/statics/images/share.png"}
+                width={25}
+                height={20}
+                alt="share-button"
+                className=""
+              />
+            <Link className="contents" href={"/facebook"}>
+              <Image
+                src={"/statics/images/facebook.png"}
+                width={40}
+                height={40}
+                alt="share-button"
+              />
+            </Link>
+            <Link className="contents" href={"/instagram"}>
+              <Image
+                src={"/statics/images/instagram.png"}
+                width={40}
+                height={40}
+                alt="share-button"
+              />
+            </Link>
+            <Link className="contents" href={"/linkin"}>
+              <Image
+                src={"/statics/images/linkin.png"}
+                width={40}
+                height={40}
+                alt="share-button"
+              />
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
