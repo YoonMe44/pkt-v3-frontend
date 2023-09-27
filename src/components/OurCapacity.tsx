@@ -38,7 +38,7 @@ const CourseOutline = () => {
 
   return (
     <div>
-      <h2 className="text-2xl text-red-600	font-semibold text-center mb-4">Our Courses & Batches</h2>
+      <h2 className="text-2xl text-red-600	font-medium text-center mb-4">Our Courses & Batches</h2>
       <div className="md:flex mx-auto w-[82%] p-4 m-4 justify-center shadow-card rounded-3xl">
         <div className="md:w-1/3 flex-1 p-4 bg-white flex flex-col items-center">
           <Image
