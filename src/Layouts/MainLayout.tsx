@@ -13,7 +13,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
     return (
         <div className={`${fredoka.variable} font-sans`}>
             <Header />
-            <main className={`max-w-screen-xl flex flex-wrap justify-between mx-auto px-4 py-20 ${fredoka.variable} font-sans`}>{children}</main>
+            <main className={`max-w-screen-xl justify-between mx-auto px-4 py-20 ${fredoka.variable} font-sans`}>{children}</main>
             <Footer/>
         </div>
     )

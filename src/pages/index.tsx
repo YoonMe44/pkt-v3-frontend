@@ -17,12 +17,12 @@ export default function Home() {
       {/* MainVisual */}
       <div className="pb-20 w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
         <div>
-          <i className="text-[48px] text-black font-semibold">
+          <i className="text-[48px] text-black font-medium">
             <PageTitle title="Plan your" />
             <PageTitle title="future with" />
           </i>
 
-          <i className="text-[48px] text-red-main font-semibold">
+          <i className="text-[48px] text-red-main font-medium">
             <PageTitle title="PKT Education Center" />
           </i>
         </div>
@@ -93,7 +93,7 @@ export default function Home() {
       </div>
 
       {/* Trainers */}
-      <div>{/* <Instructor /> */}</div>
+      <div><Instructor /></div>
 
       {/* Managing Director */}
 
