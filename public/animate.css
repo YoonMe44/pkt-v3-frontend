@@ -1,146 +1,101 @@
 .cta {
-    position: relative!important;
-    margin: auto!important;
-    padding: 7px 18px;
-    transition: all 0.2s ease!important;
-    border: none;
-    background: none;
+  position: relative !important;
+  margin: auto !important;
+  padding: 7px 18px;
+  transition: all 0.2s ease !important;
+  border: none;
+  background: none;
 }
 
 .cta:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 50px;
-    background: #ffffff;
-    width: 35px;
-    height: 35px  ;
-    transition: all 0.3s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #ffffff;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
 }
 
 .cta span {
-    position: relative;
-    font-family: 'Fredoka', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #ed1c24;
+  position: relative;
+  font-family: "Fredoka", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ed1c24;
 }
 
 .cta svg {
-    display: inline !important;
-    position: relative;
-    top: 0;
-    margin-left: 10px;
-    margin-right: 0px!important;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #234567;
-    stroke-width: 2;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
+  display: inline !important;
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  margin-right: 0px !important;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
 }
 
 .cta:hover:before {
-    width: 100%;
-    background: #ffffff;
+  width: 100%;
+  background: #ffffff;
 }
 
 .cta:hover svg {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .cta:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
-.oval{
-    border-radius: 100% 59% 100% 63% / 100% 71% 100% 69%;
-    transform: rotate(349deg);
-    z-index: -2;
+.oval {
+  border-radius: 100% 59% 100% 63% / 100% 71% 100% 69%;
+  transform: rotate(349deg);
+  z-index: -2;
 }
-.redBtn {
-  
-    position: relative;
-    border: none;
-    background: transparent;
-    padding: 0;
-    cursor: pointer;
-    outline-offset: 4px;
-    transition: filter 250ms;
-    user-select: none;
-    touch-action: manipulation;
+.scroll2::-webkit-scrollbar {
+  width: 40px;
+  height: 24px;
 }
-
-.shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background: hsl(0deg 0% 0% / 0.25);
-    will-change: transform;
-    transform: translateY(2px);
-    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+.scroll2::-webkit-scrollbar-thumb {
+  border: 9px solid#D9D9D9;
+  background: #f3f3f3;
+  border-radius: 30px;
+  margin: 0px auto;
+  height: 100px;
 }
-
-.edge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background: linear-gradient(to left,
-            hsl(340deg 100% 16%) 0%,
-            hsl(340deg 100% 32%) 8%,
-            hsl(340deg 100% 32%) 92%,
-            hsl(340deg 100% 16%) 100%);
+.scroll2::-webkit-scrollbar-track {
+  background: #d9d9d9;
+  box-shadow: inset 0px 8px 4px #c9d4de;
+  border-radius: 30px;
+  padding: 10px;
 }
-
-.front {
-    display: block;
-    position: relative;
-    padding: 12px 27px;
-    border-radius: 15px;
-    line-height: 18px;
-    color: #FFF;
-    font-size: 16px;
-    font-family: 'Fredoka', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    background: hsl(345deg 100% 47%);
-    will-change: transform;
-    transform: translateY(-4px);
-    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+.scroll::-webkit-scrollbar {
+  width: 40px;
+  height: 24px;
 }
-.redBtn:hover {
-    filter: brightness(110%);
+.scroll-res::-webkit-scrollbar {
+  width: 30px;
+  height: 24px;
 }
-
-.redBtn:hover .front {
-    transform: translateY(-6px);
-    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+.scroll::-webkit-scrollbar-thumb {
+  border: 9px solid#D9D9D9;
+  background: #f3f3f3;
+  border-radius: 30px;
+  margin: 0px auto;
+  height: 100px;
 }
-
-.redBtn:active .front {
-    transform: translateY(-2px);
-    transition: transform 34ms;
-}
-
-.redBtn:hover .shadow {
-    transform: translateY(4px);
-    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
-}
-
-.redBtn:active .shadow {
-    transform: translateY(1px);
-    transition: transform 34ms;
-}
-
-.redBtn:focus:not(:focus-visible) {
-    outline: none;
+.scroll::-webkit-scrollbar-track {
+  background: #d9d9d9;
+  box-shadow: inset 0px 8px 4px #c9d4de;
+  border-radius: 30px;
+  padding: 10px;
 }

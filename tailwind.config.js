@@ -14,7 +14,6 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        custom: "3px 3px 3px #dee3f3",
         card: "4px 4px 4px #dee3f3",
       },
       backgroundColor: {
@@ -25,7 +24,7 @@ module.exports = {
         xs: "375px",
       },
       fontFamily: {
-        sans: ['var(--font-fredoka)', ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-fredoka)", ...defaultTheme.fontFamily.sans],
         // dela: ['var(--font-dela)', ...defaultTheme.fontFamily.sans],
       },
       colors: {

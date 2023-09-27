@@ -1,5 +1,7 @@
 import PageTitle from "@/components/PageTitle";
-import News from "../../components/News";
+
+import NewsCard from "../../components/NewsCard";
+
 const NewsPage = () => {
   return (
     <div>
@@ -24,7 +26,7 @@ const NewsPage = () => {
         </div> */}
         </div>
       </div>
-      <div><News /></div>
+      <div><NewsCard /></div>
     </div>
   )
 
