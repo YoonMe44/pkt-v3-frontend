@@ -1,4 +1,5 @@
 import PageTitle from "@/components/PageTitle";
+
 import NewsCard from "../../components/NewsCard";
 
 const NewsPage = () => {
