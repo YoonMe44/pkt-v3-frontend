@@ -4,7 +4,7 @@ import React from "react";
 const CourseOutline = () => {
   return (
     <>
-      <h2 className="text-2xl text-red-600 font-semibold text-center mb-4">
+      <h2 className="text-2xl text-red-600 font-medium text-center mb-4">
         Course Outline
       </h2>
       <div className="grid grid-cols-3 gap-[105px] p-4 mx-[100px] justify-center rounded-3xl">

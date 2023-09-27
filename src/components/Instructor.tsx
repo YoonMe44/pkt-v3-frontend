@@ -10,7 +10,7 @@ import InstructorCard from "./InstructorCard";
 const Instructor = () => {
     const settings = {
       dots: false,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 1000,
       slidesToScroll: 1,
       arrows: false,
@@ -61,10 +61,10 @@ const Instructor = () => {
     };
   return (
     <div className="">
-      <p className="text-center text-red-500 font-semibold text-2xl mb-[30px] mt-[50px]">
+      <p className="text-center text-red-500 font-medium text-2xl mb-[30px] mt-[50px]">
         Our Trainers
       </p>
-      <Slider {...settings} className="w-4/5 mx-auto  border-none!important">
+      <Slider {...settings} className="w-[86%] mx-auto  border-none!important">
         <InstructorCard />
         <InstructorCard />
         <InstructorCard />

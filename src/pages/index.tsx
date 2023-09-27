@@ -44,13 +44,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       {/* Course description */}
       <div>
         <CourseOutline />
       </div>
       {/* About Us School */}
-      <h2 className="text-2xl text-red-600 font-semibold text-center mt-8">
+      <h2 className="text-2xl text-red-600 font-medium text-center mt-8">
         About Us
       </h2>
 
