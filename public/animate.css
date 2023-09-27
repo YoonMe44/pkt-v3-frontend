@@ -82,6 +82,10 @@
   width: 40px;
   height: 24px;
 }
+.scroll-res::-webkit-scrollbar {
+  width: 30px;
+  height: 24px;
+}
 .scroll::-webkit-scrollbar-thumb {
   border: 9px solid#D9D9D9;
   background: #f3f3f3;

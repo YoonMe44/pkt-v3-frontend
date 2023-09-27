@@ -36,8 +36,8 @@ export default function Home() {
           /> */}
             <Image
               width={1000}
-              height={1000}
-              className="transform rotate-11"
+              height={900}
+              className="transform rotate-11 pt-20"
               src="/statics/images/batchTwo.png"
               alt=""
             />
