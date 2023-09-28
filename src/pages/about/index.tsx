@@ -3,18 +3,37 @@ import Image from "next/image";
 import PageTitle from "../../components/PageTitle";
 import Instructor from "@/components/Instructor";
 import OurCapacity from "@/components/OurCapacity";
+import CourseOutline from "@/components/CourseOutline";
 
 const About = () => {
+    const pageTitle = {
+        title: 'About Us',
+        content_1: 'Read More',
+        content_2: ''
+      }
+      const instructures = [
+        {
+          name: 'Naing Aung Linn',
+          category: 'web trainer'
+        },
+        {
+          name: 'Naing Aung Linn',
+          category: 'web trainer'
+        },
+        {
+          name: 'Naing Aung Linn',
+          category: 'web trainer'
+        },
+        {
+          name: 'Naing Aung Linn',
+          category: 'web trainer'
+        }
+      ]
   return (
     <div>
-      <div className="pb-20 w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
-        <i className="text-[48px] text-black font-medium">
-          <PageTitle title="Read More" />
-        </i>
-        <i className="text-[48px] text-red-main font-medium">
-          <PageTitle title="About Us" />
-        </i>
-      </div>
+      <div>
+          <PageTitle pageTitle={pageTitle}/>
+        </div>
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
         <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
@@ -192,11 +211,14 @@ const About = () => {
           </div>
         </div>
       </div>
+      <div>
+        <CourseOutline />
+      </div>
       <div className="my-16">
         <OurCapacity />
       </div>
       <div className="my-16">
-        <Instructor />
+        <Instructor instructures={instructures} />
       </div>
     </div>
   );

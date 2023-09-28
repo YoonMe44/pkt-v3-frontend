@@ -11,20 +11,39 @@ import Instructor from '@/components/Instructor'
 import CourseOutline from '@/components/CourseOutline'
 import OurCapacity from '@/components/OurCapacity'
 import NewsCard from '@/components/NewsCard'
+
 export default function Home() {
+  const pageTitle = {
+    title: 'Pkt Education Center',
+    content_1: 'Plan your',
+    content_2: 'future with'
+  }
+
+  const instructures = [
+    {
+      name: 'Naing Aung Linn',
+      category: 'web trainer'
+    },
+    {
+      name: 'Naing Aung Linn',
+      category: 'web trainer'
+    },
+    {
+      name: 'Naing Aung Linn',
+      category: 'web trainer'
+    },
+    {
+      name: 'Naing Aung Linn',
+      category: 'web trainer'
+    }
+  ]
+
   return (
     <div>
       {/* MainVisual */}
       <div className="pb-20 w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
         <div>
-          <i className="text-[48px] text-black font-medium">
-            <PageTitle title="Plan your" />
-            <PageTitle title="future with" />
-          </i>
-
-          <i className="text-[48px] text-red-main font-medium">
-            <PageTitle title="PKT Education Center" />
-          </i>
+          <PageTitle pageTitle={pageTitle}/>
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
           <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
@@ -92,7 +111,7 @@ export default function Home() {
       </div>
 
       {/* Trainers */}
-      <div><Instructor /></div>
+      <div><Instructor instructures={instructures} /></div>
 
       {/* Managing Director */}
 
