@@ -26,12 +26,12 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="w-full lg:shadow-card lg:backdrop:blur-9 rounded-3xl p-24">
+      <div className="w-full lg:shadow-card lg:backdrop:blur-9 rounded-3xl lg:p-24 p-2">
         <div className=" justify-between  hidden lg:flex">
           <div className="w-2/3">
             <div className="items-center">
               <h1 className="lg:my-5 font-sans">
-                <span className=" font-medium mr-3">Welcome to</span>{" "}
+                <span className=" font-medium mr-3 ">Welcome to</span>{" "}
                 <span className="text-lg text-red-main font-medium">
                   PKT Education Center
                 </span>
