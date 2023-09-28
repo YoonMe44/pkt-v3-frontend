@@ -46,7 +46,7 @@ export default function Home() {
           <PageTitle pageTitle={pageTitle}/>
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
-          <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
+          <div className="hidden lg:block relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
             {/* <Image
             src="/statics/images/batchTwo.png"
             alt="sample.jpg"
