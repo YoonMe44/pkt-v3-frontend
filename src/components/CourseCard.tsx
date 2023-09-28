@@ -2,8 +2,8 @@ import Image from "next/image";
 import RedButton from "./RedButton";
 const CourseCard = () => {
     return (
-      <div>
-        <div className="w-[27%] bg-custom-white-4 rounded-[30px] pb-[20px]">
+      <div className="w-full">
+        <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] shadow-card">
           <Image
             width={1000}
             height={1000}

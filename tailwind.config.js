@@ -15,10 +15,14 @@ module.exports = {
     extend: {
       boxShadow: {
         card: "4px 4px 4px #dee3f3",
+        custom: " 4px 4px 4px 0px #C9D4DE, 4px 4px 4px 0px #C9D4DE inset",
       },
       backgroundColor: {
         "custom-white-17": "rgba(255, 255, 255, 0.17)",
         "custom-white-4": "rgba(235, 235, 235, 0.4)",
+      },
+      blur: {
+        9: "9px", // You can adjust the blur radius as needed
       },
       screens: {
         xs: "375px",
