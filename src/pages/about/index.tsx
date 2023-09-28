@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import PageTitle from "../../components/PageTitle";
 import Instructor from "@/components/Instructor";
+import OurCapacity from "@/components/OurCapacity";
+
 const About = () => {
   return (
     <div>
@@ -24,7 +26,7 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="lg:shadow-card lg:backdrop:blur-9 rounded-3xl  p-24">
+      <div className="w-full lg:shadow-card lg:backdrop:blur-9 rounded-3xl p-24">
         <div className=" justify-between  hidden lg:flex">
           <div className="w-2/3">
             <div className="items-center">
@@ -186,10 +188,15 @@ const About = () => {
                 opened as a Japanese language school in 4th month of 2018, and
                 since 2019, it has been teaching outside courses.
               </p>
-             
             </div>
           </div>
         </div>
+      </div>
+      <div className="my-16">
+        <OurCapacity />
+      </div>
+      <div className="my-16">
+        <Instructor />
       </div>
     </div>
   );
