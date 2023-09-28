@@ -61,6 +61,21 @@ export default function Home() {
               alt=""
             />
           </div>
+          <div className="lg:hidden md:block relative  w-[850px] h-[400px]] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
+            {/* <Image
+            src="/statics/images/batchTwo.png"
+            alt="sample.jpg"
+            width={1000}
+            height={100}
+          /> */}
+            <Image
+              width={1000}
+              height={900}
+              className="transform rotate-11 pt-20"
+              src="/statics/images/batchTwo.png"
+              alt=""
+            />
+          </div>
         </div>
       </div>
       {/* Course description */}
