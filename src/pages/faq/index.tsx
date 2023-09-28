@@ -4,13 +4,16 @@ import Instructor from "@/components/Instructor";
 import OurCapacity from "@/components/OurCapacity";
 
 const FAQ = () => {
+  const pageTitle = {
+    title: 'FAQ',
+    content_1: '',
+    content_2: ''
+  }
   return (
     <div>
-      <div className="pb-20 w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
-        <i className="text-[48px] text-red-main font-medium">
-          <PageTitle title="FAQ" />
-        </i>
-      </div>
+      <div>
+          <PageTitle pageTitle={pageTitle}/>
+        </div>
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
         <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image

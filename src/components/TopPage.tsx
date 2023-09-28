@@ -4,8 +4,8 @@ import OurCapacity from '@/components/OurCapacity';
 const TopPage = () => {
     return (
         <>
-            <CourseOutline />
-            <OurCapacity />
+            {/* <CourseOutline />
+            <OurCapacity /> */}
         </>
     );
   };
