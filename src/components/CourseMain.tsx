@@ -1,7 +1,31 @@
 import CourseCard from "./CourseCard";
 import PageTitle from "./PageTitle";
 import Image from "next/image";
+import React, { useEffect } from "react";
 const CourseMain = () => {
+  useEffect(() => {
+    // Your JavaScript code goes here
+    var menuBtn = document.querySelector(".menu-btn");
+    var nav1 = document.querySelector(".nav-cat");
+    var lineOne = document.querySelector(".menu-btn .line--1");
+    var lineTwo = document.querySelector(".menu-btn .line--2");
+    var lineThree = document.querySelector(".menu-btn .line--3");
+    var link = document.querySelector(".nav-cat .nav-links");
+
+    const handleClick = () => {
+      nav1.classList.toggle("nav-opens");
+      lineOne.classList.toggle("line-cross");
+      lineTwo.classList.toggle("line-fade-out");
+      lineThree.classList.toggle("line-cross");
+      link.classList.toggle("fade-in");
+    };
+
+    menuBtn.addEventListener("click", handleClick);
+
+    return () => {
+      menuBtn.removeEventListener("click", handleClick);
+    };
+  }, []);
     return (
       <div>
         <div className="pb-[231px] w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
@@ -20,34 +44,51 @@ const CourseMain = () => {
             />
           </div>
         </div>
-        <div className="bg-custom-white-17 w-full mx-auto shadow-custom rounded-[30px] pt-16 backdrop-blur-9">
+        <div className="bg-custom-white-17 w-full mx-auto shadow-custom rounded-[30px] pt-16 p-16 backdrop-blur-9">
           <div className="  w-[93%] mx-auto mb-5 ">
             <p className="searchTitle mb-[-55px] ml-28">Find your courses</p>
             <form className="search-focus">
-              <input type="text" name="search" className="search" autoComplete="off"></input>
+              <input
+                type="text"
+                name="search bg-custom-white-17"
+                className="search bg-"
+                autoComplete="off"
+              ></input>
             </form>
-            <div className="menuGroup">
-                 <div className="menu-btn">
-                     <div className="line line--1"></div>
-                     <div className="line line--2"></div>
-                     <div className="line line--3"></div>
-                 </div>
-                 <div className="classNamenav">
-                     <div className="nav-cat">
-                         <div className="nav-links">
-                             <p className="navTitle">Categories</p>
-                             <a href="" className="link">Japanese</a>
-                             <a href="" className="link">English</a>
-                             <a href="" className="link">ITPEC</a>
-                             <a href="" className="link">Web development</a>
-                           
-                             <p className="navTitle">classNamees</p>
-                             <a href="" className="link">Online Class</a>
-                             <a href="" className="link">Local Class</a>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+            <div className="absolute">
+              <div className="menu-btn relative top-[30px] w-[69px] overflow:hidden bg-custom-white-17 cursor-pointer z-[3] shadow-card rounded-[30px] p-[20px] right-0">
+                <div className="line line--1"></div>
+                <div className="line line--2"></div>
+                <div className="line line--3"></div>
+              </div>
+              <div className="classNamenav">
+                <div className="nav-cat">
+                  <div className="nav-links">
+                    <p className="navTitle">Categories</p>
+                    <a href="" className="link">
+                      Japanese
+                    </a>
+                    <a href="" className="link">
+                      English
+                    </a>
+                    <a href="" className="link">
+                      ITPEC
+                    </a>
+                    <a href="" className="link">
+                      Web development
+                    </a>
+                    <hr className="w-2/3 bg-red-main h-1 mb-3"></hr>
+                    <p className="navTitle">Class Names</p>
+                    <a href="" className="link">
+                      Online Class
+                    </a>
+                    <a href="" className="link">
+                      Local Class
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="w-[76%] grid grid-cols-3 gap-x-[60px] gap-y-[60px] mx-auto ">
             <CourseCard />
