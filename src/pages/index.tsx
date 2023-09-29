@@ -72,10 +72,10 @@ export default function Home() {
         About Us
       </h2>
 
-      <div className="md:flex mx-auto p-4 space-x-4 justify-center rounded-3xl mb-10">
-        <div className="w-[84%] p-8 bg-white grid grid-cols-2 items-center shadow-card rounded-2xl">
+      <div className="md:flex sm:flex flex mx-auto p-4 space-x-4 justify-center rounded-3xl mb-10">
+        <div className="w-[82%] lg:w-[84%] md:w-[85%] sm:w-[82%] p-8 bg-white grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:gap-4 lg:gap-7 md:gap-4 items-center shadow-card rounded-2xl">
           <div>
-            <div>
+            <div className='flex justify-center'>
               <Image
                 src="/statics/images/batchTwo.png"
                 width={411}
@@ -85,7 +85,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <div className="pb-10">
+            <div className="lg:pb-10 md:pb-0">
               <label className="md:text-lg text-red-main font-bold flex justify-center">
                 Welcome to PKT Education Center
               </label>
@@ -117,10 +117,10 @@ export default function Home() {
 
       {/* Managing Director */}
 
-      <div className="md:flex mx-auto p-4 space-x-4 justify-center rounded-3xl my-10">
-        <div className="w-[84%] p-8 bg-white grid grid-cols-3 gap-4 items-center shadow-card rounded-2xl">
-          <div>
-            <div>
+      <div className="md:flex lg:flex flex mx-auto p-4 space-x-4 justify-center rounded-3xl my-10">
+        <div className="w-[90%] lg:w-[84%] md:w-[85%] sm:w-[86%] p-8 bg-white grid lg:grid-cols-3 md:grid-cols-2 gap-4 items-center shadow-card rounded-2xl">
+          <div className=''>
+            <div className='flex justify-center'>
               <Image
                 src="/statics/images/Poe2.jpg"
                 width={229}
@@ -130,8 +130,8 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="col-span-2">
-            <div className="pb-10">
+          <div className="lg:col-span-2">
+            <div className="lg:pb-10 pb-2 text-center ">
               <label className="">
                 <span className="md:text-lg text-red-main font-bold">
                   Poe Kyi Thar
