@@ -3,11 +3,6 @@ import Image from "next/image";
 const CourseDetail = () => {
     return (
       <div>
-        <div className="pb-[231px] w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
-          <i className="text-[48px] text-red-main font-medium">
-            <PageTitle title="Courses" />
-          </i>
-        </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
           <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
             <Image
