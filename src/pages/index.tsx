@@ -1,67 +1,52 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import TopPage from '@/components/TopPage'
-import PageTitle from '@/components/PageTitle'
-import MoreBtn from '@/components/MoreBtn'
-const inter = Inter({ subsets: ['latin'] })
+import Image from "next/image";
+import {Inter} from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import TopPage from "@/components/TopPage";
+import PageTitle from "@/components/PageTitle";
+import MoreBtn from "@/components/MoreBtn";
+const inter = Inter({subsets: ["latin"]});
 
-import Instructor from '@/components/Instructor'
-import CourseOutline from '@/components/CourseOutline'
-import OurCapacity from '@/components/OurCapacity'
-import NewsCard from '@/components/NewsCard'
+import Instructor from "@/components/Instructor";
+import CourseOutline from "@/components/CourseOutline";
+import OurCapacity from "@/components/OurCapacity";
+import NewsCard from "@/components/NewsCard";
 
 export default function Home() {
   const pageTitle = {
-    title: 'Pkt Education Center',
-    content_1: 'Plan your',
-    content_2: 'future with'
-  }
+    title: "Pkt Education Center",
+    content_1: "Plan your",
+    content_2: "future with",
+  };
 
   const instructures = [
     {
-      name: 'Naing Aung Linn',
-      category: 'web trainer'
+      name: "Naing Aung Linn",
+      category: "web trainer",
     },
     {
-      name: 'Naing Aung Linn',
-      category: 'web trainer'
+      name: "Naing Aung Linn",
+      category: "web trainer",
     },
     {
-      name: 'Naing Aung Linn',
-      category: 'web trainer'
+      name: "Naing Aung Linn",
+      category: "web trainer",
     },
     {
-      name: 'Naing Aung Linn',
-      category: 'web trainer'
-    }
-  ]
+      name: "Naing Aung Linn",
+      category: "web trainer",
+    },
+  ];
 
   return (
     <div>
       {/* MainVisual */}
       <div className="pb-20 w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
         <div>
-          <PageTitle pageTitle={pageTitle}/>
+          <PageTitle pageTitle={pageTitle} />
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
-          <div className="hidden lg:block relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
-            {/* <Image
-            src="/statics/images/batchTwo.png"
-            alt="sample.jpg"
-            width={1000}
-            height={100}
-          /> */}
-            <Image
-              width={1000}
-              height={900}
-              className="transform rotate-11 pt-20"
-              src="/statics/images/batchTwo.png"
-              alt=""
-            />
-          </div>
-          <div className="lg:hidden md:block relative  w-[850px] h-[400px]] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
+          <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
             {/* <Image
             src="/statics/images/batchTwo.png"
             alt="sample.jpg"
@@ -126,7 +111,9 @@ export default function Home() {
       </div>
 
       {/* Trainers */}
-      <div><Instructor instructures={instructures} /></div>
+      <div>
+        <Instructor instructures={instructures} />
+      </div>
 
       {/* Managing Director */}
 

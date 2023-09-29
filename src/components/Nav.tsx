@@ -13,7 +13,7 @@ const Nav: React.FC = () => {
   };
   return (
     <nav className="bg-transparent border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex lg:justify-between md:justify-start justify-between mx-auto p-4">
+      <div className="max-w-screen-xl flex lg:justify-between  justify-between mx-auto p-4">
         <div>
           <Image
             src="/statics/images/logo/main-logo.svg"
@@ -70,14 +70,19 @@ const Nav: React.FC = () => {
           <button
             data-collapse-toggle="navbar-language"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className={` ${
+              isMenuOpen ? "hidden" : "inline-flex"
+            } items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600`}
             aria-controls="navbar-language"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
+
             <svg
-              className={`w-5 h-5 ${isMenuOpen ? "rotate-180" : ""}`}
+              className={`w-5 h-5 ${
+                isMenuOpen ? "rotate-180 ease-in-out duration-500" : ""
+              }`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -92,6 +97,79 @@ const Nav: React.FC = () => {
               />
             </svg>
           </button>
+          <div
+            className={`${
+              isMenuOpen ? "flex" : "hidden"
+            } space-y-6 bg-white bg-opacity-50 flex flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center delay-500`}
+          >
+            <button
+              data-collapse-toggle="navbar-language"
+              type="button"
+              className={`text-3xl border ${
+                isMenuOpen ? "rotate-90 ease-in-out duration-1000" : "hidden"
+              } inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hiddenfocus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 `}
+              aria-controls="navbar-language"
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              X
+            </button>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "Home"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("Home")}
+            >
+              Home
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "Courses"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("Courses")}
+            >
+              Courses
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "About Us"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("About Us")}
+            >
+              About Us
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "Contact us"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("Contact us")}
+            >
+              Contact us
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "News"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("News")}
+            >
+              News
+            </Link>
+          </div>
         </div>
         <div
           className={`justify-between hidden w-full md:flex md:w-auto md:order-1 ${
@@ -103,7 +181,7 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/"
-                className={`mr-5 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
                   activeNav === "home"
                     ? "text-red-main border-b-[3px] border-red-500"
                     : "text-black"
@@ -116,7 +194,7 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/about"
-                className={`mr-5 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
                   activeNav === "about"
                     ? "text-red-main !important border-b-[3px] border-red-500 !important"
                     : "text-black"
@@ -129,7 +207,7 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/courses"
-                className={`mr-5 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
                   activeNav === "courses"
                     ? "text-red-main border-b-[3px] border-red-500"
                     : "text-black"
@@ -142,10 +220,10 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/news"
-                className={`mr-5 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
                   activeNav === "news"
                     ? "text-red-main border-b-[3px] border-red-500"
-                    : "lg:text-white text-black"
+                    : " text-black"
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("news")}
               >
@@ -155,10 +233,10 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/contact"
-                className={`mr-5 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
                   activeNav === "contact"
                     ? "text-red-main border-b-[3px] border-red-500"
-                    : "lg:text-white text-black"
+                    : " text-black"
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("contact")}
               >
@@ -168,10 +246,10 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/faq"
-                className={`mr-5 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
                   activeNav === "faq"
                     ? "text-red-main border-b-[3px] border-red-500"
-                    : "lg:text-white text-black"
+                    : " text-black"
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("faq")}
               >
