@@ -46,6 +46,7 @@ module.exports = {
         "magenta-main": "#E22D79",
         "lemon-stick": "#faf7e0",
         "orange-main": "#FF8822",
+        "gray-dark": "#DFDFDF",
       },
       backgroundImage: {
         "triangle-yellow": "url('/static/image/yellow-triangle.svg')",
@@ -55,7 +56,8 @@ module.exports = {
         "horse-shoe": "url('/static/icons/horse_shoe.svg')",
       },
       borderRadius: {
-        full: "964.21px", // You can use any value you want here
+        full: "964.21px",
+        // You can use any value you want here
       },
       rotate: {
         11: "11deg",

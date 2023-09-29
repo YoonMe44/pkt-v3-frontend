@@ -1,3 +1,4 @@
+import EnrollCard from "@/components/EnrollCard";
 import PageTitle from "@/components/PageTitle";
 import Image from "next/image";
 const CourseDetail = () => {
@@ -14,14 +15,34 @@ const CourseDetail = () => {
             />
           </div>
         </div>
-        <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] shadow-card">
-          <Image
-            width={1000}
-            height={1000}
-            className="rounded-[30px]"
-            src="/statics/images/n3.jpg"
-            alt=""
-          />
+        <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] pt-[40px] shadow-card">
+          <div className="w-[500px] mx-auto">
+            <Image
+              width={1000}
+              height={400}
+              className="rounded-[30px] mx-auto"
+              src="/statics/images/n3.jpg"
+              alt=""
+            />
+            <p className="text-left text-red-main font-medium text-2xl mt-3 mb-3">
+              Japanese Online
+            </p>
+            <p className="w-full mx-auto text-justify">
+              ဘာတွေလုပ်နေလဲဆိုတော့ စစခြင်းကတော့ ရိုးရိုး website တွေ
+              ရေးဆွဲပေးရတယ်။ အသုံးပြုတဲ့ Programming Language တွေကတော့ HTML,
+              CSS, JavaScript, Ajax တွေ အသုံးပြုခဲ့တယ်။ ပြီးတော့ Wordpress
+              လို့ခေါ်တဲ့ CMS စနစ်နဲ့ ဝက်ဆိုဒ်တွေကို လုပ်ဆောင်ပေးရပါတယ်။
+              လုပ်သက်နည်းနည်းရလာတော့ PHP ကို အသုံးပြုပြီး Voting System တွေကို
+              ရေးဆွဲပေးရတယ်။ အလုပ်ဝင်တဲ့ ကုမ္ပဏီက ကုမ္ပဏီ အကြီးကြီးမဟုတ်တဲ့အတွက်
+              အစအဆုံး တစ်ယောက်ထဲ လုပ်ရတာတွေများပါတယ်။ အဲဒီအတွက် ပိုပြီး
+              ပညာရရှိခဲ့တယ်လို့ ထင်တယ်။ အမှတ်တရအနေနဲ့ နာမည်ကြီး Brand တစ်ခုရဲ့
+              Model Voting ပေးတဲ့စနစ်ကို တစ်ယောက်တည်း ရေးရတဲ့အပြင် Voting
+            </p>
+          </div>
+          <hr className="w-[700px] bg-gray-dark h-1 mt-3 mx-auto" />
+         
+            <EnrollCard />
+
         </div>
       </div>
     );
