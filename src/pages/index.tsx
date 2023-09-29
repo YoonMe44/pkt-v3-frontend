@@ -14,7 +14,7 @@ import NewsCard from "@/components/NewsCard";
 
 export default function Home() {
   const pageTitle = {
-    title: "Pkt Education Center",
+    title: "PKT Education Center",
     content_1: "Plan your",
     content_2: "future with",
   };
@@ -46,21 +46,21 @@ export default function Home() {
           <PageTitle pageTitle={pageTitle} />
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
-          <div className=" relative w-[600px] h-[312px]  lg:w-[1200px] lg:h-[624.58px] lg:bottom-[275px] bottom-[95px] left-[100px] lg:left-[300px] rotate-90 oval bg-slate-200 transform right-0 overflow-hidden ">
+          <div className=" relative  w-[60%] left-[50%]  bottom-[80px]  md:w-[70%]   lg:w-[1200px] lg:h-[624.58px] lg:bottom-[275px] md:bottom-[150px] md:left-[350px] lg:left-[300px]  oval bg-slate-200 transform right-0 overflow-hidden ">
             {/* <Image
             src="/statics/images/batchTwo.png"
             alt="sample.jpg"
             width={1000}
             height={100}
           /> */}
-            {/* <Image
+            <Image
               width={1000}
               height={900}
               className="transform rotate-11 pt-20"
               src="/statics/images/batchTwo.png"
               alt=""
-            /> */}
-            <img src="/statics/images/batchTwo.png" className="transform rotate-11 pt-20 w-full" alt="" />
+            />
+            {/* <img src="/statics/images/batchTwo.png" className="transform rotate-11 pt-20 w-full" alt="" /> */}
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function Home() {
       <div className="md:flex sm:flex flex mx-auto p-4 space-x-4 justify-center rounded-3xl mb-10">
         <div className="w-[82%] lg:w-[84%] md:w-[85%] sm:w-[82%] p-8 bg-white grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:gap-4 lg:gap-7 md:gap-4 items-center shadow-card rounded-2xl">
           <div>
-            <div className='flex justify-center'>
+            <div className="flex justify-center">
               <Image
                 src="/statics/images/batchTwo.png"
                 width={411}
@@ -120,8 +120,8 @@ export default function Home() {
 
       <div className="md:flex lg:flex flex mx-auto p-4 space-x-4 justify-center rounded-3xl my-10">
         <div className="w-[90%] lg:w-[84%] md:w-[85%] sm:w-[86%] p-8 bg-white grid lg:grid-cols-3 md:grid-cols-2 gap-4 items-center shadow-card rounded-2xl">
-          <div className=''>
-            <div className='flex justify-center'>
+          <div className="">
+            <div className="flex justify-center">
               <Image
                 src="/statics/images/Poe2.jpg"
                 width={229}

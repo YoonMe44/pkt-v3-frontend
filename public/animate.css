@@ -57,7 +57,7 @@
   transform: scale(0.95);
 }
 .oval {
-  border-radius: 100% 59% 100% 63% / 100% 71% 100% 69%;
+  border-radius: 100% 59% 100% 100% / 100% 71% 100% 100%;
   transform: rotate(349deg);
   z-index: -2;
 }
@@ -100,7 +100,10 @@
   padding: 10px;
 }
 //humburger
-
+#nav-icon4 {
+  margin: 0;
+  padding: 0;
+}
 
 #nav-icon4 {
   width: 60px;
