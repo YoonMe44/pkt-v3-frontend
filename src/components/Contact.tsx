@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Contact: React.FC = () => {
+const Contact = () => {
     
     return (
       <div className="sm:w-1/2 md:w-1/2 lg:w-3/4 mx-auto border-solid border-2 flex flex-wrap rounded-xl py-20 px-10 bg-[rgba(255,255,255,0.17)] shadow-md inset-shadow-md">
