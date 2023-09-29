@@ -100,14 +100,14 @@ const Nav: React.FC = () => {
           <div
             className={`${
               isMenuOpen ? "flex" : "hidden"
-            } space-y-6 bg-white bg-opacity-50 flex flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center delay-500`}
+            } space-y-6 lg:hidden md:hidden bg-white bg-opacity-50  flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center delay-500`}
           >
             <button
               data-collapse-toggle="navbar-language"
               type="button"
               className={`text-3xl border ${
-                isMenuOpen ? "rotate-90 ease-in-out duration-1000" : "hidden"
-              } inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hiddenfocus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 `}
+                isMenuOpen ? "rotate-90" : "hidden"
+              } inline-flex items-center  w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hiddenfocus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 `}
               aria-controls="navbar-language"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(false)}
@@ -117,58 +117,84 @@ const Nav: React.FC = () => {
             <Link
               href={""}
               className={`${
-                activeNav === "Home"
+                activeNav === "home"
                   ? "text-red-main border-b-[3px] border-red-main"
                   : "text-black"
               } text-sm font-medium`}
-              onClick={() => setActiveNav("Home")}
+              onClick={() => setActiveNav("home")}
             >
               Home
             </Link>
             <Link
               href={""}
               className={`${
-                activeNav === "Courses"
+                activeNav === "courses"
                   ? "text-red-main border-b-[3px] border-red-main"
                   : "text-black"
               } text-sm font-medium`}
-              onClick={() => setActiveNav("Courses")}
+              onClick={() => setActiveNav("courses")}
             >
               Courses
             </Link>
             <Link
               href={""}
               className={`${
-                activeNav === "About Us"
+                activeNav === "about us"
                   ? "text-red-main border-b-[3px] border-red-main"
                   : "text-black"
               } text-sm font-medium`}
-              onClick={() => setActiveNav("About Us")}
+              onClick={() => setActiveNav("about us")}
             >
               About Us
             </Link>
             <Link
               href={""}
               className={`${
-                activeNav === "Contact us"
+                activeNav === "contact us"
                   ? "text-red-main border-b-[3px] border-red-main"
                   : "text-black"
               } text-sm font-medium`}
-              onClick={() => setActiveNav("Contact us")}
+              onClick={() => setActiveNav("contact us")}
             >
               Contact us
             </Link>
             <Link
               href={""}
               className={`${
-                activeNav === "News"
+                activeNav === "news"
                   ? "text-red-main border-b-[3px] border-red-main"
                   : "text-black"
               } text-sm font-medium`}
-              onClick={() => setActiveNav("News")}
+              onClick={() => setActiveNav("news")}
             >
               News
             </Link>
+            <button
+              type="button"
+              className="text-white bg-gradient-to-r from-[#aa0a11] via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-1.5 text-center"
+            >
+              Login
+            </button>
+            <div className="flex space-x-3">
+              <Image
+                src="/statics/images/mm.png"
+                alt="main-logo.svg"
+                width={20}
+                height={0}
+              />
+              <Image
+                src="/statics/images/japan.png"
+                alt="main-logo.svg"
+                width={20}
+                height={0}
+              />
+              <Image
+                src="/statics/images/uk.png"
+                alt="main-logo.svg"
+                width={20}
+                height={0}
+              />
+            </div>
           </div>
         </div>
         <div
