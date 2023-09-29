@@ -42,11 +42,11 @@ export default function Home() {
     <div>
       {/* MainVisual */}
       <div className="pb-20 w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
-        <div>
+        <div className="pb-2">
           <PageTitle pageTitle={pageTitle} />
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
-          <div className=" relative  w-[60%] left-[50%]  bottom-[80px]  md:w-[70%]   lg:w-[1200px] lg:h-[624.58px] lg:bottom-[275px] md:bottom-[150px] md:left-[350px] lg:left-[300px]  oval bg-slate-200 transform right-0 overflow-hidden ">
+          <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
             {/* <Image
             src="/statics/images/batchTwo.png"
             alt="sample.jpg"
@@ -56,6 +56,7 @@ export default function Home() {
             <Image
               width={1000}
               height={900}
+              // layout="responsive"
               className="transform rotate-11 pt-20"
               src="/statics/images/batchTwo.png"
               alt=""

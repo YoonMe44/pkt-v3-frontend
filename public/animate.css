@@ -57,7 +57,8 @@
   transform: scale(0.95);
 }
 .oval {
-  border-radius: 100% 59% 100% 100% / 100% 71% 100% 100%;
+  //border-radius: 100% 59% 100% 59% / 100% 71% 100% 9%;
+  border-radius: 100% 59% 100% 63% / 100% 71% 100% 69%;
   transform: rotate(349deg);
   z-index: -2;
 }
@@ -139,7 +140,6 @@
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
-
 
 /* Icon 4 */
 
