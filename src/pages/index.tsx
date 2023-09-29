@@ -46,20 +46,21 @@ export default function Home() {
           <PageTitle pageTitle={pageTitle} />
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
-          <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
+          <div className=" relative w-[600px] h-[312px]  lg:w-[1200px] lg:h-[624.58px] lg:bottom-[275px] bottom-[95px] left-[100px] lg:left-[300px] rotate-90 oval bg-slate-200 transform right-0 overflow-hidden ">
             {/* <Image
             src="/statics/images/batchTwo.png"
             alt="sample.jpg"
             width={1000}
             height={100}
           /> */}
-            <Image
+            {/* <Image
               width={1000}
               height={900}
               className="transform rotate-11 pt-20"
               src="/statics/images/batchTwo.png"
               alt=""
-            />
+            /> */}
+            <img src="/statics/images/batchTwo.png" className="transform rotate-11 pt-20 w-full" alt="" />
           </div>
         </div>
       </div>
