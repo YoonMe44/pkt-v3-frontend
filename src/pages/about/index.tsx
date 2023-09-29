@@ -211,9 +211,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div>
-        <CourseOutline />
-      </div>
       <div className="my-16">
         <OurCapacity />
       </div>
