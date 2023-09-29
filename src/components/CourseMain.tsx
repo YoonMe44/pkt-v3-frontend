@@ -1,10 +1,11 @@
+import Link from "next/link";
 import CourseCard from "./CourseCard";
 import PageTitle from "./PageTitle";
 import Image from "next/image";
 import React, { useEffect } from "react";
 const CourseMain = () => {
   useEffect(() => {
-    // Your JavaScript code goes here
+  
     var menuBtn = document.querySelector(".menu-btn");
     var nav1 = document.querySelector(".nav-cat");
     var lineOne = document.querySelector(".menu-btn .line--1");
@@ -65,23 +66,23 @@ const CourseMain = () => {
                 <div className="nav-cat">
                   <div className="nav-links">
                     <p className="navTitle">Categories</p>
-                    <a href="" className="link">
+                    <Link href="" className="link">
                       Japanese
-                    </a>
-                    <a href="" className="link">
+                    </Link>
+                    <Link href="" className="link">
                       English
-                    </a>
-                    <a href="" className="link">
+                    </Link>
+                    <Link href="" className="link">
                       ITPEC
-                    </a>
-                    <a href="" className="link">
+                    </Link>
+                    <Link href="" className="link">
                       Web development
-                    </a>
+                    </Link>
                     <hr className="w-2/3 bg-red-main h-1 mb-3"></hr>
                     <p className="navTitle">Class Names</p>
-                    <a href="" className="link">
+                    <Link href="" className="link">
                       Online Class
-                    </a>
+                    </Link>
                     <a href="" className="link">
                       Local Class
                     </a>

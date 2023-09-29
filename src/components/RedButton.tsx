@@ -8,7 +8,7 @@ const RedButton: React.FC<RedButtonProps> = ({ title }) => {
       <button className="redBtn">
         <span className="shadow"></span>
         <span className="edge"></span>
-        <Link href="" className="front">
+        <Link href="/courses/1" className="front">
           {title}
         </Link>
       </button>
