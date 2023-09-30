@@ -6,6 +6,7 @@ import Image from "next/image";
 const CourseDetail = () => {
     return (
       <div>
+        <div className="pb-[231px] w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both"></div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
           <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
             <Image
@@ -29,7 +30,7 @@ const CourseDetail = () => {
             <p className="text-left text-red-main font-medium text-2xl mt-3 mb-3">
               Japanese Online
             </p>
-            <p className="w-full mx-auto text-justify">
+            <p className="w-full mx-auto text-justify text-gray-darker font-medium">
               ဘာတွေလုပ်နေလဲဆိုတော့ စစခြင်းကတော့ ရိုးရိုး website တွေ
               ရေးဆွဲပေးရတယ်။ အသုံးပြုတဲ့ Programming Language တွေကတော့ HTML,
               CSS, JavaScript, Ajax တွေ အသုံးပြုခဲ့တယ်။ ပြီးတော့ Wordpress
@@ -46,7 +47,7 @@ const CourseDetail = () => {
             Enroll Course
           </p>
           <div className="w-[760px] mx-auto mt-3">
-            <OnlineEnrollCard/>
+            <OnlineEnrollCard />
             {/* <OfflineEnrollCard/> */}
             <div className="flex justify-end mt-6">
               <RedButton title="Enroll Now" />

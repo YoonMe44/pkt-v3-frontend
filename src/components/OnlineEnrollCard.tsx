@@ -13,7 +13,9 @@ const OnlineEnrollCard = () => {
                 className=" rounded-[100px] mx-auto "
               />
               <div className="text-center">
-                <p className="text-xl">Instructor</p>
+                <p className="text-xl text-gray-darker font-medium  ">
+                  Instructor
+                </p>
                 <p className="text-red-main font-medium text-xl">
                   Poe Kyi Thar
                 </p>
@@ -21,7 +23,9 @@ const OnlineEnrollCard = () => {
             </div>
             <hr className="w-[4px] grow-0 bg-gray-dark h-[170px]" />
             <div className="grow-0 w-[225px] text-center">
-              <p className="text-xl">Enroll Fees</p>
+              <p className="text-xl text-gray-darker font-medium">
+                Enroll Fees
+              </p>
               <p className="text-red-main font-medium text-xl">180,000 MMK</p>
             </div>
           </div>
@@ -52,9 +56,9 @@ const OnlineEnrollCard = () => {
                 />
               </div>
               <div className="grid grid-row-3 gap-5 grow-0">
-                <p>Start Date</p>
-                <p>Class Day/Time</p>
-                <p>Duration</p>
+                <p className="text-gray-darker">Start Date</p>
+                <p className="text-gray-darker">Class Day/Time</p>
+                <p className="text-gray-darker">Duration</p>
               </div>
             </div>
             <div className="flex">
@@ -82,14 +86,15 @@ const OnlineEnrollCard = () => {
                 />
               </div>
               <div className="grid grid-row-3 gap-5">
-                <p>Aug 30,2021</p>
-                <p>Mon,Tue,Wed,Thu,Fri(09:00 ~ 11:00)</p>
-                <p>Duration</p>
+                <p className="text-gray-darker">Aug 30,2021</p>
+                <p className="text-gray-darker">
+                  Mon,Tue,Wed,Thu,Fri(09:00 ~ 11:00)
+                </p>
+                <p className="text-gray-darker">Duration</p>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     );
 }

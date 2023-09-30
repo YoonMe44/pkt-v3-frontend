@@ -21,12 +21,13 @@ const OfflineEnrollCard = () => {
             </div>
             <hr className="w-[4px] grow-0 bg-gray-dark h-[170px]" />
             <div className="grow-0 w-[225px] text-center">
-              <p className="text-xl">Enroll Fees</p>
+              <p className="text-xl text-gray-darker ">
+                Enroll Fees
+              </p>
               <p className="text-red-main font-medium text-xl">180,000 MMK</p>
             </div>
           </div>
         </div>
-        
       </div>
     );
 }

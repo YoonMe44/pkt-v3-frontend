@@ -47,6 +47,7 @@ module.exports = {
         "lemon-stick": "#faf7e0",
         "orange-main": "#FF8822",
         "gray-dark": "#DFDFDF",
+        "gray-darker": "#636363",
       },
       backgroundImage: {
         "triangle-yellow": "url('/static/image/yellow-triangle.svg')",
