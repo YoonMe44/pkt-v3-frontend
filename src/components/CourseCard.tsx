@@ -15,7 +15,10 @@ const CourseCard = () => {
             Basic N3
           </p>
           <p className="text-center m-[10px]">Onlne Class</p>
-          <RedButton title="More Detail" />
+          <div className="flex justify-center">
+            <RedButton title="More Detail" />
+          </div>
+      
         </div>
       </div>
     );

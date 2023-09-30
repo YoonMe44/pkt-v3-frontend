@@ -1,5 +1,7 @@
-import EnrollCard from "@/components/EnrollCard";
+import OfflineEnrollCard from "@/components/OfflineEnrollCard";
+import OnlineEnrollCard from "@/components/OnlineEnrollCard";
 import PageTitle from "@/components/PageTitle";
+import RedButton from "@/components/RedButton";
 import Image from "next/image";
 const CourseDetail = () => {
     return (
@@ -39,10 +41,17 @@ const CourseDetail = () => {
               Model Voting ပေးတဲ့စနစ်ကို တစ်ယောက်တည်း ရေးရတဲ့အပြင် Voting
             </p>
           </div>
-          <hr className="w-[700px] bg-gray-dark h-1 mt-3 mx-auto" />
-         
-            <EnrollCard />
-
+          <hr className="w-[760px] bg-gray-dark h-1 mt-3 mx-auto" />
+          <p className="text-left text-red-main font-medium text-2xl mt-3 mb-3 w-[500px] mx-auto">
+            Enroll Course
+          </p>
+          <div className="w-[760px] mx-auto mt-3">
+            <OnlineEnrollCard/>
+            {/* <OfflineEnrollCard/> */}
+            <div className="flex justify-end mt-6">
+              <RedButton title="Enroll Now" />
+            </div>
+          </div>
         </div>
       </div>
     );

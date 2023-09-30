@@ -4,7 +4,7 @@ interface RedButtonProps {
 }
 const RedButton: React.FC<RedButtonProps> = ({ title }) => {
   return (
-    <div className="flex justify-center">
+    <div className="">
       <button className="redBtn">
         <span className="shadow"></span>
         <span className="edge"></span>
