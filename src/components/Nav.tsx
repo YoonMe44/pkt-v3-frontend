@@ -7,7 +7,7 @@ import RedButton from './RedButton';
 
 const Nav: React.FC = () => {
   const router = useRouter(); // Use useRouter
-  const [activeNav, setActiveNav] = useState('home');
+  const [activeNav, setActiveNav] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNavLinkClick = (navItem: string) => {
@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
   };
   return (
     <nav className="bg-transparent border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex flex-wrap justify-between mx-auto p-4">
+      <div className="max-w-screen-xl flex lg:justify-between  justify-between mx-auto p-4">
         <div>
           <Image
             src="/statics/images/logo/main-logo.svg"
@@ -27,7 +27,7 @@ const Nav: React.FC = () => {
         <div className="flex md:order-2">
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="items-center float-right font-medium flex flex-col p-4 md:p-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li className='pt-0'>
+              <li className="pt-0 hidden lg:block">
                 <Link href="#">
                   <Image
                     src="/statics/images/mm.png"
@@ -37,7 +37,7 @@ const Nav: React.FC = () => {
                   />
                 </Link>
               </li>
-              <li className='pt-0'>
+              <li className="pt-0 hidden lg:block">
                 <Link href="#">
                   <Image
                     src="/statics/images/japan.png"
@@ -47,7 +47,7 @@ const Nav: React.FC = () => {
                   />
                 </Link>
               </li>
-              <li className='pt-0'>
+              <li className="pt-0 hidden lg:block">
                 <Link href="#">
                   <Image
                     src="/statics/images/uk.png"
@@ -66,26 +66,149 @@ const Nav: React.FC = () => {
           <button
             data-collapse-toggle="navbar-language"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className={` ${
+              isMenuOpen ? "hidden" : "inline-flex"
+            } items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600`}
             aria-controls="navbar-language"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
-            <svg className={`w-5 h-5 ${isMenuOpen ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+
+            <svg
+              className={`w-5 h-5 ${
+                isMenuOpen ? "rotate-180 ease-in-out duration-500" : ""
+              }`}
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
             </svg>
           </button>
-
+          <div
+            className={`${
+              isMenuOpen ? "flex" : "hidden"
+            } space-y-6 lg:hidden md:hidden bg-white bg-opacity-50  flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center delay-500`}
+          >
+            <button
+              data-collapse-toggle="navbar-language"
+              type="button"
+              className={`text-3xl border ${
+                isMenuOpen ? "rotate-90" : "hidden"
+              } inline-flex items-center  w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hiddenfocus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 `}
+              aria-controls="navbar-language"
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              X
+            </button>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "home"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("home")}
+            >
+              Home
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "courses"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("courses")}
+            >
+              Courses
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "about us"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("about us")}
+            >
+              About Us
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "contact us"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("contact us")}
+            >
+              Contact us
+            </Link>
+            <Link
+              href={""}
+              className={`${
+                activeNav === "news"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+              } text-sm font-medium`}
+              onClick={() => setActiveNav("news")}
+            >
+              News
+            </Link>
+            <button
+              type="button"
+              className="text-white bg-gradient-to-r from-[#aa0a11] via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-1.5 text-center"
+            >
+              Login
+            </button>
+            <div className="flex space-x-3">
+              <Image
+                src="/statics/images/mm.png"
+                alt="main-logo.svg"
+                width={20}
+                height={0}
+              />
+              <Image
+                src="/statics/images/japan.png"
+                alt="main-logo.svg"
+                width={20}
+                height={0}
+              />
+              <Image
+                src="/statics/images/uk.png"
+                alt="main-logo.svg"
+                width={20}
+                height={0}
+              />
+            </div>
+          </div>
         </div>
-        <div className={`justify-between hidden w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? 'block' : 'hidden'}`} id="navbar-language">
+        <div
+          className={`justify-between hidden w-full md:flex md:w-auto md:order-1 ${
+            isMenuOpen ? "block" : "hidden"
+          }`}
+          id="navbar-language"
+        >
           <ul className="items-center pt-3 font-medium flex flex-col p-4 md:pt-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
                 href="/"
-                className={`mr-5 block py-2 text-lg font-semibold pb-[10px] ${activeNav === 'home' ? 'text-red-main border-b-[3px] border-red-500' : 'text-black'
-                  } md:bg-transparent hover:text-red-main`}
-                onClick={() => handleNavLinkClick('home')}
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                  activeNav === "home"
+                    ? "text-red-main border-b-[3px] border-red-500"
+                    : "text-black"
+                } md:bg-transparent hover:text-red-main`}
+                onClick={() => handleNavLinkClick("home")}
               >
                 Home
               </Link>
@@ -93,9 +216,12 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/about"
-                className={`mr-5 block py-2 text-lg font-semibold pb-[10px] ${activeNav === 'about' ? 'text-red-main !important border-b-[3px] border-red-500 !important' : 'text-black'
-                  } md:bg-transparent hover:text-red-main`}
-                onClick={() => handleNavLinkClick('about')}
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                  activeNav === "about"
+                    ? "text-red-main !important border-b-[3px] border-red-500 !important"
+                    : "text-black"
+                } md:bg-transparent hover:text-red-main`}
+                onClick={() => handleNavLinkClick("about")}
               >
                 About Us
               </Link>
@@ -103,9 +229,12 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/courses"
-                className={`mr-5 block py-2 text-lg font-semibold pb-[10px] ${activeNav === 'courses' ? 'text-red-main border-b-[3px] border-red-500' : 'text-black'
-                  } md:bg-transparent hover:text-red-main`}
-                onClick={() => handleNavLinkClick('courses')}
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                  activeNav === "courses"
+                    ? "text-red-main border-b-[3px] border-red-500"
+                    : "text-black"
+                } md:bg-transparent hover:text-red-main`}
+                onClick={() => handleNavLinkClick("courses")}
               >
                 Courses
               </Link>
@@ -113,9 +242,12 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/news"
-                className={`mr-5 block py-2 text-lg font-semibold pb-[10px] ${activeNav === 'news' ? 'text-red-main border-b-[3px] border-red-500' : 'text-white'
-                  } md:bg-transparent hover:text-red-main`}
-                onClick={() => handleNavLinkClick('news')}
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                  activeNav === "news"
+                    ? "text-red-main border-b-[3px] border-red-500"
+                    : " text-black"
+                } md:bg-transparent hover:text-red-main`}
+                onClick={() => handleNavLinkClick("news")}
               >
                 News
               </Link>
@@ -123,9 +255,12 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/contact"
-                className={`mr-5 block py-2 text-lg font-semibold pb-[10px] ${activeNav === 'contact' ? 'text-red-main border-b-[3px] border-red-500' : 'text-white'
-                  } md:bg-transparent hover:text-red-main`}
-                onClick={() => handleNavLinkClick('contact')}
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                  activeNav === "contact"
+                    ? "text-red-main border-b-[3px] border-red-500"
+                    : " text-black"
+                } md:bg-transparent hover:text-red-main`}
+                onClick={() => handleNavLinkClick("contact")}
               >
                 Contact Us
               </Link>
@@ -133,9 +268,12 @@ const Nav: React.FC = () => {
             <li>
               <Link
                 href="/faq"
-                className={`mr-5 block py-2 text-lg font-semibold pb-[10px] ${activeNav === 'faq' ? 'text-red-main border-b-[3px] border-red-500' : 'text-white'
-                  } md:bg-transparent hover:text-red-main`}
-                onClick={() => handleNavLinkClick('faq')}
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                  activeNav === "faq"
+                    ? "text-red-main border-b-[3px] border-red-500"
+                    : " text-black"
+                } md:bg-transparent hover:text-red-main`}
+                onClick={() => handleNavLinkClick("faq")}
               >
                 FAQ
               </Link>
