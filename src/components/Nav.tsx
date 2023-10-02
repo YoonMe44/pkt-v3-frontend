@@ -1,9 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router'; // Import useRouter from 'next/router'
-import React, { useState, useEffect } from 'react';
-import RedButton from './RedButton';
-
+import Image from "next/image";
+import Link from "next/link";
+import {useRouter} from "next/router"; // Import useRouter from 'next/router'
+import React, {useState, useEffect} from "react";
+import RedButton from "./RedButton";
 
 const Nav: React.FC = () => {
   const router = useRouter(); // Use useRouter
@@ -14,8 +13,8 @@ const Nav: React.FC = () => {
     setActiveNav(navItem);
   };
   return (
-    <nav className="bg-transparent border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex lg:justify-between  justify-between mx-auto p-4">
+    <nav className="border-gray-200  dark:bg-gray-900 bg-gradient-to-b from-opacity-17 to-opacity-0 backdrop-blur-[8.5px]">
+      <div className="max-w-screen-xl flex lg:justify-between justify-between mx-auto p-4">
         <div>
           <Image
             src="/statics/images/logo/main-logo.svg"
