@@ -57,6 +57,7 @@
   transform: scale(0.95);
 }
 .oval {
+  //border-radius: 100% 59% 100% 59% / 100% 71% 100% 9%;
   border-radius: 100% 59% 100% 63% / 100% 71% 100% 69%;
   transform: rotate(349deg);
   z-index: -2;
@@ -99,7 +100,15 @@
   border-radius: 30px;
   padding: 10px;
 }
+<<<<<<< HEAD
+//humburger
+#nav-icon4 {
+  margin: 0;
+  padding: 0;
+}
+=======
 
+>>>>>>> ba811f41b3542538af807ca8e457d705f8851826
 
 #nav-icon4 {
   width: 60px;
@@ -135,7 +144,6 @@
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
-
 
 /* Icon 4 */
 
