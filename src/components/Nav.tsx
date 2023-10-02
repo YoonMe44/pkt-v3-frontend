@@ -13,7 +13,7 @@ const Nav: React.FC = () => {
     setActiveNav(navItem);
   };
   return (
-    <nav className="border-gray-200  dark:bg-gray-900 bg-gradient-to-b from-opacity-17 to-opacity-0 backdrop-blur-[8.5px]">
+    <nav className="border-gray-200  dark:bg-gray-900 lg:bg-gradient-to-b lg:from-opacity-17 lg:to-opacity-0 lg:backdrop-blur-[8.5px]">
       <div className="max-w-screen-xl flex lg:justify-between justify-between mx-auto p-4">
         <div>
           <Image
