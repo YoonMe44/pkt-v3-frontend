@@ -14,16 +14,21 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        card: '4px 4px 4px #dee3f3',
+        card: "4px 4px 4px #dee3f3",
+        custom: " 4px 4px 4px 0px #C9D4DE, 4px 4px 4px 0px #C9D4DE inset",
       },
       backgroundColor: {
         "custom-white-17": "rgba(255, 255, 255, 0.17)",
+        "custom-white-4": "rgba(235, 235, 235, 0.4)",
+      },
+      blur: {
+        9: "9px", // You can adjust the blur radius as needed
       },
       screens: {
         xs: "375px",
       },
       fontFamily: {
-        sans: ['var(--font-fredoka)', ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-fredoka)", ...defaultTheme.fontFamily.sans],
         // dela: ['var(--font-dela)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
@@ -41,6 +46,8 @@ module.exports = {
         "magenta-main": "#E22D79",
         "lemon-stick": "#faf7e0",
         "orange-main": "#FF8822",
+        "gray-dark": "#DFDFDF",
+        "gray-darker": "#636363",
       },
       backgroundImage: {
         "triangle-yellow": "url('/static/image/yellow-triangle.svg')",
@@ -50,7 +57,8 @@ module.exports = {
         "horse-shoe": "url('/static/icons/horse_shoe.svg')",
       },
       borderRadius: {
-        full: "964.21px", // You can use any value you want here
+        full: "964.21px",
+        // You can use any value you want here
       },
       rotate: {
         11: "11deg",

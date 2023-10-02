@@ -1,6 +1,9 @@
+import CourseMain from "@/components/CourseMain"
 const Course = () => {
     return(
-        <div></div>
+        <div>
+            <CourseMain />
+        </div>
     )
 }
 export default Course;
