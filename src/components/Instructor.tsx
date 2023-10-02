@@ -69,7 +69,7 @@ const Instructor = ({instructures}: InstructorProps) => {
     };
   return (
     <div className="">
-      <p className="text-center text-red-500 font-medium text-2xl mb-[30px] mt-[50px]">
+      <p className="text-center text-red-main font-medium text-2xl mb-[30px] mt-[50px]">
         Our Trainers
       </p>
       <Slider {...settings} className="w-[86%] mx-auto  border-none!important">
