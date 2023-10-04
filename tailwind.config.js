@@ -26,6 +26,7 @@ module.exports = {
       },
       screens: {
         xs: "375px",
+        s: "320px",
       },
       fontFamily: {
         sans: ["var(--font-fredoka)", ...defaultTheme.fontFamily.sans],

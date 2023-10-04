@@ -5,15 +5,15 @@ import OurCapacity from "@/components/OurCapacity";
 
 const FAQ = () => {
   const pageTitle = {
-    title: 'FAQ',
-    content_1: '',
-    content_2: ''
-  }
+    title: "FAQ",
+    content_1: "",
+    content_2: "",
+  };
   return (
     <div>
       <div>
-          <PageTitle pageTitle={pageTitle}/>
-        </div>
+        <PageTitle pageTitle={pageTitle} />
+      </div>
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
         <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
