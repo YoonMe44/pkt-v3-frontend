@@ -14,7 +14,9 @@ const FAQ = () => {
       <div>
         <PageTitle pageTitle={pageTitle} />
       </div>
-      {/* <div className="absolute top-0 right-0 overflow-hidden -z-10">
+
+      <div className="absolute top-0 right-0 overflow-hidden -z-10">
+
         <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
             width={1000}
@@ -24,7 +26,7 @@ const FAQ = () => {
             alt=""
           />
         </div>
-      </div> */}
+      </div> 
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
         <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
