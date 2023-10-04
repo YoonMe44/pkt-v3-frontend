@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import Image from "next/image";
 
 const Contact = () => {
-  const [selectedCountry, setSelectedCountry] = useState(''); 
+  const [selectedCountry, setSelectedCountry] = useState('');
 
   const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountry(event.target.value);
   };
 
   return (
-    <div className="sm:w-1/2 md:w-1/2 lg:w-3/4 mx-auto border-solid border-2 flex flex-wrap rounded-xl py-20 px-10 bg-[rgba(255,255,255,0.17)] shadow-md inset-shadow-md">
+    <div className="sm:3/4 md:w-3/4 lg:w-3/4 mx-auto border-solid border-2 flex flex-wrap rounded-xl py-20 px-10 bg-[rgba(255,255,255,0.17)] shadow-md inset-shadow-md">
 
       <div className="w-2/3">
         <div>
@@ -76,7 +76,7 @@ const Contact = () => {
             </div>
           </form> */}
           <form className='mt-10 mr-10'>
-            <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
               <div className="relative z-0 w-full mb-6 group">
                 <input type="text" name="floating_first_name" id="floating_first_name" className="block py-3.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-[3px] border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
                 <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
@@ -86,7 +86,7 @@ const Contact = () => {
                 <label htmlFor="floating_email" className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
               </div>
             </div>
-            <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
 
               <div className="relative z-0 w-full mb-6 group">
                 <div className="select-icon">
@@ -128,7 +128,8 @@ const Contact = () => {
               <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
             </div>
             <div className='flex justify-end'>
-              <button type="submit" className="text-white bg-gray-500 hover:bg-red-main  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-main dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+              
+              {/* <button type="submit" className="text-white bg-gray-500 hover:bg-red-main  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-main dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button> */}
             </div>
           </form>
 
@@ -136,7 +137,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="border-l-[4px] w-1/3">
+      <div className="lg:border-l-[4px] md:border-l-[4px]  w-1/3">
         <div className='ml-8 mt-8'>
           <div>
             <p className='font-medium text-lg'>Call Us</p>
@@ -204,9 +205,11 @@ const Contact = () => {
 
       </div>
 
-      {/* <div className="mt-10 flex justify-center w-full">
-        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-main dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-      </div> */}
+      <div className="mt-10 flex justify-center w-full">
+        <div className='w-full '>
+          <div><iframe className="shadow-lg shadow-gray-500/40 rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.8842710575786!2d96.17198571447675!3d16.782432388443738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ed6232ed2ac1%3A0x5817e6d2d92f0b44!2sPKT%20IT%20%26%20Japanese%20Language%20Center!5e0!3m2!1sen!2smm!4v1585037167965!5m2!1sen!2smm" width="100%" height="300" frameBorder="0" aria-hidden="false" ></iframe></div>
+        </div>
+      </div>
     </div>
   );
 
