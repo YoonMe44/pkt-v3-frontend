@@ -65,8 +65,8 @@ const Nav: React.FC = () => {
 
           <button
             className={` ${
-              isMenuOpen ? " z-10 " : "  ease-in-out delay-300 duration-300"
-            } rounded-full h-fit border flex flex-col gap-1 justify-center py-5 px-4 lg:hidden md:hidden relative top-0 right-3`}
+              isMenuOpen ? " z-10 " : "  ease-in-out delay-300 duration-300 bg-custom-white-4"
+            } shadow-card rounded-full h-fit border flex flex-col gap-1 justify-center py-5 px-4 lg:hidden md:hidden relative top-0 right-3`}
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
             }}
@@ -96,8 +96,8 @@ const Nav: React.FC = () => {
             className={`${
               isMenuOpen
                 ? "flex  ease-in-out duration-[1000ms]  translate-x-0 "
-                : " flex ease-in-out duration-[1000ms]  -translate-y-[500px] translate-x- "
-            }  space-y-6 lg:hidden md:hidden bg-white bg-opacity-50  flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center`}
+                : " flex ease-in-out duration-[1000ms]  -translate-y-[500px] "
+            }  space-y-6 lg:hidden md:hidden  backdrop-blur-[3px] shadow-custom bg-custom-white-17  flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center`}
           >
             <div className="h-7"></div>
             <Link
