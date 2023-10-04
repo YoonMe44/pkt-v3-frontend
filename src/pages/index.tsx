@@ -47,12 +47,6 @@ export default function Home() {
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
           <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
-            {/* <Image
-            src="/statics/images/batchTwo.png"
-            alt="sample.jpg"
-            width={1000}
-            height={100}
-          /> */}
             <Image
               width={1000}
               height={900}
@@ -61,7 +55,6 @@ export default function Home() {
               src="/statics/images/batchTwo.png"
               alt=""
             />
-            {/* <img src="/statics/images/batchTwo.png" className="transform rotate-11 pt-20 w-full" alt="" /> */}
           </div>
         </div>
       </div>

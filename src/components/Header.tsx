@@ -4,10 +4,10 @@ import Nav from './Nav'; // Import the Nav component
 const Header: React.FC = () => {
 
     return (
-        <>
+        <div>
             {/* <Mainvisual /> */}
             <Nav /> 
-        </>
+        </div>
     );
 }
 
