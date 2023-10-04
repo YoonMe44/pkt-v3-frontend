@@ -41,19 +41,18 @@ export default function Home() {
   return (
     <div>
       {/* MainVisual */}
-      <div className="pb-20 w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
+      <div className="w-full pb-20 right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
         <div className="pb-2">
           <PageTitle pageTitle={pageTitle} />
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
-          <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
+          <div className="w-[85%] h-[30%] bg-slate-200 relative transform left-[30%] right-0 bottom-[100px] md:bottom-[250px] lg:bottom-[200px] oval overflow-hidden ">
             <Image
               width={1000}
               height={900}
-              // layout="responsive"
               className="transform rotate-11 pt-20"
               src="/statics/images/batchTwo.png"
-              alt=""
+              alt="batchTwo"
             />
           </div>
         </div>
@@ -63,25 +62,25 @@ export default function Home() {
         <CourseOutline />
       </div>
       {/* About Us School */}
-      <h2 className="text-2xl text-red-600 font-medium text-center mt-8">
+      <h2 className="text-red-600 text-2xl text-center font-medium mt-8">
         About Us
       </h2>
 
-      <div className="md:flex sm:flex flex mx-auto p-4 space-x-4 justify-center rounded-3xl mb-10">
-        <div className="w-[82%] lg:w-[84%] md:w-[85%] sm:w-[82%] p-8 bg-white grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:gap-4 lg:gap-7 md:gap-4 items-center shadow-card rounded-2xl">
+      <div className="mb-10 mx-auto p-4 md:flex sm:flex flex justify-center space-x-4 rounded-3xl">
+        <div className="w-[82%] lg:w-[84%] md:w-[85%] sm:w-[82%] bg-white p-8 items-center shadow-card rounded-2xl grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:gap-4 lg:gap-7 md:gap-4">
           <div>
             <div className="flex justify-center">
               <Image
                 src="/statics/images/batchTwo.png"
                 width={411}
                 height={329}
-                alt="registered student"
+                alt="batchTwo"
               />
             </div>
           </div>
           <div>
             <div className="lg:pb-10 md:pb-0">
-              <label className="md:text-lg text-red-main font-bold flex justify-center">
+              <label className="text-red-main md:text-lg font-bold flex justify-center">
                 Welcome to PKT Education Center
               </label>
             </div>
@@ -112,8 +111,8 @@ export default function Home() {
 
       {/* Managing Director */}
 
-      <div className="md:flex lg:flex flex mx-auto p-4 space-x-4 justify-center rounded-3xl my-10">
-        <div className="w-[90%] lg:w-[84%] md:w-[85%] sm:w-[86%] p-8 bg-white grid lg:grid-cols-3 md:grid-cols-2 gap-4 items-center shadow-card rounded-2xl">
+      <div className=" p-4 mx-auto my-10 md:flex lg:flex flex justify-center space-x-4 rounded-3xl">
+        <div className="w-[90%] lg:w-[84%] md:w-[85%] sm:w-[86%] bg-white p-8 items-center grid lg:grid-cols-3 md:grid-cols-2 gap-4 rounded-2xl shadow-card">
           <div className="">
             <div className="flex justify-center">
               <Image
@@ -126,12 +125,12 @@ export default function Home() {
             </div>
           </div>
           <div className="lg:col-span-2">
-            <div className="lg:pb-10 pb-2 text-center ">
+            <div className="lg:pb-10 pb-2 text-center">
               <label className="">
-                <span className="md:text-lg text-red-main font-bold">
+                <span className="text-red-main md:text-lg font-bold">
                   Poe Kyi Thar
                 </span>
-                <span className="pl-4 text-gray-400">Managing Director</span>
+                <span className="text-gray-400 pl-4">Managing Director</span>
               </label>
             </div>
             <div>
