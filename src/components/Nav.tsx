@@ -1,9 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router'; // Import useRouter from 'next/router'
-import React, { useState, useEffect } from 'react';
-import RedButton from './RedButton';
-
+import Image from "next/image";
+import Link from "next/link";
+import {useRouter} from "next/router"; // Import useRouter from 'next/router'
+import React, {useState, useEffect} from "react";
+import RedButton from "./RedButton";
 
 const Nav: React.FC = () => {
   const router = useRouter(); // Use useRouter
@@ -14,8 +13,8 @@ const Nav: React.FC = () => {
     setActiveNav(navItem);
   };
   return (
-    <nav className="bg-transparent border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex lg:justify-between  justify-between mx-auto p-4">
+    <nav className="border-gray-200  dark:bg-gray-900 lg:bg-gradient-to-b lg:from-opacity-17 lg:to-opacity-0 lg:backdrop-blur-[8.5px]">
+      <div className="max-w-screen-xl flex lg:justify-between justify-between mx-auto p-4">
         <div>
           <Image
             src="/statics/images/logo/main-logo.svg"
@@ -63,53 +62,44 @@ const Nav: React.FC = () => {
               </li>
             </ul>
           </div>
-          <button
-            data-collapse-toggle="navbar-language"
-            type="button"
-            className={` ${
-              isMenuOpen ? "hidden" : "inline-flex"
-            } items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600`}
-            aria-controls="navbar-language"
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span className="sr-only">Open main menu</span>
 
-            <svg
-              className={`w-5 h-5 ${
-                isMenuOpen ? "rotate-180 ease-in-out duration-500" : ""
-              }`}
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
+          <button
+            className={` ${
+              isMenuOpen ? " z-10 " : "  ease-in-out delay-300 duration-300 bg-custom-white-4"
+            } shadow-card rounded-full h-fit border flex flex-col gap-1 justify-center py-5 px-4 lg:hidden md:hidden relative top-0 right-3`}
+            onClick={() => {
+              setIsMenuOpen(!isMenuOpen);
+            }}
+          >
+            <div
+              className={`w-5 h-0.5 bg-red-main ${
+                isMenuOpen
+                  ? " -rotate-45 delay-75 ease-in duration-300 translate-y-1"
+                  : "i -rotate-0 delay-75 ease-in duration-300 "
+              } `}
+            ></div>
+            <div
+              className={`w-5 h-0.5 bg-red-main ${
+                isMenuOpen ? "hidden" : ""
+              } `}
+            ></div>
+            <div
+              className={`w-5 h-0.5 bg-red-main ${
+                isMenuOpen
+                  ? "rotate-45 delay-75 ease-in duration-300 -translate-y-0.5"
+                  : "rotate-0 delay-75 ease-in duration-300 "
+              } `}
+            ></div>
           </button>
+
           <div
             className={`${
-              isMenuOpen ? "flex" : "hidden"
-            } space-y-6 lg:hidden md:hidden bg-white bg-opacity-50  flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center delay-500`}
+              isMenuOpen
+                ? "flex  ease-in-out duration-[1000ms]  translate-x-0 "
+                : " flex ease-in-out duration-[1000ms]  -translate-y-[500px] "
+            }  space-y-6 lg:hidden md:hidden  backdrop-blur-[3px] shadow-custom bg-custom-white-17  flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center`}
           >
-            <button
-              data-collapse-toggle="navbar-language"
-              type="button"
-              className={`text-3xl border ${
-                isMenuOpen ? "rotate-90" : "hidden"
-              } inline-flex items-center  w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hiddenfocus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 `}
-              aria-controls="navbar-language"
-              aria-expanded={isMenuOpen}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              X
-            </button>
+            <div className="h-7"></div>
             <Link
               href={""}
               className={`${
