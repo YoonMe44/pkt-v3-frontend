@@ -2,14 +2,15 @@ import React, {useState} from "react";
 import Image from "next/image";
 
 const Contact = () => {
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState('');
 
   const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountry(event.target.value);
   };
 
   return (
-    <div className="sm:w-1/2 md:w-1/2 lg:w-3/4 mx-auto border-solid border-2 flex flex-wrap rounded-xl py-20 px-10 bg-[rgba(255,255,255,0.17)] shadow-md inset-shadow-md">
+    <div className="sm:3/4 md:w-3/4 lg:w-3/4 mx-auto border-solid border-2 flex flex-wrap rounded-xl py-20 px-10 bg-[rgba(255,255,255,0.17)] shadow-md inset-shadow-md">
+
       <div className="w-2/3">
         <div>
           <i className="md:text-xl text-red-main mt-4 font-medium">
@@ -77,8 +78,8 @@ const Contact = () => {
               <button type="submit">Submit</button>
             </div>
           </form> */}
-          <form className="mt-10 mr-10">
-            <div className="grid md:grid-cols-2 md:gap-6">
+          <form className='mt-10 mr-10'>
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
               <div className="relative z-0 w-full mb-6 group">
                 <input
                   type="text"
@@ -112,7 +113,8 @@ const Contact = () => {
                 </label>
               </div>
             </div>
-            <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
+
               <div className="relative z-0 w-full mb-6 group">
                 <div className="select-icon">
                   {/* SVG arrow icon */}
@@ -179,20 +181,16 @@ const Contact = () => {
                 Message
               </label>
             </div>
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                className="text-white bg-gray-500 hover:bg-red-main  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-main dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Submit
-              </button>
+            <div className='flex justify-end'>
+              
+              {/* <button type="submit" className="text-white bg-gray-500 hover:bg-red-main  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-main dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button> */}
             </div>
           </form>
         </div>
       </div>
 
-      <div className="border-l-[4px] w-1/3">
-        <div className="ml-8 mt-8">
+      <div className="lg:border-l-[4px] md:border-l-[4px]  w-1/3">
+        <div className='ml-8 mt-8'>
           <div>
             <p className="font-medium text-lg">Call Us</p>
             <p className="text-md text-slate-500 font-medium mt-6">
@@ -260,9 +258,11 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* <div className="mt-10 flex justify-center w-full">
-        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-main dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-      </div> */}
+      <div className="mt-10 flex justify-center w-full">
+        <div className='w-full '>
+          <div><iframe className="shadow-lg shadow-gray-500/40 rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.8842710575786!2d96.17198571447675!3d16.782432388443738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ed6232ed2ac1%3A0x5817e6d2d92f0b44!2sPKT%20IT%20%26%20Japanese%20Language%20Center!5e0!3m2!1sen!2smm!4v1585037167965!5m2!1sen!2smm" width="100%" height="300" frameBorder="0" aria-hidden="false" ></iframe></div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -47,8 +47,8 @@ const CourseDetail = () => {
             Enroll Course
           </p>
           <div className="w-[760px] mx-auto mt-3">
-            <OnlineEnrollCard />
-            {/* <OfflineEnrollCard/> */}
+            {/* <OnlineEnrollCard /> */}
+            <OfflineEnrollCard/>
             <div className="flex justify-end mt-6">
               <RedButton title="Enroll Now" />
             </div>
