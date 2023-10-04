@@ -29,8 +29,7 @@ const CourseMain = () => {
   }, []);
     return (
       <div>
-        <div className="pb-[231px] w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
-        </div>
+        <div className="pb-[231px] w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both"></div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
           <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
             <Image
@@ -42,25 +41,16 @@ const CourseMain = () => {
             />
           </div>
         </div>
-        <div className="bg-custom-white-17 w-full mx-auto shadow-custom rounded-[30px] pt-16 p-16 backdrop-blur-9">
-          <div className="  w-[93%] mx-auto mb-5 ">
-            <p className="searchTitle mb-[-55px] ml-28">Find your courses</p>
-            <form className="search-focus">
-              <input
-                type="text"
-                name="search bg-custom-white-17"
-                className="search bg-"
-                autoComplete="off"
-              ></input>
-            </form>
-            <div className="absolute">
-              <div className="menu-btn relative top-[30px] w-[69px] overflow:hidden bg-custom-white-17 cursor-pointer z-[3] shadow-card rounded-[30px] p-[20px] right-0">
+        <div className="lg:bg-custom-white-17 sm:bg-transparent sm:shadow-none w-full mx-auto lg:shadow-custom rounded-[30px] pt-16  backdrop-blur-9 ">
+          <div className="lg:w-[76%] sm:w-[100%] w-[100%] mx-auto mb-5 flex justify-between items-end ">
+            <div className="">
+              <div className="relative menu-btn w-[50px] p-[10px] overflow:hidden bg-custom-white-17 cursor-pointer z-[3] shadow-card rounded-[30px] ">
                 <div className="line line--1"></div>
                 <div className="line line--2"></div>
                 <div className="line line--3"></div>
               </div>
               <div className="classNamenav">
-                <div className="nav-cat">
+                <div className="nav-cat absolute w-[305px] lg:w-[w-388px] lg:left-[11%] sm:left-[-6px]">
                   <div className="nav-links">
                     <p className="navTitle">Categories</p>
                     <Link href="" className="link">
@@ -87,8 +77,21 @@ const CourseMain = () => {
                 </div>
               </div>
             </div>
+            <div className="">
+              <p className="searchTitle lg:ml-[4rem] sm:ml-[4rem] ml-[66px] mr-[28px] sm:text-[20px] text-[17Spx] lg:text-[24px] sm:mb-[-42px] mb-[-40px]">
+                Find your courses
+              </p>
+              <form className="search-focus">
+                <input
+                  type="text"
+                  name="search bg-custom-white-17"
+                  className="search w-[50px] p-[13px] "
+                  autoComplete="off"
+                ></input>
+              </form>
+            </div>
           </div>
-          <div className="w-[76%] grid grid-cols-3 gap-x-[60px] gap-y-[60px] mx-auto ">
+          <div className="lg:w-[76%] sp:w-[100%] grid lg:grid-cols-3 gap-x-[60px] gap-y-[60px] mx-auto md:grid-cols-2 sm:grid-cols-1 ">
             <CourseCard />
             <CourseCard />
             <CourseCard />

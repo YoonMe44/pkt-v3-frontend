@@ -2,7 +2,7 @@ import Image from "next/image";
 import RedButton from "./RedButton";
 const CourseCard = () => {
     return (
-      <div className="w-full">
+      <div className="lg:w-full ">
         <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] shadow-card">
           <Image
             width={1000}
