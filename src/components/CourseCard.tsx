@@ -16,7 +16,7 @@ const CourseCard = () => {
           </p>
           <p className="text-center m-[10px]">Onlne Class</p>
           <div className="flex justify-center">
-            <RedButton title="More Detail" />
+            <RedButton title="More Detail" link="/courses/1" />
           </div>
       
         </div>

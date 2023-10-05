@@ -42,7 +42,7 @@ const CourseDetail = () => {
               Model Voting ပေးတဲ့စနစ်ကို တစ်ယောက်တည်း ရေးရတဲ့အပြင် Voting
             </p>
           </div>
-          <hr className="w-[760px] bg-gray-dark h-1 mt-3 mx-auto" />
+          <hr className="w-[760px] bg-gray-dark h-1 mt-[20px] mx-auto" />
           <p className="text-left text-red-main font-medium text-2xl mt-3 mb-3 w-[500px] mx-auto">
             Enroll Course
           </p>
@@ -50,7 +50,7 @@ const CourseDetail = () => {
             <OnlineEnrollCard />
             {/* <OfflineEnrollCard/> */}
             <div className="flex justify-end mt-6">
-              <RedButton title="Enroll Now" />
+              <RedButton title="Enroll Now" link="/courses/enroll" />
             </div>
           </div>
         </div>

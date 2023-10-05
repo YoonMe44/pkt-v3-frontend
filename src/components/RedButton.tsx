@@ -1,14 +1,16 @@
 import Link from "next/link";
 interface RedButtonProps {
   title?: string;
+  link?: string;
+  onClick?: () => void;
 }
-const RedButton: React.FC<RedButtonProps> = ({ title }) => {
+const RedButton: React.FC<RedButtonProps> = ({ title,link,onClick}) => {
   return (
     <div className="">
-      <button className="redBtn">
+      <button className="redBtn" onClick={onClick}>
         <span className="shadow"></span>
         <span className="edge"></span>
-        <Link href="/courses/1" className="front">
+        <Link href={link || "#"} className="front">
           {title}
         </Link>
       </button>

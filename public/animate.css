@@ -196,7 +196,86 @@
   top: 39px;
   left: 8px;
 }
+.WhiteBtn {
 
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.shadow1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: #C9D4DE;
+}
+
+.front1 {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 15px;
+  line-height: 18px;
+  color: #FFF;
+  font-size: 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  background: #E7E7E7;
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.WhiteBtn:hover {
+  filter: brightness(106%);
+}
+
+.WhiteBtn:hover .front1 {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.WhiteBtn:active .front1 {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.WhiteBtn:hover .shadow1 {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.WhiteBtn:active .shadow1 {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.WhiteBtn:focus:not(:focus-visible) {
+  outline: none;
+}
 .redBtn {
 
   position: relative;
