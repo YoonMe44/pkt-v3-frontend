@@ -69,10 +69,10 @@ const Instructor = ({instructures}: InstructorProps) => {
     };
   return (
     <div className="">
-      <p className="text-center text-red-main font-medium text-2xl mb-[30px] mt-[50px]">
+      <p className="text-red-main text-2xl text-center font-medium mb-[30px] mt-[50px]">
         Our Trainers
       </p>
-      <Slider {...settings} className="w-[86%] mx-auto  border-none!important">
+      <Slider {...settings} className="w-[86%] mx-auto border-none!important">
         {instructures.map(instructor => (
           <>
             <InstructorCard instructureDetail={instructor} />

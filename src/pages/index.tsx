@@ -119,7 +119,7 @@ export default function Home() {
                 src="/statics/images/Poe2.jpg"
                 width={229}
                 height={300}
-                alt="registered student "
+                alt="Poe2"
                 className="rounded-2xl"
               />
             </div>
