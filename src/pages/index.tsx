@@ -45,7 +45,6 @@ export default function Home() {
         <div className="pb-2">
           <PageTitle pageTitle={pageTitle} />
         </div>
-        ut
       </div>
       {/* Course description */}
       <div>
