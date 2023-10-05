@@ -45,17 +45,7 @@ export default function Home() {
         <div className="pb-2">
           <PageTitle pageTitle={pageTitle} />
         </div>
-        <div className="absolute top-0 right-0 overflow-hidden -z-10">
-          <div className="w-[85%] h-[30%] bg-slate-200 relative transform left-[30%] right-0 bottom-[100px] md:bottom-[250px] lg:bottom-[200px] oval overflow-hidden ">
-            <Image
-              width={1000}
-              height={900}
-              className="transform rotate-11 pt-20"
-              src="/statics/images/batchTwo.png"
-              alt="batchTwo"
-            />
-          </div>
-        </div>
+        ut
       </div>
       {/* Course description */}
       <div>
