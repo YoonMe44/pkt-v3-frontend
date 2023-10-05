@@ -2,7 +2,7 @@ import Image from "next/image";
 import RedButton from "./RedButton";
 const CourseCard = () => {
     return (
-      <div className="w-full">
+      <div className="lg:w-full ">
         <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] shadow-card">
           <Image
             width={1000}
@@ -16,7 +16,7 @@ const CourseCard = () => {
           </p>
           <p className="text-center m-[10px]">Onlne Class</p>
           <div className="flex justify-center">
-            <RedButton title="More Detail" />
+            <RedButton title="More Detail" link="/courses/1" />
           </div>
       
         </div>
