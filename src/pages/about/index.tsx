@@ -6,46 +6,46 @@ import OurCapacity from "@/components/OurCapacity";
 import CourseOutline from "@/components/CourseOutline";
 
 const About = () => {
-    const pageTitle = {
-        title: 'About Us',
-        content_1: 'Read More',
-        content_2: ''
-      }
-      const instructures = [
-        {
-          name: 'Naing Aung Linn',
-          category: 'web trainer'
-        },
-        {
-          name: 'Naing Aung Linn',
-          category: 'web trainer'
-        },
-        {
-          name: 'Naing Aung Linn',
-          category: 'web trainer'
-        },
-        {
-          name: 'Naing Aung Linn',
-          category: 'web trainer'
-        }
-      ]
+  const pageTitle = {
+    title: "About Us",
+    content_1: "Read More",
+    content_2: "",
+  };
+  const instructures = [
+    {
+      name: "Naing Aung Linn",
+      category: "web trainer",
+    },
+    {
+      name: "Naing Aung Linn",
+      category: "web trainer",
+    },
+    {
+      name: "Naing Aung Linn",
+      category: "web trainer",
+    },
+    {
+      name: "Naing Aung Linn",
+      category: "web trainer",
+    },
+  ];
   return (
     <div>
       <div>
-          <PageTitle pageTitle={pageTitle}/>
-        </div>
+        <PageTitle pageTitle={pageTitle} />
+      </div>
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
-        <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
+        <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px] oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
             width={1000}
             height={900}
-            className="transform rotate-11 pt-40"
-            src="/statics/images/batch3.JPG"
+            className="transform rotate-11 pt-20"
+            src="/statics/images/batchTwo.png"
             alt=""
           />
         </div>
       </div>
-      <div className="w-full lg:shadow-card lg:backdrop:blur-9 rounded-3xl lg:p-24 md:p-24 p-2">
+      <div className="w-full mt-[50px] md:mt-4 lg:mt-[150px] lg:shadow-card lg:backdrop:blur-9 rounded-3xl lg:p-24 md:p-24 p-4 pt-[20%]">
         <div className=" justify-between  hidden lg:flex">
           <div className="w-2/3">
             <div className="items-center">

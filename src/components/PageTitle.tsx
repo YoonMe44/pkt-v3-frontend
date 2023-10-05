@@ -17,7 +17,7 @@ const PageTitle = ({pageTitle}: PageTitleProps) => {
           {content_2}
         </i>
 
-        <i className="lg:text-[48px] md:text-[38px] text-[28px] text-red-main font-medium">
+        <i className="lg:text-[40px] md:text-[38px] text-[30px] text-red-main font-medium">
           <h1>{title}</h1>
         </i>
       </div>
