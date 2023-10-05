@@ -152,7 +152,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="lg:pt-10">
+          <div className="lg:pt-10 md:ml-8 lg:ml-0 ml-0">
             <p className="font-medium text-lg">Visit Us</p>
             <p className="text-md text-slate-500 font-medium mt-6">
               Leverage PKT to further your future. For those who want to
