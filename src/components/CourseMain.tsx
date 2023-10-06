@@ -5,8 +5,8 @@ import Image from "next/image";
 import React, {useEffect} from "react";
 const CourseMain = () => {
   const pageTitle = {
-    title: "News",
-    content_1: "Read More",
+    title: "",
+    content_1: "Courses",
     content_2: "",
   };
   useEffect(() => {

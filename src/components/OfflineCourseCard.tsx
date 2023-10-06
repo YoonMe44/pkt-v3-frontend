@@ -14,7 +14,7 @@ const CourseCard = () => {
           <p className="text-center text-red-main mt-[8px] font-sans font-medium text-[20px]">
             Basic N3
           </p>
-          <p className="text-center m-[10px]">Online Class</p>
+          <p className="text-center m-[10px]">Offline Class</p>
           <div className="flex justify-center">
             <RedButton title="More Detail" link="/courses/1" />
           </div>
