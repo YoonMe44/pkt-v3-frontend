@@ -44,7 +44,7 @@ const CourseDetail = () => {
           {/* <OnlineEnrollCard /> */}
         </div>
         <div className="w-[54%] mx-auto flex justify-end p-6">
-          <RedButton title="Enroll" link="" />
+          <RedButton title="Enroll" link="/courses/enroll" />
         </div>
       </div>
     </div>
