@@ -85,7 +85,7 @@ const Login = () => {
                   </div>
                   <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2 items-center border-none justify-around">
                     <RedButton title="Login" />
-                    <LoginRedButton title="Sign up with Google" />
+                    <LoginRedButton />
                   </div>
                 </div>
                 <div className="text-center border-none">
