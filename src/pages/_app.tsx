@@ -1,5 +1,5 @@
 import 'tailwindcss/tailwind.css'
-import '../../public/animate.css'
+
 import React from 'react'
 import type { AppProps } from 'next/app'
 import MainLayout from '@/Layouts/MainLayout'

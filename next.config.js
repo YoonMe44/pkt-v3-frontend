@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: false,
+},
   reactStrictMode: true,
-};
+}
 
-module.exports = {
-  images: {
-    domains: ["img.icons8.com"],
-  },
-};
+module.exports = nextConfig

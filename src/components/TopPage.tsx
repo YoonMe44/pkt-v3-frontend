@@ -1,12 +1,8 @@
-import CourseOutline from '@/components/CourseOutline';
-import OurCapacity from '@/components/OurCapacity';
+import CourseOutline from '@/components/CourseOutline'
 
 const TopPage = () => {
     return (
-        <>
-            {/* <CourseOutline />
-            <OurCapacity /> */}
-        </>
+        <CourseOutline />
     );
   };
   
