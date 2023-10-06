@@ -4,23 +4,25 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="bg-[#F3F3F3] ">
-      <div className="max-w-screen-xl  flex-rows justify-between mx-auto py-20 space-x-4 hidden lg:flex">
+      <div className="max-w-screen-xl mx-auto py-20 hidden lg:flex flex-rows justify-between space-x-4">
         <div className="w-1/2 flex flex-col">
           <div className="w-contain mx-auto mb-2">
-            <Image
-              src={"/statics/images/pkt.png"}
-              width={80}
-              height={80}
-              alt="pktlogo"
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/statics/images/pkt.png"}
+                width={80}
+                height={80}
+                alt="pkt"
+              />
+            </Link>
           </div>
           <p className="text-center">
             PKT Education Center is now teaching Japanese language and
             technology for the future and achieving a successful life goal...
           </p>
         </div>
-        <div className="flex flex-col w-1/2 pl-12">
-          <h1 className="text-xl font-medium text-red-main mb-4">
+        <div className=" w-1/2 pl-12 flex flex-col">
+          <h1 className="text-red-main text-xl font-medium mb-4">
             Information For
           </h1>
           <div className="flex space-x-16">
@@ -43,7 +45,7 @@ const Footer = () => {
                 <Link href={"/news"}>News</Link>
               </li>
               <li>
-                <Link href={"/"}>FAQ</Link>
+                <Link href={"/faq"}>FAQ</Link>
               </li>
               <li>
                 <Link href={"/contact"}>Contact us</Link>
@@ -51,8 +53,8 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col w-1/2">
-          <h1 className="text-xl font-medium text-red-main mb-4">Address</h1>
+        <div className="w-1/2 flex flex-col">
+          <h1 className="text-red-main text-xl font-medium mb-4">Address</h1>
           <div className="flex space-x-16">
             <ul className="text-md space-y-2">
               <li className="flex">
@@ -102,17 +104,19 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="sm:grid lg:hidden md:hidden grid-row-3 py-6">
-        <div className="my-3 w-full flex flex-col">
+      <div className="py-6 lg:hidden md:hidden sm:grid grid-row-3 ">
+        <div className="w-full my-3 flex flex-col">
           <div className="w-contain mx-auto mb-2">
-            <Image
-              src={"/statics/images/pkt.png"}
-              width={90}
-              height={90}
-              alt="pktlogo"
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/statics/images/pkt.png"}
+                width={90}
+                height={90}
+                alt="pktlogo"
+              />
+            </Link>
           </div>
-          <p className="text-center text-xs px-12">
+          <p className="text-xs text-center px-12">
             PKT Education Center is now<br></br> teaching Japanese language and{" "}
             <br></br>
             technology for the future and <br></br> achieving a successful life
@@ -121,7 +125,7 @@ const Footer = () => {
         </div>
 
         <div className="my-3 flex flex-col justify-center">
-          <h1 className="w-fit mx-auto text-md font-medium text-red-main mb-4">
+          <h1 className="w-fit text-red-main text-md font-medium mx-auto mb-4">
             Information For
           </h1>
           <div className="w-fit mx-auto flex space-x-4">
@@ -157,7 +161,7 @@ const Footer = () => {
             Address
           </h1>
           <div className="w-fit mx-auto flex space-x-4">
-            <ul className=" w-52 flex flex-col justify-center w-contain text-xs space-y-2">
+            <ul className=" w-52 w-contain text-xs flex flex-col justify-center space-y-2">
               <li className="flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -209,21 +213,24 @@ const Footer = () => {
       {/* e */}
       <div className="w-full pt-12 lg:hidden hidden md:block">
         <div className="flex flex-col items-center justify-center">
-          <Image
-            src={"/statics/images/pkt.png"}
-            width={80}
-            height={80}
-            alt="pktlogo"
-          />
-          <p className="text-sm w-1/3 mx-auto text-center">
+          <Link href={"/"}>
+            <Image
+              src={"/statics/images/pkt.png"}
+              width={80}
+              height={80}
+              alt="pktlogo"
+            />
+          </Link>
+
+          <p className="w-1/3 text-sm text-center mx-auto ">
             PKT Education Center is now teaching Japanese language and
             technology for the future and achieving a successful life goal...
           </p>
         </div>
       </div>
-      <div className=" pb-12 grid-cols-2 my-8 hidden lg:hidden md:grid">
+      <div className=" pb-12 my-8 md:grid grid-cols-2 hidden lg:hidden ">
         <div className="w-1/2 mx-auto">
-          <h1 className="text-xl font-medium text-red-main mb-4">
+          <h1 className="text-red-main text-xl font-medium mb-4">
             Information For
           </h1>
           <div className="flex space-x-16">
@@ -242,11 +249,11 @@ const Footer = () => {
               </li>
             </ul>
             <ul className="text-sm space-y-2">
-            <li>
+              <li>
                 <Link href={"/news"}>News</Link>
               </li>
               <li>
-                <Link href={"/"}>FAQ</Link>
+                <Link href={"/faq"}>FAQ</Link>
               </li>
               <li>
                 <Link href={"/contact"}>Contact us</Link>
@@ -255,7 +262,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-1/2 xs:w-full mx-auto">
-          <h1 className="text-xl font-medium text-red-main mb-4">Address</h1>
+          <h1 className="text-red-main text-xl font-medium mb-4">Address</h1>
           <div className="flex space-x-16">
             <ul className="text-sm space-y-2">
               <li className="flex">
@@ -306,7 +313,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-full bg-red-main p-2">
-        <p className="w-fit mx-auto text-xs md:text-sm lg:text-sm text-white font-medium italic">
+        <p className="w-fit text-white text-xs md:text-sm lg:text-sm font-medium italic mx-auto ">
           © 2020 PKT Education Center All Rights Reserve
         </p>
       </div>
