@@ -40,7 +40,7 @@ const CourseDetail = () => {
           </p>
         </div>
         <div className="lg:w-1/2 md:w-1/2 w-full mx-auto">
-          <OfflineEnrollCard />
+          {/* <OfflineEnrollCard /> */}
           <OnlineEnrollCard />
         </div>
         {/* <div className="w-full lg:w-1/2 p-6 mx-auto">
