@@ -8,7 +8,8 @@ const Nav: React.FC = () => {
   const router = useRouter(); // Use useRouter
   const [activeNav, setActiveNav] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [showClassroom, setShowClassRoom] = useState(false);
+  console.log(showClassroom);
   const handleNavLinkClick = (navItem: string) => {
     setActiveNav(navItem);
   };
@@ -216,19 +217,35 @@ const Nav: React.FC = () => {
                 About Us
               </Link>
             </li>
-            <li>
-              <Link
-                href="/courses"
-                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
-                  activeNav === "courses"
-                    ? "text-red-main border-b-[3px] border-red-500"
-                    : "text-black"
-                } md:bg-transparent hover:text-red-main`}
-                onClick={() => handleNavLinkClick("courses")}
-              >
+            <li
+              className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${
+                activeNav === "courses"
+                  ? "text-red-main border-b-[3px] border-red-500"
+                  : "text-black"
+              } md:bg-transparent hover:text-red-main`}
+              onClick={() => handleNavLinkClick("courses")}
+              onMouseEnter={() => setShowClassRoom(true)}
+              onMouseLeave={() => setShowClassRoom(false)}
+            >
+              <ul className="relative">
                 Courses
-              </Link>
+                <li
+                  className={`bg-white text-red-main border-b-4 border-red-main rounded-lg p-2 text-xs  absolute w-[180%] ${
+                    showClassroom ? "" : "hidden"
+                  }`}
+                >
+                  <Link href={'/courses'}>Offline Classroom</Link>
+                </li>
+                <li
+                  className={`bg-white text-red-main border-b-4 border-red-main p-2 text-xs rounded-lg absolute  w-[180%] top-16  ${
+                    showClassroom ? "" : "hidden"
+                  }`}
+                >
+                  <Link href={'/courses'}>Online Classroom</Link>
+                </li>
+              </ul>
             </li>
+
             <li>
               <Link
                 href="/news"
