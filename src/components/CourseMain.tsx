@@ -5,7 +5,9 @@ import Image from "next/image";
 import React, {useEffect} from "react";
 const CourseMain = () => {
   const pageTitle = {
-    title: "Courses Detail",
+    title: "",
+    content_1: "Courses",
+    content_2: "",
   };
   useEffect(() => {
     var menuBtn = document.querySelector(".menu-btn");
