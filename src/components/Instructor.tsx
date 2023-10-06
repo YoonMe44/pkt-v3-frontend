@@ -32,7 +32,7 @@ const Instructor = ({instructures}: InstructorProps) => {
         {
           breakpoint: 2736, 
           settings: {
-            slidesToShow: 5, 
+            slidesToShow: 4, 
           },
         },
         {
