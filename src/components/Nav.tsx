@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import {useRouter} from "next/router"; // Import useRouter from 'next/router'
-import React, {useState, useEffect} from "react";
+import { useRouter } from "next/router"; // Import useRouter from 'next/router'
+import React, { useState, useEffect } from "react";
 import RedButton from "./RedButton";
 
 const Nav: React.FC = () => {
@@ -57,7 +57,7 @@ const Nav: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <RedButton title="Login" />
+                <RedButton title="Login" link="/login" />
                 {/* <button type="button" className="text-white text-md bg-gradient-to-r from-[#aa0a11] via-red-300 to-[#ffcb08] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-[#aa0a11] dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button> */}
               </li>
             </ul>
@@ -65,7 +65,9 @@ const Nav: React.FC = () => {
 
           <button
             className={` ${
-              isMenuOpen ? " z-10 " : "  ease-in-out delay-300 duration-300 bg-custom-white-4"
+              isMenuOpen
+                ? " z-10 "
+                : "  ease-in-out delay-300 duration-300 bg-custom-white-4"
             } shadow-card rounded-full h-fit border flex flex-col gap-1 justify-center py-5 px-4 lg:hidden md:hidden relative top-0 right-3`}
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
@@ -79,9 +81,7 @@ const Nav: React.FC = () => {
               } `}
             ></div>
             <div
-              className={`w-5 h-0.5 bg-red-main ${
-                isMenuOpen ? "hidden" : ""
-              } `}
+              className={`w-5 h-0.5 bg-red-main ${isMenuOpen ? "hidden" : ""} `}
             ></div>
             <div
               className={`w-5 h-0.5 bg-red-main ${
