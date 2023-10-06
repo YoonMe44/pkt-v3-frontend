@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router"; // Import useRouter from 'next/router'
-import React, { useState, useEffect } from "react";
+import {useRouter} from "next/router"; // Import useRouter from 'next/router'
+import React, {useState, useEffect} from "react";
 import RedButton from "./RedButton";
 
 const Nav: React.FC = () => {
@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
   };
   return (
     <nav className="border-gray-200  dark:bg-gray-900 lg:bg-gradient-to-b lg:from-opacity-17 lg:to-opacity-0 lg:backdrop-blur-[8.5px]">
-      <div className="max-w-screen-xl flex lg:justify-between justify-between mx-auto p-4">
+      <div className="max-w-[90%] flex lg:justify-between justify-between mx-auto p-4"> 
         <div>
           <Image
             src="/statics/images/logo/main-logo.svg"
@@ -223,25 +223,35 @@ const Nav: React.FC = () => {
                   ? "text-red-main border-b-[3px] border-red-500"
                   : "text-black"
               } md:bg-transparent hover:text-red-main`}
-              onClick={() => handleNavLinkClick("courses")}
               onMouseEnter={() => setShowClassRoom(true)}
               onMouseLeave={() => setShowClassRoom(false)}
             >
               <ul className="relative">
-                Courses
+                <Link
+                  href={"/courses"}
+                  onClick={() => handleNavLinkClick("courses")}
+                  onMouseEnter={() => setShowClassRoom(true)}
+                  onMouseLeave={() => setShowClassRoom(false)}
+                >
+                  Courses
+                </Link>
                 <li
                   className={`bg-white text-red-main border-b-4 border-red-main rounded-lg p-2 text-xs  absolute w-[180%] ${
                     showClassroom ? "" : "hidden"
                   }`}
+                  onMouseEnter={() => setShowClassRoom(true)}
+                  onMouseLeave={() => setShowClassRoom(false)}
                 >
-                  <Link href={'/courses'}>Offline Classroom</Link>
+                  <Link href={"/courses/offline"}>Offline Classroom</Link>
                 </li>
                 <li
                   className={`bg-white text-red-main border-b-4 border-red-main p-2 text-xs rounded-lg absolute  w-[180%] top-16  ${
                     showClassroom ? "" : "hidden"
                   }`}
+                  onMouseEnter={() => setShowClassRoom(true)}
+                  onMouseLeave={() => setShowClassRoom(false)}
                 >
-                  <Link href={'/courses'}>Online Classroom</Link>
+                  <Link href={"/courses/online"}>Online Classroom</Link>
                 </li>
               </ul>
             </li>
