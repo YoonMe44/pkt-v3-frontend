@@ -78,7 +78,7 @@ const Wizard: React.FC = () => {
                   <span className="shadow1"></span>
                   <span className="edge1"></span>
                   <Link href="#" className="front1">
-                    back
+                    Back
                   </Link>
                 </button>
                 <RedButton title="Continue" onClick={handleNext} />
@@ -90,7 +90,7 @@ const Wizard: React.FC = () => {
                   <span className="shadow1"></span>
                   <span className="edge1"></span>
                   <Link href="#" className="front1">
-                    back
+                    Back
                   </Link>
                 </button>
                 <RedButton title="Continue" onClick={handleNext} />
@@ -102,7 +102,7 @@ const Wizard: React.FC = () => {
                   <span className="shadow1"></span>
                   <span className="edge1"></span>
                   <Link href="#" className="front1">
-                    back
+                    Back
                   </Link>
                 </button>
                 <RedButton title="My page" />

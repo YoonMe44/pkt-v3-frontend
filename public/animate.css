@@ -100,15 +100,11 @@
   border-radius: 30px;
   padding: 10px;
 }
-<<<<<<< HEAD
 //humburger
 #nav-icon4 {
   margin: 0;
   padding: 0;
 }
-=======
-
->>>>>>> ba811f41b3542538af807ca8e457d705f8851826
 
 #nav-icon4 {
   width: 60px;
@@ -238,7 +234,7 @@
   padding: 12px 27px;
   border-radius: 15px;
   line-height: 18px;
-  color: #FFF;
+  color: #828282;
   font-size: 16px;
   font-family: 'Fredoka', sans-serif;
   font-style: normal;
@@ -396,7 +392,7 @@
   overflow: hidden;
   position: absolute;
   transform: translateX(-300px);
-  height: 3+%;
+  height: 3px;
 
 
   transition: all 800ms cubic-bezier(.8, 0, .33, 1);
@@ -504,3 +500,20 @@
   margin-bottom: 20px;
 
 } 
+
+select {
+  -webkit-appearance: none;
+  /* removes expand icon in older Chrome versions  */
+  -moz-appearance: none;
+  /* removes expand icon in older Firefox versions */
+  appearance: none;
+  /* removes expand icon                           */
+  background-image: url(./statics/images/Polygon9.png);
+  background-repeat: no-repeat;
+  background-position-x:97%;
+  background-position-y:58%;
+}
+select::-ms-expand {
+  /* removes expand icon in IE10                   */
+  display: none;
+}
