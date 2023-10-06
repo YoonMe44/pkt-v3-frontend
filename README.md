@@ -11,5 +11,10 @@ npm install
 # or
 npm run dev
 ```
+for Slick Slider:
+```bash
+npm install react-slick slick-carousel
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
