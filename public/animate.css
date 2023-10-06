@@ -58,7 +58,7 @@
 }
 
 .oval {
-  //border-radius: 100% 59% 100% 59% / 100% 71% 100% 9%;
+  /* border-radius: 100% 59% 100% 59% / 100% 71% 100% 9%; */
   border-radius: 100% 59% 100% 63% / 100% 71% 100% 69%;
   transform: rotate(349deg);
   z-index: -2;
@@ -109,14 +109,12 @@
   padding: 10px;
 }
 
-<<<<<<< HEAD //humburger
-
 #nav-icon4 {
   margin: 0;
   padding: 0;
 }
 
-=======>>>>>>>ba811f41b3542538af807ca8e457d705f8851826 #nav-icon4 {
+#nav-icon4 {
   width: 60px;
   height: 45px;
   position: relative;
@@ -153,7 +151,7 @@
 
 /* Icon 4 */
 
-#nav-icon4 {}
+/* #nav-icon4 {} */
 
 #nav-icon4 span:nth-child(1) {
   top: 0px;
@@ -244,7 +242,7 @@
   padding: 12px 27px;
   border-radius: 15px;
   line-height: 18px;
-  color: #FFF;
+  color: #828282;
   font-size: 16px;
   font-family: 'Fredoka', sans-serif;
   font-style: normal;
@@ -404,7 +402,7 @@
   overflow: hidden;
   position: absolute;
   transform: translateX(-300px);
-  height: 3+%;
+  height: 3px;
 
 
   transition: all 800ms cubic-bezier(.8, 0, .33, 1);
@@ -516,4 +514,4 @@
   color: #ed1c24;
   margin-bottom: 20px;
 
-}
+} 
