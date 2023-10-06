@@ -70,73 +70,52 @@ const Wizard: React.FC = () => {
           ></div>
         </div>
         {/* Render Current Step */}
-        <div className="width-full  border-[10px]">
+        <div className="w-[75%] rounded-[30px] border-[2px] mx-auto
+         mt-[80px] pt-[40px] pb-[40px]">
           {currentStep === 1 && <Step1 />}
           {currentStep === 2 && <Step2 />}
           {currentStep === 3 && <Step3 />}
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="mt-4 grid grid-cols-5">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          {currentStep === 1 && (
-            // <button
-            //   className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-            //   onClick={handleNext}
-            // >
-            //   Next
-            // </button>
-            <div className="w-full mx-auto flex gap-3 justify-end">
-              <button className="WhiteBtn">
-                <span className="shadow1"></span>
-                <span className="edge1"></span>
-                <Link href="#" className="front1">
-                  back
-                </Link>
-              </button>
-              <RedButton title="Continue" onClick={handleNext} />
-            </div>
-          )}
-          {currentStep === 2 && (
-            // <button
-            //   className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-            //   onClick={handleNext}
-            // >
-            //   Next
-            // </button>
-            <div className="w-full mx-auto flex gap-3 justify-end">
-              <button className="WhiteBtn" onClick={handlePrev}>
-                <span className="shadow1"></span>
-                <span className="edge1"></span>
-                <Link href="#" className="front1">
-                  back
-                </Link>
-              </button>
-              <RedButton title="Continue" onClick={handleNext} />
-            </div>
-          )}
-          {currentStep === 3 && (
-            // <button
-            //   className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-            //   onClick={handleNext}
-            // >
-            //   Next
-            // </button>
-
-            <div className="w-full mx-auto flex gap-3 justify-end">
-              <button className="WhiteBtn" onClick={handlePrev}>
-                <span className="shadow1"></span>
-                <span className="edge1"></span>
-                <Link href="#" className="front1">
-                  back
-                </Link>
-              </button>
-              <RedButton title="My page" />
-            </div>
-          )}
+          {/* Navigation Buttons */}
+          <div className="mx-auto mt-[40px] w-[80%]">
+           
+           
+            {currentStep === 1 && (
+              <div className="w-full mx-auto flex gap-3 justify-end">
+                <button className="WhiteBtn">
+                  <span className="shadow1"></span>
+                  <span className="edge1"></span>
+                  <Link href="#" className="front1">
+                    back
+                  </Link>
+                </button>
+                <RedButton title="Continue" onClick={handleNext} />
+              </div>
+            )}
+            {currentStep === 2 && (
+              <div className="w-full mx-auto flex gap-3 justify-end">
+                <button className="WhiteBtn" onClick={handlePrev}>
+                  <span className="shadow1"></span>
+                  <span className="edge1"></span>
+                  <Link href="#" className="front1">
+                    back
+                  </Link>
+                </button>
+                <RedButton title="Continue" onClick={handleNext} />
+              </div>
+            )}
+            {currentStep === 3 && (
+              <div className="w-full mx-auto flex gap-3 justify-end">
+                <button className="WhiteBtn" onClick={handlePrev}>
+                  <span className="shadow1"></span>
+                  <span className="edge1"></span>
+                  <Link href="#" className="front1">
+                    back
+                  </Link>
+                </button>
+                <RedButton title="My page" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

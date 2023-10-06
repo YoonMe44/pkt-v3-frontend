@@ -57,6 +57,9 @@ module.exports = {
         "white-gray": "url('/static/bg/white-gray-cropped.png')",
         "horse-shoe": "url('/static/icons/horse_shoe.svg')",
       },
+      backgroundPosition: {
+        custom: "0px 0px", // Define your custom background position here
+      },
       borderRadius: {
         full: "964.21px",
         // You can use any value you want here
