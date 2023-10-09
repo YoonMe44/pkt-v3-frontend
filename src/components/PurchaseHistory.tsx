@@ -7,7 +7,7 @@ const PurchaseHistory = () => {
     <div className="sm:w-[80%] w-[83%] md:w-[80%] lg:w-[60%]  mx-auto mt-[250px] ">
       <div className="bg-[#F0F0F0] shadow-custom container  mx-auto rounded-lg lg:rounded-3xl my-4 pt-4 overflow-hidden  ">
         <div className="flex justify-between px-4">
-          <Link href={'/'}>
+          <Link href={'/mypage'}>
             <Image src={'/statics/images/back.png'} width={30} height={30} alt="" />
           </Link>
           <h1 className="lg:text-2xl text-red-main font-medium text-center text-sm md:text-xl">
