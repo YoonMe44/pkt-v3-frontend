@@ -9,13 +9,14 @@ const Nav: React.FC = () => {
   const [activeNav, setActiveNav] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showClassroom, setShowClassRoom] = useState(false);
-  console.log(showClassroom);
+  const [openProfile, setOpenProfile] = useState(false);
+  console.log(openProfile);
   const handleNavLinkClick = (navItem: string) => {
     setActiveNav(navItem);
   };
   return (
     <nav className="border-gray-200  dark:bg-gray-900 lg:bg-gradient-to-b lg:from-opacity-17 lg:to-opacity-0 lg:backdrop-blur-[8.5px]">
-      <div className="max-w-[90%] flex lg:justify-between justify-between mx-auto p-4"> 
+      <div className="max-w-[90%] flex lg:justify-between justify-between mx-auto p-4">
         <div>
           <Image
             src="/statics/images/logo/main-logo.svg"
@@ -58,8 +59,17 @@ const Nav: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <RedButton title="Login" link="/login" />
+                {/* <RedButton title="Login" link="/login" /> */}
                 {/* <button type="button" className="text-white text-md bg-gradient-to-r from-[#aa0a11] via-red-300 to-[#ffcb08] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-[#aa0a11] dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button> */}
+                <Link href={'/mypage'} className=" rounded-full relative">
+                  <Image
+                    src={"/statics/images/Poe2.jpg"}
+                    width={45}
+                    height={45}
+                    alt="user-img"
+                    className="rounded-full border-solid border-2 border-gray-400"
+                  />
+                </Link>
               </li>
             </ul>
           </div>
