@@ -59,7 +59,7 @@ const Contact = () => {
               <div className="relative z-0 w-full mb-6 group">
                 <div className="select-icon">
                   {/* SVG arrow icon */}
-                  <svg
+                  {/* <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 absolute top-1/2 right-3 transform -translate-y-1/2 pointer-events-none"
                     viewBox="0 0 20 20"
@@ -70,7 +70,7 @@ const Contact = () => {
                       d="M6.293 7.293a1 1 0 011.414 0L10 9.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
                       clipRule="evenodd"
                     />
-                  </svg>
+                  </svg> */}
                 </div>
                 <select
                   id="country"
