@@ -1,22 +1,23 @@
 import React from "react";
+import PaymentCard from "./PaymentCard";
 
 const Step3: React.FC = () => {
   return (
     <div>
-      
-      <form>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-600">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            className="border rounded w-full py-2 px-3"
-          />
-        </div>
-        {/* Add other form fields for Step 1 */}
-      </form>
+      <div className="w-[60%] mx-auto">
+        <p className="text-gray-darker text-[20px] mb-[10px]">
+          Thank you for your dedication to the new class.
+        </p>
+        <p className="text-red-main font-medium">
+          Please fill in the course fee according to the information below.
+        </p>
+        <p className="text-red-main font-medium">
+          The school will contact you after confirming the information you have
+          filled in.
+        </p>
+        <PaymentCard />
+      </div>
+      <hr className="w-[80%] bg-gray-dark h-[2px] mt-[50px] mx-auto" />
     </div>
   );
 };
