@@ -67,7 +67,7 @@ export default function Home() {
       </h2>
 
       <div className="mb-10 mx-auto p-4 md:flex sm:flex flex justify-center space-x-4 rounded-3xl">
-        <div className="w-[82%] lg:w-[84%] md:w-[85%] sm:w-[82%] bg-white p-8 items-center shadow-card rounded-2xl grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:gap-4 lg:gap-7 md:gap-4">
+        <div className="w-[82%] lg:w-[84%] md:w-[85%] sm:w-[82%] backdrop-blur-9 bg-transparent p-8 items-center shadow-card rounded-2xl grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:gap-4 lg:gap-7 md:gap-4">
           <div>
             <div className="flex justify-center">
               <Image

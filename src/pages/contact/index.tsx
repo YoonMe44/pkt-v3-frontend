@@ -27,7 +27,7 @@ const ContactUsPage = () => {
           </div>
         </div>
       </div>
-      <div className="lg:mt-[150px] md:mt-[100px] sm:mt-[130px] xs:mt-[100px]">
+      <div>
         <Contact />
       </div>
     </>

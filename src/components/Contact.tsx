@@ -9,7 +9,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="sm:3/4 md:w-3/4 lg:w-3/4 mx-auto border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  bg-[rgba(255,255,255,0.17)] shadow-md inset-shadow-md">
+    <div className="sm:3/4 md:w-3/4 lg:w-3/4 mt-16  mx-auto bg-transparent backdrop-blur-9  border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  ">
       <div className="lg:w-2/3 w-full">
         <div className="pl-8">
           <i className="md:text-xl text-red-main mt-4 font-medium">
@@ -111,7 +111,7 @@ const Contact = () => {
                 name="floating_first_name"
                 rows={4}
                 id="floating_first_name"
-                className="block py-3.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-[3px] border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-500 peer"
+                className="block py-3.5 px-0 w-full text-sm border-b-[3px] text-gray-900  border-b-[3px]important bg-transparent  appearance-none dark:text-white  dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-500 peer"
                 placeholder=" "
                 required
               ></textarea>

@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-
+import Image from "next/image";
+import React, {useState, useEffect} from "react";
 
 const CourseOutline = () => {
   const [registeredStu, setregisteredStu] = useState(0);
@@ -34,13 +33,22 @@ const CourseOutline = () => {
       clearInterval(timer2);
       clearInterval(timer3);
     };
-  }, [registeredStu, onlineStudent, trainers, registeredStuNum, onlineStuNum, trainersNum]);
+  }, [
+    registeredStu,
+    onlineStudent,
+    trainers,
+    registeredStuNum,
+    onlineStuNum,
+    trainersNum,
+  ]);
 
   return (
-    <div>
-      <h2 className="text-2xl text-red-600	font-medium text-center mb-4">Our Courses & Batches</h2>
-      <div className="md:flex mx-auto w-[82%] p-4 m-4 justify-center shadow-card rounded-3xl">
-        <div className="md:w-1/3 flex-1 p-4 bg-white flex flex-col items-center">
+    <div className="backdrop-blur-9 bg-transparent">
+      <h2 className="text-2xl text-red-600	font-medium text-center mb-4">
+        Our Courses & Batches
+      </h2>
+      <div className="md:flex mx-auto w-[82%]  p-4 m-4 justify-center shadow-card rounded-3xl">
+        <div className="md:w-1/3 flex-1 p-4 flex flex-col items-center">
           <Image
             src="statics/images/registeredStudent.svg"
             width={70}
@@ -53,7 +61,7 @@ const CourseOutline = () => {
           </p>
         </div>
 
-        <div className="md:w-1/3 flex-1 p-4 bg-white flex flex-col items-center">
+        <div className="md:w-1/3 flex-1 p-4 flex flex-col items-center">
           <Image
             src="statics/images/onlineStudent.svg"
             width={70}
@@ -61,12 +69,10 @@ const CourseOutline = () => {
             alt="registered student"
           />
           <label className="md:text-lg text-gray-800">Online Student</label>
-          <p className="text-xl text-orange-500 font-medium">
-            {onlineStudent}
-          </p>
+          <p className="text-xl text-orange-500 font-medium">{onlineStudent}</p>
         </div>
 
-        <div className="md:w-1/3 flex-1 p-4 bg-white flex flex-col items-center">
+        <div className="md:w-1/3 flex-1 p-4 flex flex-col items-center">
           <Image
             src="statics/images/trainer.svg"
             width={70}
@@ -74,13 +80,10 @@ const CourseOutline = () => {
             alt="registered student"
           />
           <label className="md:text-lg text-gray-800">Trainers</label>
-          <p className="text-xl text-orange-500 font-medium">
-            {trainers}
-          </p>
+          <p className="text-xl text-orange-500 font-medium">{trainers}</p>
         </div>
-
       </div>
     </div>
-  )
+  );
 };
 export default CourseOutline;

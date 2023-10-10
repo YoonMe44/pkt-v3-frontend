@@ -45,7 +45,7 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="w-full mt-[50px] md:mt-4 lg:mt-[150px] lg:shadow-card lg:backdrop:blur-9 rounded-3xl lg:p-24 md:p-24 p-4 pt-[20%]">
+      <div className="w-full mt-16 bg-transparent shadow-custom backdrop-blur-9 rounded-3xl lg:p-24 md:p-24 p-4 pt-[20%]">
         <div className=" justify-between  hidden lg:flex">
           <div className="w-2/3">
             <div className="items-center">
