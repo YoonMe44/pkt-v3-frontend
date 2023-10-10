@@ -14,7 +14,7 @@ const CourseOutline = () => {
         </div>
         <div className="relative mx-auto w-fit mt-[100px] mb-[50px] flex ">
           <div className="flex">
-            <Link href={'/mypage/purchasehistory'}>
+            <Link href={"/mypage/purchasehistory"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1.5em"
@@ -65,15 +65,16 @@ const CourseOutline = () => {
                 fill="#D9D9D9"
               />
             </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="1.5em"
-              viewBox="0 0 448 512"
-              className="absolute -top-14 left-14 fill-slate-500  hover:fill-red-main duration-200 ease-in-out"
-            >
-              <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-            </svg>
-
+            <Link href={"/mypage/profile"}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1.5em"
+                viewBox="0 0 448 512"
+                className="absolute -top-14 left-14 fill-slate-500  hover:fill-red-main duration-200 ease-in-out"
+              >
+                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+              </svg>
+            </Link>
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,14 +89,16 @@ const CourseOutline = () => {
                   fill="#D9D9D9"
                 />
               </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="1.5em"
-                viewBox="0 0 448 512"
-                className="absolute -right-10 top-8 rotate-90 fill-slate-500  hover:fill-red-main duration-200 ease-in-out"
-              >
-                <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
-              </svg>
+              <Link href={"/mypage/register_courses"}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1.5em"
+                  viewBox="0 0 448 512"
+                  className="absolute -right-10 top-8 rotate-90 fill-slate-500  hover:fill-red-main duration-200 ease-in-out"
+                >
+                  <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
