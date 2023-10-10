@@ -7,8 +7,8 @@ const CourseOutline = () => {
       <h2 className="text-2xl text-red-600 font-medium text-center mb-4">
         Course Outline
       </h2>
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 lg:gap-[105px] md:gap-[20px] sm:gap-[30px] gap-[30px] p-4 lg:mx-[100px] md:mx-[60px] sm:mx-[150px] mx-[50px] justify-center rounded-3xl">
-        <div className="flex-1 p-6 bg-white flex flex-col items-center rounded-2xl shadow-card">
+      <div className="grid  lg:grid-cols-3 md:grid-cols-3 lg:gap-[105px] md:gap-[20px] sm:gap-[30px] gap-[30px] p-4 lg:mx-[100px] md:mx-[60px] sm:mx-[150px] mx-[50px] justify-center rounded-3xl">
+        <div className="flex-1 p-6 backdrop-blur-9 bg-transparent flex flex-col items-center rounded-2xl shadow-card">
           <div className="rounded-full w-[114px] h-[114px] bg-red-main flex items-center justify-center">
             <Image
               src="/statics/images/jpicon.svg"
@@ -23,7 +23,7 @@ const CourseOutline = () => {
           </p>
         </div>
 
-        <div className="flex-1 p-4 bg-white flex flex-col items-center shadow-card rounded-2xl">
+        <div className="flex-1 p-4  backdrop-blur-9 bg-transparent  flex flex-col items-center shadow-card rounded-2xl">
           <div className="rounded-full w-[114px] h-[114px] bg-red-main flex items-center justify-center">
             <Image
               src="/statics/images/coding.svg"
@@ -38,7 +38,7 @@ const CourseOutline = () => {
           </p>
         </div>
 
-        <div className="flex-1 p-4 bg-white flex flex-col items-center shadow-card rounded-2xl">
+        <div className="flex-1 p-4  backdrop-blur-9 bg-transparent flex flex-col items-center shadow-card rounded-2xl">
           <div className="rounded-full w-[114px] h-[114px] bg-red-main flex items-center justify-center">
             <Image
               src="/statics/images/ITPEC.svg"
