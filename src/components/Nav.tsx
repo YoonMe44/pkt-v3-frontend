@@ -61,7 +61,7 @@ const Nav: React.FC = () => {
               <li>
                 {/* <RedButton title="Login" link="/login" /> */}
                 {/* <button type="button" className="text-white text-md bg-gradient-to-r from-[#aa0a11] via-red-300 to-[#ffcb08] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-[#aa0a11] dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button> */}
-                <Link href={'/mypage'} className=" rounded-full relative">
+                <Link href={"/mypage"} className=" rounded-full relative">
                   <Image
                     src={"/statics/images/Poe2.jpg"}
                     width={45}
@@ -73,29 +73,43 @@ const Nav: React.FC = () => {
               </li>
             </ul>
           </div>
-
+          <div className="mt-4 mx-2">
+            {/* <RedButton title="Login" /> */}
+            <Link
+              href={"/mypage"}
+              className=" rounded-full relative block md:hidden lg:hidden"
+            >
+              <Image
+                src={"/statics/images/Poe2.jpg"}
+                width={35}
+                height={35}
+                alt="user-img"
+                className="rounded-full border-solid border-2 border-gray-400"
+              />
+            </Link>
+          </div>
           <button
             className={` ${
               isMenuOpen
                 ? " z-10 "
                 : "  ease-in-out delay-300 duration-300 bg-custom-white-4"
-            } shadow-card rounded-full h-fit border flex flex-col gap-1 justify-center py-5 px-4 lg:hidden md:hidden relative top-0 right-3`}
+            } shadow-card rounded-full h-fit border flex flex-col gap-1 justify-center bg-none mt-6 lg:hidden md:hidden relative top-0 left-[5%]`}
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
             }}
           >
             <div
-              className={`w-5 h-0.5 bg-red-main ${
+              className={`w-7 h-0.5 bg-red-main ${
                 isMenuOpen
                   ? " -rotate-45 delay-75 ease-in duration-300 translate-y-1"
                   : "i -rotate-0 delay-75 ease-in duration-300 "
               } `}
             ></div>
             <div
-              className={`w-5 h-0.5 bg-red-main ${isMenuOpen ? "hidden" : ""} `}
+              className={`w-7 h-0.5 bg-red-main ${isMenuOpen ? "hidden" : ""} `}
             ></div>
             <div
-              className={`w-5 h-0.5 bg-red-main ${
+              className={`w-7 h-0.5 bg-red-main ${
                 isMenuOpen
                   ? "rotate-45 delay-75 ease-in duration-300 -translate-y-0.5"
                   : "rotate-0 delay-75 ease-in duration-300 "
@@ -166,12 +180,7 @@ const Nav: React.FC = () => {
             >
               News
             </Link>
-            <button
-              type="button"
-              className="text-white bg-gradient-to-r from-[#aa0a11] via-red-500 to-red-600 hover:bg-gradient-to-br shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-1.5 text-center"
-            >
-              Login
-            </button>
+
             <div className="flex space-x-3">
               <Image
                 src="/statics/images/mm.png"
