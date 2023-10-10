@@ -16,7 +16,6 @@ const FAQ = () => {
       </div>
 
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
-
         {/* <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
             width={1000}
@@ -26,7 +25,7 @@ const FAQ = () => {
             alt=""
           />
         </div> */}
-      </div> 
+      </div>
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
         <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
@@ -39,7 +38,7 @@ const FAQ = () => {
           />
         </div>
       </div>
-      <div className="w-full lg:my-[160px] border shadow-card backdrop:blur-9 rounded-3xl lg:p-24 p-8 sm:mt-[150px] xs:mt-24">
+      <div className="w-full mt-14 shadow-custom bg-transparent backdrop-blur-9 rounded-3xl lg:p-24">
         <h1 className="lg:text-5xl text-3xl flex flex-col gap-3 text-red-main font-normal italic">
           <span>Frequently</span> <span>asked</span> <span>questions</span>
         </h1>
