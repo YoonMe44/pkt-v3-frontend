@@ -92,8 +92,8 @@ const Nav: React.FC = () => {
             className={` ${
               isMenuOpen
                 ? " z-10 "
-                : "  ease-in-out delay-300 duration-300 bg-custom-white-4"
-            } shadow-card rounded-full h-fit border flex flex-col gap-1 justify-center bg-none mt-6 lg:hidden md:hidden relative top-0 left-[5%]`}
+                : "  ease-in-out delay-300 duration-300"
+            }  h-fit flex flex-col gap-1 justify-center  mt-6 lg:hidden md:hidden relative top-0 left-[5%]`}
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
             }}
