@@ -26,7 +26,7 @@ const NewsPage = () => {
           </div>
         </div>
       </div>
-      <div className="lg:mt-24 md:mt-22 mt-[20%]">
+      <div className="-mt-8 ">
         <NewsCard />
       </div>
     </div>

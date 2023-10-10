@@ -5,8 +5,8 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 const CourseMain = () => {
   const pageTitle = {
-    title: "",
-    content_1: "Courses",
+    title: "Courses",
+    content_1: "",
     content_2: "",
   };
   useEffect(() => {
@@ -44,7 +44,7 @@ const CourseMain = () => {
             />
           </div>
         </div>
-        <div className="mt-[130px] lg:bg-custom-white-17 sm:bg-transparent sm:shadow-none w-full mx-auto lg:shadow-custom rounded-[30px] pt-16 pb-16  backdrop-blur-9 ">
+        <div className="mt-[80px] lg:bg-custom-white-17 sm:bg-transparent sm:shadow-none w-full mx-auto lg:shadow-custom rounded-[30px] pt-16 pb-16  backdrop-blur-9 ">
           <div className="lg:w-[76%] sm:w-[100%] w-[100%] mx-auto mb-5 flex justify-between items-end ">
             <div className="">
               <div className="relative menu-btn w-[50px] p-[10px] overflow:hidden bg-custom-white-17 cursor-pointer z-[3] shadow-card rounded-[30px] ">

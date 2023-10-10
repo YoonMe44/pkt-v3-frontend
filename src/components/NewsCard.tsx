@@ -3,8 +3,8 @@ import MoreBtn from "./MoreBtn";
 
 const NewsCard = () => {
   return (
-    <div className="sm:w-[80%] w-[83%] md:w-[80%] lg:w-[82%] mx-auto ">
-      <div className="bg-[#F0F0F0] container h-[450px] lg:h-[600px] mx-auto rounded-lg lg:rounded-3xl my-4 py-10 px-2 md:px-20 sm:px-30  lg:px-20 overflow-y-scroll scroll scroll2">
+    <div className="sm:w-[80%] w-[83%] md:w-[80%] lg:w-[82%] mx-auto  ">
+      <div className="bg-transparent backdrop-blur-9 shadow-custom container h-[450px] lg:h-[600px] mx-auto rounded-lg lg:rounded-3xl my-4 py-10 px-2 md:px-20 sm:px-30  lg:px-20 overflow-y-scroll scroll scroll2">
         <div className="flex flex-col lg:md:flex-row w-full min-h-5  mx-auto my-4 border shadow-lg rounded-3xl bg-[#F3F3F3]">
           <Image
             src="/statics/images/news1.jpg"
