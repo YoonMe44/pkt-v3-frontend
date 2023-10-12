@@ -12,11 +12,11 @@ const PageTitle = ({pageTitle}: PageTitleProps) => {
     <div>
       <div>
         {/* <h1>{title}</h1> */}
+
         <i className="lg:text-[48px] md:text-[38px] text-[28px] text-black font-medium">
           {content_1} <br />
           {content_2}
         </i>
-
         <i className="lg:text-[40px] md:text-[38px] text-[30px] text-red-main font-medium">
           <h1>{title}</h1>
         </i>
