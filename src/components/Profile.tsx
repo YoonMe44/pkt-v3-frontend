@@ -5,7 +5,7 @@ import RedButton from "./RedButton";
 
 const CourseOutline = () => {
   return (
-    <div className="w-full md:w-[40%]  mx-auto mt-[250px] ">
+    <div className="lg:w-[35%] md:w-[50%] sm:w-[60%] w-[95%]  mx-auto mt-[250px] ">
       <div className="bg-[#F0F0F0] shadow-custom container  mx-auto rounded-lg lg:rounded-3xl my-4 pt-4 pb-10 overflow-hidden  ">
         <div className="flex justify-center px-4">
           <h1 className="lg:text-2xl text-red-main font-medium text-center text-sm md:text-xl">
