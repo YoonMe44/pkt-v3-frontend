@@ -9,9 +9,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="sm:3/4 md:w-3/4 lg:w-3/4 mx-auto bg-transparent backdrop-blur-9  border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  ">
-      <div className="lg:w-2/3 w-full">
-        <div className="pl-8">
+    <div className="sm:3/4 md:w-3/4 lg:w-3/4 mt-16  mx-auto bg-transparent backdrop-blur-9  border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  ">
+      <div className="w-full">
+        <div className="pl-[25px]">
           <i className="md:text-xl text-red-main mt-4 font-medium">
             Sent a Message
           </i>
