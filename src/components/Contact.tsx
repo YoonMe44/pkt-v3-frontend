@@ -7,7 +7,6 @@ const Contact = () => {
   const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountry(event.target.value);
   };
-
   return (
     <div className="sm:3/4 md:w-3/4 lg:w-3/4 mt-16  mx-auto bg-transparent backdrop-blur-9  border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  ">
       <div className="w-full">
@@ -19,7 +18,6 @@ const Contact = () => {
             You can fill in the information below and inquire about what you
             want to know. You can also inquire through the phone number
           </p>
-
           <form className="mt-10 mr-10 ">
             <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
               <div className="relative z-0 w-full mb-6 group">
@@ -244,5 +242,4 @@ const Contact = () => {
     </div>
   );
 };
-
 export default Contact;
