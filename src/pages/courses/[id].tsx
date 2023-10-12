@@ -39,17 +39,17 @@ const CourseDetail = () => {
             dignissimos tempore dicta aspernatur cum earum officia sint!
           </p>
         </div>
-        <div className="lg:w-1/2 md:w-1/2 w-full mx-auto">
+        <div className="lg:w-1/2 md:w-1/2 w-4/5 mx-auto">
           {/* <OfflineEnrollCard /> */}
           <OnlineEnrollCard />
+          <div className="flex justify-end p-6">
+            <RedButton title="Enroll" link="/courses/enroll" />
+          </div>
         </div>
         {/* <div className="w-full lg:w-1/2 p-6 mx-auto">
           <OfflineEnrollCard />
           <OnlineEnrollCard />
         </div> */}
-        <div className="w-[54%] mx-auto flex justify-end p-6">
-          <RedButton title="Enroll" link="/courses/enroll" />
-        </div>
       </div>
     </div>
   );
