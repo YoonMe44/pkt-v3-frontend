@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import {Inter} from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TopPage from "@/components/TopPage";
 import PageTitle from "@/components/PageTitle";
 import MoreBtn from "@/components/MoreBtn";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ["latin"]});
 
 import Instructor from "@/components/Instructor";
 import CourseOutline from "@/components/CourseOutline";
@@ -41,8 +41,8 @@ export default function Home() {
   return (
     <div>
       {/* MainVisual */}
-      <div className="w-full pb-20 right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
-        <div className="pb-2">
+      <div className="w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
+        <div className="pb-20">
           <PageTitle pageTitle={pageTitle} />
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">

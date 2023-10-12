@@ -31,7 +31,7 @@ const About = () => {
   ];
   return (
     <div>
-      <div>
+      <div className="pb-20">
         <PageTitle pageTitle={pageTitle} />
       </div>
       <div className="absolute top-0 right-0 overflow-hidden -z-10">
@@ -45,7 +45,7 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="w-full mt-16 bg-transparent shadow-custom backdrop-blur-9 rounded-3xl lg:p-24 md:p-24 p-4 pt-[20%]">
+      <div className="w-full  bg-transparent shadow-custom backdrop-blur-9 rounded-3xl lg:p-24 md:p-24 p-4 pt-[20%]">
         <div className=" justify-between  hidden lg:flex">
           <div className="w-2/3">
             <div className="items-center">

@@ -11,7 +11,7 @@ const ContactUsPage = () => {
   return (
     <>
       <div>
-        <div className="pb-2">
+        <div className="pb-20">
           <PageTitle pageTitle={pageTitle} />
         </div>
         <div className="absolute top-0 right-0 overflow-hidden -z-10">
