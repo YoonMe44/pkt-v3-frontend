@@ -18,12 +18,14 @@ const Nav: React.FC = () => {
     <nav className="border-gray-200  dark:bg-gray-900 lg:bg-gradient-to-b lg:from-opacity-17 lg:to-opacity-0 lg:backdrop-blur-[8.5px]">
       <div className="max-w-[90%] flex lg:justify-between justify-between mx-auto p-4">
         <div>
-          <Image
-            src="/statics/images/logo/main-logo.svg"
-            alt="main-logo.svg"
-            width={80}
-            height={250}
-          />
+          <Link href={'/'}>
+            <Image
+              src="/statics/images/logo/main-logo.svg"
+              alt="main-logo.svg"
+              width={80}
+              height={250}
+            />
+          </Link>
         </div>
         <div className="flex md:order-2">
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
@@ -90,9 +92,7 @@ const Nav: React.FC = () => {
           </div>
           <button
             className={` ${
-              isMenuOpen
-                ? " z-10 "
-                : "  ease-in-out delay-300 duration-300"
+              isMenuOpen ? " z-10 " : "  ease-in-out delay-300 duration-300"
             }  h-fit flex flex-col gap-1 justify-center  mt-6 lg:hidden md:hidden relative top-0 left-[5%]`}
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
@@ -126,7 +126,7 @@ const Nav: React.FC = () => {
           >
             <div className="h-7"></div>
             <Link
-              href={""}
+              href={"/"}
               className={`${
                 activeNav === "home"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -137,7 +137,7 @@ const Nav: React.FC = () => {
               Home
             </Link>
             <Link
-              href={""}
+              href={"/courses"}
               className={`${
                 activeNav === "courses"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -148,7 +148,7 @@ const Nav: React.FC = () => {
               Courses
             </Link>
             <Link
-              href={""}
+              href={"/about"}
               className={`${
                 activeNav === "about us"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -159,7 +159,7 @@ const Nav: React.FC = () => {
               About Us
             </Link>
             <Link
-              href={""}
+              href={"/contact"}
               className={`${
                 activeNav === "contact us"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -170,7 +170,7 @@ const Nav: React.FC = () => {
               Contact us
             </Link>
             <Link
-              href={""}
+              href={"/news"}
               className={`${
                 activeNav === "news"
                   ? "text-red-main border-b-[3px] border-red-main"
