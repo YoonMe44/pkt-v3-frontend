@@ -126,7 +126,7 @@ const Nav: React.FC = () => {
           >
             <div className="h-7"></div>
             <Link
-              href={""}
+              href={"/"}
               className={`${
                 activeNav === "home"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -137,7 +137,7 @@ const Nav: React.FC = () => {
               Home
             </Link>
             <Link
-              href={""}
+              href={"/courses"}
               className={`${
                 activeNav === "courses"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -148,7 +148,7 @@ const Nav: React.FC = () => {
               Courses
             </Link>
             <Link
-              href={""}
+              href={"/about"}
               className={`${
                 activeNav === "about us"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -159,7 +159,7 @@ const Nav: React.FC = () => {
               About Us
             </Link>
             <Link
-              href={""}
+              href={"/contact"}
               className={`${
                 activeNav === "contact us"
                   ? "text-red-main border-b-[3px] border-red-main"
@@ -170,7 +170,7 @@ const Nav: React.FC = () => {
               Contact us
             </Link>
             <Link
-              href={""}
+              href={"/news"}
               className={`${
                 activeNav === "news"
                   ? "text-red-main border-b-[3px] border-red-main"

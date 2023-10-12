@@ -45,7 +45,7 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="w-full  bg-transparent shadow-custom backdrop-blur-9 rounded-3xl lg:p-24 md:p-24 p-4 pt-[20%]">
+      <div className=" w-full lg:w-[82%] mx-auto  bg-transparent shadow-custom backdrop-blur-9 rounded-3xl lg:p-24 md:p-24 p-4 pt-[20%]">
         <div className=" justify-between  hidden lg:flex">
           <div className="w-2/3">
             <div className="items-center">
