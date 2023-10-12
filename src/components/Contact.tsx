@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Image from "next/image";
 
 const Contact = () => {
@@ -115,16 +115,133 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      <div className="mt-[50px]">
-        <a
-          className="bg-red-600 px-6 py-3 rounded-l-[10px] rounded-r-[10px] text-red-100"
-          href="#"
-        >
-          Batch 1
-        </a>
+
+      <div className="px-[25px] my-8 ">
+        <div className="flex flex-col gap-4">
+          <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
+            Branch 1
+          </h1>
+          <p className="font-medium text-lg">Call Us</p>
+          <p className="text-md text-slate-500 font-medium ">
+            Those who want to inquire can contact the following phone numbers
+            during office hours (9:00-5:00).
+          </p>
+          <div className="flex text-sm font-medium text-red-main">
+            <div className="flex-none w-10 h-14">
+              <Image
+                src={"/statics/images/phone.svg"}
+                width={20}
+                height={18}
+                alt="phone"
+                className=""
+              />
+            </div>
+            <div className="flex-1 w-32 ml-[-11px]">+959 251801804</div>
+          </div>
+          <div className="lg:pt-10 lg:mt-[-50px] flex flex-col gap-4 ">
+            <p className="font-medium text-lg ">Visit Us</p>
+            <p className="text-md text-slate-500 font-medium">
+              Leverage PKT to further your future. For those who want to
+              inquire, you can come and inquire without any holidays
+            </p>
+            <div className="flex ">
+              <div className="flex-none w-10 h-14 ">
+                <Image
+                  src={"/statics/images/location.svg"}
+                  width={20}
+                  height={18}
+                  alt="location"
+                  className=""
+                />
+              </div>
+              <div className="flex-1 w-32  text-sm font-medium text-red-main">
+                No(71), Room A, Ground Floor, Upper Pazundaung Road Mingalar
+                Taung Nyunt Township,Yangon.
+              </div>
+            </div>
+          </div>
+          <div className="mt-10 flex justify-center w-full">
+            <div className="w-full ">
+              <div>
+                <iframe
+                  className="shadow-lg shadow-gray-500/40 rounded-xl"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.8842710575786!2d96.17198571447675!3d16.782432388443738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ed6232ed2ac1%3A0x5817e6d2d92f0b44!2sPKT%20IT%20%26%20Japanese%20Language%20Center!5e0!3m2!1sen!2smm!4v1585037167965!5m2!1sen!2smm"
+                  width="100%"
+                  height="300"
+                  frameBorder="0"
+                  aria-hidden="false"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p className="font-medium text-lg mt-[95px] ml-[-95px]">Call Us</p>
-      <p className="text-md text-slate-500 font-medium mt-[127px] ml-[-57px]">
+      <div className="pl-[25px] my-8 ">
+        <div className="flex flex-col gap-4">
+          <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
+            Branch 2
+          </h1>
+          <p className="font-medium text-lg">Call Us</p>
+          <p className="text-md text-slate-500 font-medium ">
+            Those who want to inquire can contact the following phone numbers
+            during office hours (9:00-5:00).
+          </p>
+          <div className="flex text-sm font-medium text-red-main">
+            <div className="flex-none w-10 h-14">
+              <Image
+                src={"/statics/images/phone.svg"}
+                width={20}
+                height={18}
+                alt="phone"
+                className=""
+              />
+            </div>
+            <div className="flex-1 w-32 ml-[-11px]">+959 251801805</div>
+          </div>
+          <div className="lg:pt-10 lg:mt-[-50px] flex flex-col gap-4 ">
+            <p className="font-medium text-lg ">Visit Us</p>
+            <p className="text-md text-slate-500 font-medium">
+              Leverage PKT to further your future. For those who want to
+              inquire, you can come and inquire without any holidays
+            </p>
+            <div className="flex ">
+              <div className="flex-none w-10 h-14 ">
+                <Image
+                  src={"/statics/images/location.svg"}
+                  width={20}
+                  height={18}
+                  alt="location"
+                  className=""
+                />
+              </div>
+              <div className="flex-1 w-32  text-sm font-medium text-red-main">
+                No(19),Thiri Haymar Street,Zarwana Ward,Thingangyun Township,
+                Yangon.
+              </div>
+            </div>
+          </div>
+          <div className="mt-10 flex justify-center w-full">
+            <div className="w-full ">
+              <div>
+                <iframe
+                  className="shadow-lg shadow-gray-500/40 rounded-xl"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.8842710575786!2d96.17198571447675!3d16.782432388443738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ed6232ed2ac1%3A0x5817e6d2d92f0b44!2sPKT%20IT%20%26%20Japanese%20Language%20Center!5e0!3m2!1sen!2smm!4v1585037167965!5m2!1sen!2smm"
+                  width="100%"
+                  height="300"
+                  frameBorder="0"
+                  aria-hidden="false"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <h1 className="mt-[50px] text-2xl pl-[25px] md:text-xl text-red-main font-medium">
+        Branch 1
+      </h1>
+      <p className="font-medium text-lg lg:mt-[95px] mt-8 lg:ml-[-95px] ml-0 pl-[25px]">Call Us</p>
+      <p className="text-md text-slate-500 font-medium lg:mt-[27px] lg:ml-[-57px] mt-0 pl-[25px] lg:pl-0">
         Those who want to inquire can contact the following phone numbers during
         office hours (9:00-5:00).
       </p>
@@ -140,13 +257,13 @@ const Contact = () => {
         </div>
         <div className="flex-1 w-32 ml-[-11px]">+959 251801804</div>
       </div>
-      <div className="lg:pt-10 md:ml-8 lg:ml-0 ml-0 mt-[-50px]">
-        <p className="font-medium text-lg ml-[5px]">Visit Us</p>
-        <p className="text-md text-slate-500 font-medium ml-[6px] mt-[5px]">
+      <div className="lg:pt-10 lg:mt-[-50px] ">
+        <p className="font-medium text-lg ml-[5px] pl-[25px]">Visit Us</p>
+        <p className="text-md text-slate-500 font-medium ml-[6px] mt-[5px] pl-[25px]">
           Leverage PKT to further your future. For those who want to inquire,
           you can come and inquire without any holidays
         </p>
-        <div className="flex mt-[6px]">
+        <div className="flex mt-[6px] pl-[25px]">
           <div className="flex-none w-10 h-14 ml-[2px]">
             <Image
               src={"/statics/images/location.svg"}
@@ -238,7 +355,7 @@ const Contact = () => {
             ></iframe>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
