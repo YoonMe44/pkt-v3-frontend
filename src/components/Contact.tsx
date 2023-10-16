@@ -8,9 +8,9 @@ const Contact = () => {
     setSelectedCountry(event.target.value);
   };
   return (
-    <div className="sm:3/4 md:w-3/4 lg:w-3/4 mt-16  mx-auto bg-transparent backdrop-blur-9  border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  ">
-      <div className="w-full">
-        <div className="pl-[25px]">
+    <div className="sm:3/4 md:w-3/4 lg:w-3/4 -mt-6  mx-auto bg-transparent backdrop-blur-9  border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  ">
+      <div className="w-full sm:pl-4 pl-0">
+        <div className="px-2  md:px-[25px]">
           <i className="md:text-xl text-red-main mt-4 font-medium">
             Sent a Message
           </i>
@@ -18,7 +18,7 @@ const Contact = () => {
             You can fill in the information below and inquire about what you
             want to know. You can also inquire through the phone number
           </p>
-          <form className="mt-10 mr-10 ">
+          <form className="mt-10  ">
             <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
               <div className="relative z-0 w-full mb-6 group">
                 <input
@@ -31,7 +31,7 @@ const Contact = () => {
                 />
                 <label
                   htmlFor="username"
-                  className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Name
                 </label>
@@ -47,7 +47,7 @@ const Contact = () => {
                 />
                 <label
                   htmlFor="email"
-                  className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Email address
                 </label>
@@ -63,7 +63,7 @@ const Contact = () => {
                   className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-[2px] border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-700 peer"
                   required
                 >
-                  <option value="" className="text-sm md:text-md text-gray-500">
+                  <option value="" className="text-lg font-medium text-gray-500">
                     Interested In
                   </option>
                   <option value="Japan">Japan</option>
@@ -82,7 +82,7 @@ const Contact = () => {
                 />
                 <label
                   htmlFor="password"
-                  className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Phone Number
                 </label>
@@ -99,7 +99,7 @@ const Contact = () => {
               ></textarea>
               <label
                 htmlFor="floating_first_name"
-                className="pt-[23px] pl-[2px] peer-focus:font-medium absolute text-sm md:text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-[-1px] -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                className="pt-[23px] pl-[2px] peer-focus:font-medium absolute text-sm md:text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-[-1px] -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Message
               </label>
@@ -116,7 +116,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="px-[25px] my-8 ">
+      <div className="px-2  md:px-[25px] w-full my-8 mx-auto">
         <div className="flex flex-col gap-4">
           <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
             Branch 1
@@ -176,7 +176,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="pl-[25px] my-8 ">
+      <div className=" w-full mx-auto my-8 px-2  md:px-[25px]">
         <div className="flex flex-col gap-4">
           <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
             Branch 2
