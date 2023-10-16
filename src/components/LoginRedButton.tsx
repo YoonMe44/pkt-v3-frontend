@@ -13,7 +13,7 @@ const GoogleLoginDynamic = dynamic(() => import("react-google-login"), {
 
 const LoginRedButton: React.FC<LoginRedButtonProps> = ({ title }) => {
   const responseGoogle = (response: any) => {
-    console.log(response);
+    // console.log(response);
   };
   return (
     <div>
