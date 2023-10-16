@@ -10,7 +10,7 @@ const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showClassroom, setShowClassRoom] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
-  console.log(openProfile);
+  // console.log(openProfile);
   const handleNavLinkClick = (navItem: string) => {
     setActiveNav(navItem);
   };
