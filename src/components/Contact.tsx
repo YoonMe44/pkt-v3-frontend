@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Image from "next/image";
+import RedButton from "./RedButton";
 
 const Contact = () => {
   const [selectedCountry, setSelectedCountry] = useState(""); // Define selectedCountry and setSelectedCountry here
@@ -63,7 +64,10 @@ const Contact = () => {
                   className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-[2px] border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-700 peer"
                   required
                 >
-                  <option value="" className="text-lg font-medium text-gray-500">
+                  <option
+                    value=""
+                    className="text-lg font-medium text-gray-500"
+                  >
                     Interested In
                   </option>
                   <option value="Japan">Japan</option>
@@ -73,7 +77,7 @@ const Contact = () => {
               </div>
               <div className="relative z-0 w-full mb-6 group">
                 <input
-                  type="text"
+                  type="tel"
                   name="ph-no"
                   id="pn-no"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-black peer"
@@ -93,7 +97,7 @@ const Contact = () => {
                 name="floating_first_name"
                 rows={4}
                 id="floating_first_name"
-                className="border-l-0 border-r-0 border-t-0 block py-3.5 px-0 w-full text-sm border-b-[2px] text-gray-100  border-b-[3px]important bg-transparent  appearance-none dark:text-white  dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-500 peer"
+                className="border-l-0 border-r-0 border-t-0 block py-3.5 px-0 w-full text-sm border-b-[2px] text-black  border-b-[3px]important bg-transparent  appearance-none dark:text-white  dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-500 peer"
                 placeholder=" "
                 required
               ></textarea>
@@ -105,19 +109,20 @@ const Contact = () => {
               </label>
             </div>
             <div className="flex justify-end">
-              <button
+              {/* <button
                 type="submit"
                 className="text-white bg-gray-500 hover:bg-red-main  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-main dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Submit
-              </button>
+              </button> */}
+              <RedButton title="Submit" />
             </div>
           </form>
         </div>
       </div>
 
       <div className="px-2  md:px-[25px] w-full my-8 mx-auto">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
             Branch 1
           </h1>
@@ -138,7 +143,7 @@ const Contact = () => {
             </div>
             <div className="flex-1 w-32 ml-[-11px]">+959 251801804</div>
           </div>
-          <div className="lg:pt-10 lg:mt-[-50px] flex flex-col gap-4 ">
+          <div className="lg:pt-6 lg:mt-[-50px] flex flex-col gap-1 ">
             <p className="font-medium text-lg ">Visit Us</p>
             <p className="text-md text-slate-500 font-medium">
               Leverage PKT to further your future. For those who want to
@@ -160,7 +165,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="mt-10 flex justify-center w-full">
+          <div className=" flex justify-center w-full">
             <div className="w-full ">
               <div>
                 <iframe
@@ -177,7 +182,7 @@ const Contact = () => {
         </div>
       </div>
       <div className=" w-full mx-auto my-8 px-2  md:px-[25px]">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1">
           <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
             Branch 2
           </h1>
@@ -198,7 +203,7 @@ const Contact = () => {
             </div>
             <div className="flex-1 w-32 ml-[-11px]">+959 251801805</div>
           </div>
-          <div className="lg:pt-10 lg:mt-[-50px] flex flex-col gap-4 ">
+          <div className="lg:pt-6 lg:mt-[-50px] flex flex-col gap-4 ">
             <p className="font-medium text-lg ">Visit Us</p>
             <p className="text-md text-slate-500 font-medium">
               Leverage PKT to further your future. For those who want to
@@ -220,7 +225,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="mt-10 flex justify-center w-full">
+          <div className=" flex justify-center w-full">
             <div className="w-full ">
               <div>
                 {/* <iframe
