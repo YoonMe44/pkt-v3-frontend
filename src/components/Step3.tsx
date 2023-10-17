@@ -4,7 +4,7 @@ import PaymentCard from "./PaymentCard";
 const Step3: React.FC = () => {
   return (
     <div>
-      <div className="w-[60%] mx-auto">
+      <div className="lg:w-[60%] md:w-[80%] sm:w-[80%] mx-auto">
         <p className="text-gray-darker text-[20px] mb-[10px]">
           Thank you for your dedication to the new class.
         </p>
