@@ -77,16 +77,15 @@ const NewsDetail = () => {
         </div>
       </div>
       <div className="group sm:w-[50%] md:w-[50%] lg:w-[90%] flex justify-end my-6">
-        <div className="h-[70px] w-[70px] hover:w-[280px] hover:ease-in-out hover:duration-500 hover:flex-row-reverse overflow-hidden border rounded-full shadow-card">
+        <div className="h-[70px] w-[70px] hover:w-[280px] hover:ease-in-out hover:duration-1000 overflow-hidden border rounded-full shadow-card">
           <div className="w-[280px] grid grid-cols-4  place-items-center my-3 ">
-            
-              <Image
-                src={"/statics/images/share.png"}
-                width={25}
-                height={20}
-                alt="share-button"
-                className=""
-              />
+            <Image
+              src={"/statics/images/share.png"}
+              width={25}
+              height={20}
+              alt="share-button"
+              className=""
+            />
             <Link className="contents" href={"/facebook"}>
               <Image
                 src={"/statics/images/facebook.png"}
