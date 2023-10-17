@@ -5,7 +5,7 @@ import PaymentCard from "./PaymentCard";
 const Step2: React.FC = () => {
   return (
     <div>
-      <div className="w-[60%] mix-blend-saturation mx-auto">
+      <div className="lg:w-[60%] md:w-[80%] sm:w-[80%] w-full mix-blend-saturation mx-auto">
         <label className="block mb-2 text-[20px] font-medium text-gray-darker ">
           Payment Method
         </label>
@@ -29,17 +29,25 @@ const Step2: React.FC = () => {
           className="bg-custom border-custom-white-17 shadow-custom text-gray-900 text-sm block w-full p-[16px] pr-8 rounded-[20px] focus:outline-none focus:shadow-outline-custom"
         />
         <div className="mt-4">
-          <p className="text-red-main font-medium">
-            fvwrfwerffewfwfgvwrfgrwe fvwrfwerffewfwfgvwrfgrwe
+          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+            Please fill in the course fee according to the information below.
+            The school will contact you after confirming the information you
+            have filled in.
           </p>
-          <p className="text-red-main font-medium">
-            fvwrfwerffewfwfgvwrfgrwefvwrfwerffewfwfgvwrfgrwe
+          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+            Please fill in the course fee according to the information below.
+            The school will contact you after confirming the information you
+            have filled in.
           </p>
-          <p className="text-red-main font-medium">
-            fvwrfwerffewfwfgvwrfgrwefvwrfwerffewfwfgvwrfgrwe
+          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+            Please fill in the course fee according to the information below.
+            The school will contact you after confirming the information you
+            have filled in.
           </p>
-          <p className="text-red-main font-medium">
-            fvwrfwerffewfwfgvwrfgrwefvwrfwerffewfwfgvwrfgrwe
+          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+            Please fill in the course fee according to the information below.
+            The school will contact you after confirming the information you
+            have filled in.
           </p>
         </div>
       </div>
