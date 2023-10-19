@@ -110,7 +110,7 @@ const NewsDetail = () => {
               className=""
             />
             <Link className="contents" href={"/facebook"}>
-              <Image  
+              <Image
                 src={"/statics/images/facebook.svg"}
                 width={40}
                 height={40}
