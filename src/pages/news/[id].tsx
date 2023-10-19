@@ -1,10 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 const NewsDetail = () => {
+  const pageTitle = {
+    title: "News Detail",
+    content_1: "",
+    content_2: "",
+  };
   return (
     <>
-      <div className="sm:w-[50%] md:w-[50%] lg:w-[90%] max-h-[600px] lg:max-h-[822px] mx-auto border rounded-xl shadow-custom overflow-y-scroll scroll sm:scroll-res">
+      <div className="pb-[6px]  w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
+        <div className="pb-[70px]">
+          <PageTitle pageTitle={pageTitle} />
+        </div>
+        <div className="absolute top-0 right-0 z-[-1] overflow-hidden">
+          <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
+            <Image
+              width={1000}
+              height={900}
+              // layout="responsive"
+              className="transform rotate-11 pt-20"
+              src="/statics/images/batchTwo.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div className="sm:max-w-[600] md:max-w-[600] lg:max-w-[1200px] max-h-[600px] lg:max-h-[700px] mx-auto border rounded-xl shadow-custom bg-transparent backdrop-blur-9 overflow-y-scroll scroll sm:scroll-res">
         <div className="flex justify-center">
           <h2 className="text-2xl italic font-bold text-red-main  lg:py-12 md:py-8 py-4">
             Japanese N3
@@ -87,8 +110,8 @@ const NewsDetail = () => {
               className=""
             />
             <Link className="contents" href={"/facebook"}>
-              <Image
-                src={"/statics/images/facebook.png"}
+              <Image  
+                src={"/statics/images/facebook.svg"}
                 width={40}
                 height={40}
                 alt="share-button"
@@ -96,7 +119,7 @@ const NewsDetail = () => {
             </Link>
             <Link className="contents" href={"/instagram"}>
               <Image
-                src={"/statics/images/instagram.png"}
+                src={"/statics/images/instagram.svg"}
                 width={40}
                 height={40}
                 alt="share-button"
@@ -104,7 +127,7 @@ const NewsDetail = () => {
             </Link>
             <Link className="contents" href={"/linkin"}>
               <Image
-                src={"/statics/images/linkin.png"}
+                src={"/statics/images/linkin.svg"}
                 width={40}
                 height={40}
                 alt="share-button"
