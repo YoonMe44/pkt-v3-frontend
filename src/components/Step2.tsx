@@ -29,22 +29,22 @@ const Step2: React.FC = () => {
           className="bg-custom border-custom-white-17 shadow-custom text-gray-900 text-sm block w-full p-[16px] pr-8 rounded-[20px] focus:outline-none focus:shadow-outline-custom"
         />
         <div className="mt-4">
-          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+          <p className="text-red-main font-medium">
             Please fill in the course fee according to the information below.
             The school will contact you after confirming the information you
             have filled in.
           </p>
-          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+          <p className="text-red-main font-medium">
             Please fill in the course fee according to the information below.
             The school will contact you after confirming the information you
             have filled in.
           </p>
-          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+          <p className="text-red-main font-medium">
             Please fill in the course fee according to the information below.
             The school will contact you after confirming the information you
             have filled in.
           </p>
-          <p className="text-red-main font-medium lg:text-[20px] md:text-[13px] sm:text-[13px] text-[12px]">
+          <p className="text-red-main font-medium">
             Please fill in the course fee according to the information below.
             The school will contact you after confirming the information you
             have filled in.

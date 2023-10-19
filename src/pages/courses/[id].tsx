@@ -4,21 +4,28 @@ import PageTitle from "@/components/PageTitle";
 import RedButton from "@/components/RedButton";
 import Image from "next/image";
 const CourseDetail = () => {
+  const pageTitle = {
+    title: "Courses Detail",
+    content_1: "",
+    content_2: "",
+  };
   return (
     <div>
-      <div className="pb-[231px] w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both"></div>
-      <div className="absolute top-0 right-0 overflow-hidden -z-10">
-        {/* <div className=" relative  w-[1200px] h-[624.58px] bottom-[275px] left-[300px] oval bg-slate-200 transform right-0 overflow-hidden ">
+      <div className="pb-20">
+        <PageTitle pageTitle={pageTitle} />
+      </div>
+      <div className="absolute top-0 right-0 overflow-hidden z-[-1]">
+        <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px] oval bg-slate-200 transform right-0 overflow-hidden ">
           <Image
             width={1000}
             height={900}
-            className="transform rotate-11 pt-40"
-            src="/statics/images/batch3.jpg"
+            className="transform rotate-11 pt-20"
+            src="/statics/images/batchTwo.png"
             alt=""
           />
-        </div> */}
+        </div>
       </div>
-      <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] pt-[40px] shadow-card lg:px-10">
+      <div className="w-full bg-custom-white-17 sm:bg-transparent sm:shadow-none backdrop-blur-9 rounded-[30px] pb-[20px] pt-[40px] lg:shadow-custom lg:px-10">
         <div className="flex flex-col justify-center items-center">
           <Image
             src={"/statics/images/n3.jpg"}

@@ -17,7 +17,7 @@ const Wizard: React.FC = () => {
   };
   return (
     <div>
-      <div className="bg-custom-white-17 rounded-[30px] md:shadow-custom lg:shadow-custom sm:shadow-custom lg:p-[5rem] md:p-[5rem] sm:p-[1rem]">
+      <div className="bg-custom-white-17 backdrop-blur-9 rounded-[30px] md:shadow-custom lg:shadow-custom sm:shadow-custom lg:p-[5rem] md:p-[5rem] sm:p-[1rem]">
         <div className="flex items-center justify-between mb-4 z-10 relative w-[64%] mx-auto">
           {/* Step Indicators */}
           {[1, 2, 3].map((step) => (
