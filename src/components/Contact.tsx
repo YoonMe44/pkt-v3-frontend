@@ -9,7 +9,7 @@ const Contact = () => {
     setSelectedCountry(event.target.value);
   };
   return (
-    <div className="sm:3/4 md:w-3/4 lg:w-3/4 -mt-6  mx-auto bg-transparent backdrop-blur-9  border-solid border-2 lg:flex lg:flex-wrap rounded-xl lg:py-20 py-8 lg:px-10 px-2  ">
+    <div className="sm:3/4 md:w-3/4 lg:w-3/4 -mt-6  mx-auto bg-custom-white-17 backdrop-blur-9  shadow-custom lg:flex lg:flex-wrap rounded-[30px] lg:py-20 py-8 lg:px-10 px-2  ">
       <div className="w-full sm:pl-4 pl-0">
         <div className="px-2  md:px-[25px]">
           <i className="md:text-xl text-red-main mt-4 font-medium">

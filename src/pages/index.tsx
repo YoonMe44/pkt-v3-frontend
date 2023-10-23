@@ -112,7 +112,7 @@ export default function Home() {
       {/* Managing Director */}
 
       <div className=" p-4 mx-auto my-10 md:flex lg:flex flex justify-center space-x-4 rounded-3xl">
-        <div className="w-[90%] lg:w-[84%] md:w-[85%] sm:w-[86%] bg-white p-8 items-center grid lg:grid-cols-3 md:grid-cols-2 gap-4 rounded-2xl shadow-card">
+        <div className="w-[90%] lg:w-[84%] md:w-[85%] sm:w-[86%]]bg-custom-white-17 backdrop-blur-9  p-8 items-center grid lg:grid-cols-3 md:grid-cols-2 gap-4 rounded-[30px] shadow-card">
           <div className="">
             <div className="flex justify-center">
               <Image
