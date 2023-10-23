@@ -6,7 +6,27 @@ import RedButton from "./RedButton";
 
 const Nav: React.FC = () => {
   const router = useRouter(); // Use useRouter
-  const [activeNav, setActiveNav] = useState("home");
+  const path = router.route;
+  const [activeNav, setActiveNav] = useState("");
+
+  useEffect(() => {
+    if (router.asPath.includes("/faq")) {
+      setActiveNav("faq");
+    } else if (router.asPath.includes("/about")) {
+      setActiveNav("about");
+    } else if (router.asPath.includes("/courses")) {
+      setActiveNav("courses");
+    } else if (router.asPath.includes("/contact")) {
+      setActiveNav("contact");
+    } else if (router.asPath.includes("/about")) {
+      setActiveNav("courses");
+    } else if (router.asPath.includes("/news")) {
+      setActiveNav("news");
+    } else if (router.asPath) {
+      setActiveNav("home");
+    }
+  }, [router]);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showClassroom, setShowClassRoom] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
@@ -14,11 +34,12 @@ const Nav: React.FC = () => {
   const handleNavLinkClick = (navItem: string) => {
     setActiveNav(navItem);
   };
+
   return (
     <nav className="border-gray-200  dark:bg-gray-900 lg:bg-gradient-to-b lg:from-opacity-17 lg:to-opacity-0 lg:backdrop-blur-[8.5px]">
       <div className="max-w-[90%] flex lg:justify-between justify-between mx-auto p-4">
         <div>
-          <Link href={'/'}>
+          <Link href={"/"}>
             <Image
               src="/statics/images/logo/main-logo.svg"
               alt="main-logo.svg"
@@ -76,7 +97,7 @@ const Nav: React.FC = () => {
             </ul>
           </div>
           <div className="mt-4 mx-2">
-            {/* <RedButton title="Login" /> */}
+            <RedButton title="Login" />
             <Link
               href={"/mypage"}
               className=" rounded-full relative block md:hidden lg:hidden"
@@ -132,7 +153,7 @@ const Nav: React.FC = () => {
                   ? "text-red-main border-b-[3px] border-red-main"
                   : "text-black"
               } text-sm font-medium`}
-              onClick={() => setActiveNav("home")}
+              onClick={() => setActiveNav("/")}
             >
               Home
             </Link>
@@ -150,11 +171,11 @@ const Nav: React.FC = () => {
             <Link
               href={"/about"}
               className={`${
-                activeNav === "about us"
+                activeNav === "about"
                   ? "text-red-main border-b-[3px] border-red-main"
                   : "text-black"
               } text-sm font-medium`}
-              onClick={() => setActiveNav("about us")}
+              onClick={() => setActiveNav("about")}
             >
               About Us
             </Link>
