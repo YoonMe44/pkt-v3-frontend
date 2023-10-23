@@ -27,7 +27,7 @@ const NewsDetail = () => {
           </div>
         </div>
       </div>
-      <div className="sm:max-w-[600] md:max-w-[600] lg:max-w-[1200px] max-h-[600px] lg:max-h-[700px] mx-auto border rounded-xl shadow-custom bg-transparent backdrop-blur-9 overflow-y-scroll scroll sm:scroll-res">
+      <div className="sm:max-w-[600] md:max-w-[600] lg:max-w-[1200px] max-h-[600px] lg:max-h-[500px] mx-auto  rounded-[30px] shadow-custom bg-custom-white-17 backdrop-blur-9 overflow-y-scroll scroll sm:scroll-res">
         <div className="flex justify-center">
           <h2 className="text-2xl italic font-bold text-red-main  lg:py-12 md:py-8 py-4">
             Japanese N3
@@ -99,9 +99,9 @@ const NewsDetail = () => {
           </p>
         </div>
       </div>
-      <div className="group sm:w-[50%] md:w-[50%] lg:w-[90%] flex justify-end my-6">
-        <div className="h-[70px] w-[70px] hover:w-[280px] hover:ease-in-out hover:duration-1000 overflow-hidden border rounded-full shadow-card">
-          <div className="w-[280px] grid grid-cols-4  place-items-center my-3 ">
+      <div className="group sm:max-w-[600] md:max-w-[600] lg:max-w-[1200px] flex justify-end my-6 mx-auto">
+        <div className="h-[57px] w-[57px] hover:w-[280px] hover:ease-in-out hover:duration-1000 overflow-hidden border rounded-full shadow-card">
+          <div className="lg:w-[280px] grid grid-cols-4  place-items-center my-3 lg:gap-5 w-[210px]">
             <Image
               src={"/statics/images/share.png"}
               width={25}
@@ -115,6 +115,7 @@ const NewsDetail = () => {
                 width={40}
                 height={40}
                 alt="share-button"
+                className="w-[30px]"
               />
             </Link>
             <Link className="contents" href={"/instagram"}>
@@ -123,6 +124,7 @@ const NewsDetail = () => {
                 width={40}
                 height={40}
                 alt="share-button"
+                className="w-[30px]"
               />
             </Link>
             <Link className="contents" href={"/linkin"}>
@@ -131,6 +133,7 @@ const NewsDetail = () => {
                 width={40}
                 height={40}
                 alt="share-button"
+                className="w-[30px]"
               />
             </Link>
           </div>
