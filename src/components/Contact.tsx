@@ -169,7 +169,7 @@ const Contact = () => {
             <div className="w-full ">
               <div>
                 <iframe
-                  className="shadow-lg shadow-gray-500/40 rounded-xl"
+                  className="shadow-custom     rounded-xl"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.8842710575786!2d96.17198571447675!3d16.782432388443738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ed6232ed2ac1%3A0x5817e6d2d92f0b44!2sPKT%20IT%20%26%20Japanese%20Language%20Center!5e0!3m2!1sen!2smm!4v1585037167965!5m2!1sen!2smm"
                   width="100%"
                   height="300"
@@ -237,7 +237,7 @@ const Contact = () => {
                   aria-hidden="false"
                 ></iframe> */}
                 <iframe
-                  className="shadow-lg shadow-gray-500/40 rounded-xl"
+                  className=" shadow-custom rounded-xl"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.0314378504672!2d96.19785801086299!3d16.824796418701403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1939b1c0eb671%3A0x4cf8004127244fc2!2sPKT%20Education%20Center%20Branch%202!5e0!3m2!1sen!2smm!4v1697276273562!5m2!1sen!2smm"
                   width="100%"
                   height="300"

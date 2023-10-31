@@ -14,7 +14,7 @@ const InstructorCard = ({instructureDetail}: InstructorCardProps) => {
             <img src="naing.jpg" alt="" className="rounded-3xl w-full mb-7" />
             <p className="text-center">{name}</p>
             <p className="text-center text-red-500">{category}</p>
-            <MoreBtn />
+            <MoreBtn link="/Instructor" />
           </div>
         </div>
       </div>
