@@ -17,15 +17,15 @@ const CourseMain = () => {
     var lineThree = document.querySelector(".menu-btn .line--3");
     var link = document.querySelector(".nav-cat .nav-links");
     const handleClick = () => {
-      nav1.classList.toggle("nav-opens");
-      lineOne.classList.toggle("line-cross");
-      lineTwo.classList.toggle("line-fade-out");
-      lineThree.classList.toggle("line-cross");
-      link.classList.toggle("fade-in");
+      nav1?.classList.toggle("nav-opens");
+      lineOne?.classList.toggle("line-cross");
+      lineTwo?.classList.toggle("line-fade-out");
+      lineThree?.classList.toggle("line-cross");
+      link?.classList.toggle("fade-in");
     };
-    menuBtn.addEventListener("click", handleClick);
+    menuBtn?.addEventListener("click", handleClick);
     return () => {
-      menuBtn.removeEventListener("click", handleClick);
+      menuBtn?.removeEventListener("click", handleClick);
     };
   }, []);
   return (

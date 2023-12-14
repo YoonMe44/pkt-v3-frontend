@@ -11,7 +11,7 @@ const Step2: React.FC = () => {
         </label>
         <div className="relative">
           <select className="appearance-none bg-custom border-custom-white-17 shadow-custom text-gray-900 text-sm block w-full p-[16px] pr-8 rounded-[20px] focus:outline-none focus:shadow-outline-custom">
-            <option defaultValue>Choose Payment Method</option>
+            <option>Choose Payment Method</option>
             <option value="US">United States</option>
             <option value="CA">Canada</option>
             <option value="FR">France</option>
