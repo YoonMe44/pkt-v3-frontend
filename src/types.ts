@@ -4,7 +4,23 @@ export interface PageTitle {
     content_2: string
 }
 
-export interface Instructure {
-    name: string
-    category: string
+export interface imageMedia{
+    public_path: string,
+    storage_path: string
+}
+
+export interface News {
+    id: string,
+    title: string,
+    content: string,
+    image: imageMedia,
+    tags: string,
+    status: number,
+}
+
+export interface Instructors{
+    id:string,
+    name:string,
+    description:string,
+    profile_photo_path:string
 }

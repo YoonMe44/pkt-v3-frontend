@@ -2,8 +2,17 @@ import PageTitle from "@/components/PageTitle";
 
 import NewsCard from "../../components/NewsCard";
 import Image from "next/image";
+import { GetServerSideProps, NextPage } from "next";
 
-const NewsPage = () => {
+//types
+import { News } from "@/types";
+import axios from "axios";
+
+interface NewsPageProps {
+  news: News[]
+}
+
+const NewsPage: NextPage<NewsPageProps> = ({ news }) => {
   const pageTitle = {
     title: "News",
     content_1: "Read More",
@@ -27,9 +36,28 @@ const NewsPage = () => {
         </div>
       </div>
       <div className="-mt-8 ">
-        <NewsCard />
+        <NewsCard news={news}/>
       </div>
     </div>
   );
 };
 export default NewsPage;
+
+
+export const getServerSideProps: GetServerSideProps<NewsPageProps> = async () => {
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  let newsResponse: News[] = [];
+  try{
+    const res = await axios.get(`${baseUrl}/api/news`)
+    newsResponse = res.data.data;
+  }catch(e){
+    console.log(e)
+  }
+
+  // Pass data to the page via props
+  return {
+    props: {
+      news: newsResponse
+    }
+  }
+}

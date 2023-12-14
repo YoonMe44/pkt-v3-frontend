@@ -1,7 +1,12 @@
+import { SidebarContext } from "@/Layouts/MainLayout";
+import { language } from "@/lang/lang";
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 
 const Footer = () => {
+  let { lang } = useContext(SidebarContext);
+
   return (
     <div className="bg-[#F3F3F3] ">
       <div className="max-w-screen-xl mx-auto py-20 hidden lg:flex flex-rows justify-between space-x-4">
@@ -17,44 +22,43 @@ const Footer = () => {
             </Link>
           </div>
           <p className="text-center">
-            PKT Education Center is now teaching Japanese language and
-            technology for the future and achieving a successful life goal...
+            {language[lang].fp}
           </p>
         </div>
         <div className=" w-1/2 pl-12 flex flex-col">
           <h1 className="text-red-main text-xl font-medium mb-4">
-            Information For
+            {language[lang].ft1}
           </h1>
           <div className="flex space-x-16">
             <ul className="text-md space-y-2">
               <li>
-                <Link href={"/"}>Home</Link>
+                <Link href={"/"}>{language[lang].home}</Link>
               </li>
               <li>
-                <Link href={"/about"}>About us</Link>
+                <Link href={"/about"}>{language[lang].aboutus}</Link>
               </li>
               <li>
-                <Link href={"/"}>Local Classroom</Link>
+                <Link href={"/"}>{language[lang].local}</Link>
               </li>
               <li>
-                <Link href={"/"}>Online Classroom</Link>
+                <Link href={"/"}>{language[lang].online}</Link>
               </li>
             </ul>
             <ul className="text-md space-y-2">
               <li>
-                <Link href={"/news"}>News</Link>
+                <Link href={"/news"}>{language[lang].news}</Link>
               </li>
               <li>
-                <Link href={"/faq"}>FAQ</Link>
+                <Link href={"/faq"}>{language[lang].faq}</Link>
               </li>
               <li>
-                <Link href={"/contact"}>Contact us</Link>
+                <Link href={"/contact"}>{language[lang].contact}</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="w-1/2 flex flex-col">
-          <h1 className="text-red-main text-xl font-medium mb-4">Branch 1</h1>
+          <h1 className="text-red-main text-xl font-medium mb-4">{language[lang].ft2} 1</h1>
           <div className="flex space-x-16">
             <ul className="text-md space-y-2">
               <li className="flex">
@@ -104,7 +108,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-1/2 flex flex-col">
-          <h1 className="text-red-main text-xl font-medium mb-4">Branch 2</h1>
+          <h1 className="text-red-main text-xl font-medium mb-4">{language[lang].ft2} 2</h1>
           <div className="flex space-x-16">
             <ul className="text-md space-y-2">
               <li className="flex">

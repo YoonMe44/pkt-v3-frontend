@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import Image from "next/image";
 import RedButton from "./RedButton";
+import { language } from "@/lang/lang";
+import { SidebarContext } from "@/Layouts/MainLayout";
 
 const Contact = () => {
+  let { lang } = useContext(SidebarContext);
   const [selectedCountry, setSelectedCountry] = useState(""); // Define selectedCountry and setSelectedCountry here
 
   const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -13,11 +16,10 @@ const Contact = () => {
       <div className="w-full sm:pl-4 pl-0">
         <div className="px-2  md:px-[25px]">
           <i className="md:text-xl text-red-main mt-4 font-medium">
-            Sent a Message
+            {language[lang].message}
           </i>
           <p className="text-md text-slate-500 font-medium">
-            You can fill in the information below and inquire about what you
-            want to know. You can also inquire through the phone number
+            {language[lang].messagecon}
           </p>
           <form className="mt-10  ">
             <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
@@ -34,7 +36,7 @@ const Contact = () => {
                   htmlFor="username"
                   className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
-                  Name
+                  {language[lang].cinput}
                 </label>
               </div>
               <div className="relative z-0 w-full mb-6 group">
@@ -50,7 +52,7 @@ const Contact = () => {
                   htmlFor="email"
                   className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
-                  Email address
+                  {language[lang].cinput1}
                 </label>
               </div>
             </div>
@@ -68,7 +70,7 @@ const Contact = () => {
                     value=""
                     className="text-lg font-medium text-gray-500"
                   >
-                    Interested In
+                    {language[lang].cinput2}
                   </option>
                   <option value="Japan">Japan</option>
                   <option value="Korea">Korea</option>
@@ -88,7 +90,7 @@ const Contact = () => {
                   htmlFor="password"
                   className="peer-focus:font-medium absolute text-lg-[20px] text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
-                  Phone Number
+                  {language[lang].cinput3}
                 </label>
               </div>
             </div>
@@ -105,7 +107,7 @@ const Contact = () => {
                 htmlFor="floating_first_name"
                 className="pt-[23px] pl-[2px] peer-focus:font-medium absolute text-sm md:text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-[-1px] -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
-                Message
+                {language[lang].cinput4}
               </label>
             </div>
             <div className="flex justify-end">
@@ -124,12 +126,11 @@ const Contact = () => {
       <div className="px-2  md:px-[25px] w-full my-8 mx-auto">
         <div className="flex flex-col gap-2">
           <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
-            Branch 1
+            {language[lang].ft2} 1
           </h1>
-          <p className="font-medium text-lg">Call Us</p>
+          <p className="font-medium text-lg">{language[lang].call}</p>
           <p className="text-md text-slate-500 font-medium ">
-            Those who want to inquire can contact the following phone numbers
-            during office hours (9:00-5:00).
+            {language[lang].callcon}
           </p>
           <div className="flex text-sm font-medium text-red-main">
             <div className="flex-none w-10 h-14">
@@ -144,10 +145,9 @@ const Contact = () => {
             <div className="flex-1 w-32 ml-[-11px]">+959 251801804</div>
           </div>
           <div className="lg:pt-6 lg:mt-[-50px] flex flex-col gap-1 ">
-            <p className="font-medium text-lg ">Visit Us</p>
+            <p className="font-medium text-lg ">{language[lang].visit}</p>
             <p className="text-md text-slate-500 font-medium">
-              Leverage PKT to further your future. For those who want to
-              inquire, you can come and inquire without any holidays
+              {language[lang].visitcon}
             </p>
             <div className="flex ">
               <div className="flex-none w-10 h-14 ">
@@ -184,12 +184,11 @@ const Contact = () => {
       <div className=" w-full mx-auto my-8 px-2  md:px-[25px]">
         <div className="flex flex-col gap-1">
           <h1 className="mt-[50px] text-2xl md:text-xl text-red-main font-medium">
-            Branch 2
+            {language[lang].ft2} 2
           </h1>
-          <p className="font-medium text-lg">Call Us</p>
+          <p className="font-medium text-lg">{language[lang].call}</p>
           <p className="text-md text-slate-500 font-medium ">
-            Those who want to inquire can contact the following phone numbers
-            during office hours (9:00-5:00).
+            {language[lang].callcon}
           </p>
           <div className="flex text-sm font-medium text-red-main">
             <div className="flex-none w-10 h-14">
@@ -204,10 +203,9 @@ const Contact = () => {
             <div className="flex-1 w-32 ml-[-11px]">+959 251801805</div>
           </div>
           <div className="lg:pt-6 lg:mt-[-50px] flex flex-col gap-4 ">
-            <p className="font-medium text-lg ">Visit Us</p>
+            <p className="font-medium text-lg ">{language[lang].visit}</p>
             <p className="text-md text-slate-500 font-medium">
-              Leverage PKT to further your future. For those who want to
-              inquire, you can come and inquire without any holidays
+              {language[lang].visitcon}
             </p>
             <div className="flex ">
               <div className="flex-none w-10 h-14 ">

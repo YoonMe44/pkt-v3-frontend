@@ -6,6 +6,7 @@
     height: 100%;
     position: fixed;
     z-index: -2;
+    overflow: hidden;
 
 }
 
@@ -17,6 +18,8 @@
     height: 100%;
     overflow: hidden;
     z-index: -2;
+    overflow: hidden;
+
 }
 
 .circles li {
@@ -28,6 +31,7 @@
     background: #ffffff;
     animation: animate 25s linear infinite;
     bottom: -150px;
+    overflow: hidden;
 
 }
 

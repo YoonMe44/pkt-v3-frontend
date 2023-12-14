@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import {useRouter} from "next/router"; // Import useRouter from 'next/router'
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import RedButton from "./RedButton";
+import { SidebarContext } from "@/Layouts/MainLayout";
+import { language } from "@/lang/lang";
 
 const Nav: React.FC = () => {
   const router = useRouter(); // Use useRouter
   const path = router.route;
   const [activeNav, setActiveNav] = useState("");
+  let {lang,setLang} = useContext(SidebarContext);
 
   useEffect(() => {
     if (router.asPath.includes("/faq")) {
@@ -50,41 +53,43 @@ const Nav: React.FC = () => {
         </div>
         <div className="flex md:order-2">
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul className="items-center float-right font-medium flex flex-col p-4 md:p-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="items-center float-right font-medium flex flex-col p-4 md:p-3 mt-5 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li className="pt-0 hidden lg:block">
-                <Link href="#">
+                <button onClick={() => setLang(2)}>
                   <Image
                     src="/statics/images/mm.png"
                     alt="main-logo.svg"
                     width={20}
                     height={0}
                   />
-                </Link>
+                </button>
               </li>
               <li className="pt-0 hidden lg:block">
-                <Link href="#">
+                <button onClick={() => setLang(1)}>
                   <Image
-                    src="/statics/images/japan.png"
+                    src="/statics/images/Japan.png"
                     alt="main-logo.svg"
                     width={20}
                     height={0}
                   />
-                </Link>
+                </button>
               </li>
               <li className="pt-0 hidden lg:block">
-                <Link href="#">
+                <button onClick={() => setLang(0)}>
                   <Image
                     src="/statics/images/uk.png"
                     alt="main-logo.svg"
                     width={20}
                     height={0}
                   />
-                </Link>
+                </button>
               </li>
               <li>
                 {/* <RedButton title="Login" link="/login" /> */}
                 {/* <button type="button" className="text-white text-md bg-gradient-to-r from-[#aa0a11] via-red-300 to-[#ffcb08] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-[#aa0a11] dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button> */}
-                <Link href={"/mypage"} className=" rounded-full relative">
+                {
+                  /*
+                  <Link href={"/mypage"} className=" rounded-full relative">
                   <Image
                     src={"/statics/images/Poe2.jpg"}
                     width={45}
@@ -93,11 +98,15 @@ const Nav: React.FC = () => {
                     className="rounded-full border-solid border-2 border-gray-400"
                   />
                 </Link>
+                 */
+                }
               </li>
             </ul>
           </div>
           <div className="mt-4 mx-2">
-            <RedButton title="Login" />
+            {/*
+            <RedButton title="Application Form" link="/apply" />
+
             <Link
               href={"/mypage"}
               className=" rounded-full relative block md:hidden lg:hidden"
@@ -110,6 +119,7 @@ const Nav: React.FC = () => {
                 className="rounded-full border-solid border-2 border-gray-400"
               />
             </Link>
+            */}
           </div>
           <button
             className={` ${
@@ -155,7 +165,7 @@ const Nav: React.FC = () => {
               } text-sm font-medium`}
               onClick={() => setActiveNav("/")}
             >
-              Home
+              {language[lang].home}
             </Link>
             <Link
               href={"/courses"}
@@ -177,7 +187,7 @@ const Nav: React.FC = () => {
               } text-sm font-medium`}
               onClick={() => setActiveNav("about")}
             >
-              About Us
+              {language[lang].aboutus}
             </Link>
             <Link
               href={"/contact"}
@@ -188,7 +198,7 @@ const Nav: React.FC = () => {
               } text-sm font-medium`}
               onClick={() => setActiveNav("contact us")}
             >
-              Contact us
+              {language[lang].contact}
             </Link>
             <Link
               href={"/news"}
@@ -199,28 +209,36 @@ const Nav: React.FC = () => {
               } text-sm font-medium`}
               onClick={() => setActiveNav("news")}
             >
-              News
+              {language[lang].news}
             </Link>
 
-            <div className="flex space-x-3">
+           <div className="flex space-x-3">
+              <button onClick={() => setLang(2)}>
+
               <Image
                 src="/statics/images/mm.png"
                 alt="main-logo.svg"
                 width={20}
                 height={0}
               />
+              </button>
+              <button onClick={() => setLang(1)}>
               <Image
-                src="/statics/images/japan.png"
+                src="/statics/images/Japan.png"
                 alt="main-logo.svg"
                 width={20}
                 height={0}
               />
+              </button>
+              <button onClick={() => setLang(0)}>
+
               <Image
                 src="/statics/images/uk.png"
                 alt="main-logo.svg"
                 width={20}
                 height={0}
               />
+              </button>
             </div>
           </div>
         </div>
@@ -241,7 +259,7 @@ const Nav: React.FC = () => {
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("home")}
               >
-                Home
+                {language[lang].home}
               </Link>
             </li>
             <li>
@@ -254,7 +272,7 @@ const Nav: React.FC = () => {
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("about")}
               >
-                About Us
+                {language[lang].aboutus}
               </Link>
             </li>
             <li
@@ -273,7 +291,7 @@ const Nav: React.FC = () => {
                   onMouseEnter={() => setShowClassRoom(true)}
                   onMouseLeave={() => setShowClassRoom(false)}
                 >
-                  Courses
+                  {language[lang].courses}
                 </Link>
                 <li
                   className={`bg-white text-red-main border-b-4 border-red-main rounded-lg p-2 text-xs  absolute w-[180%] ${
@@ -282,7 +300,7 @@ const Nav: React.FC = () => {
                   onMouseEnter={() => setShowClassRoom(true)}
                   onMouseLeave={() => setShowClassRoom(false)}
                 >
-                  <Link href={"/courses/offline"}>Offline Classroom</Link>
+                  <Link href={"/courses/offline"}> {language[lang].local}</Link>
                 </li>
                 <li
                   className={`bg-white text-red-main border-b-4 border-red-main p-2 text-xs rounded-lg absolute  w-[180%] top-16  ${
@@ -291,7 +309,7 @@ const Nav: React.FC = () => {
                   onMouseEnter={() => setShowClassRoom(true)}
                   onMouseLeave={() => setShowClassRoom(false)}
                 >
-                  <Link href={"/courses/online"}>Online Classroom</Link>
+                  <Link href={"/courses/online"}>{language[lang].online}</Link>
                 </li>
               </ul>
             </li>
@@ -306,7 +324,7 @@ const Nav: React.FC = () => {
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("news")}
               >
-                News
+                {language[lang].news}
               </Link>
             </li>
             <li>
@@ -319,7 +337,7 @@ const Nav: React.FC = () => {
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("contact")}
               >
-                Contact Us
+                {language[lang].contact}
               </Link>
             </li>
             <li>
@@ -332,7 +350,7 @@ const Nav: React.FC = () => {
                 } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("faq")}
               >
-                FAQ
+                {language[lang].faq}
               </Link>
             </li>
           </ul>

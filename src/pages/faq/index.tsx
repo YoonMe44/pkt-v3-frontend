@@ -2,10 +2,14 @@ import Image from "next/image";
 import PageTitle from "../../components/PageTitle";
 import Instructor from "@/components/Instructor";
 import OurCapacity from "@/components/OurCapacity";
+import { language } from "@/lang/lang";
+import { useContext } from "react";
+import { SidebarContext } from "@/Layouts/MainLayout";
 
 const FAQ = () => {
+  let { lang } = useContext(SidebarContext);
   const pageTitle = {
-    title: "FAQ",
+    title: language[lang].faq,
     content_1: "",
     content_2: "",
   };
@@ -31,7 +35,7 @@ const FAQ = () => {
       </div>
       <div className="w-full shadow-custom bg-transparent backdrop-blur-9 rounded-3xl lg:p-24  p-10">
         <h1 className="lg:text-5xl text-3xl flex flex-col gap-3 text-red-main font-normal italic">
-          <span>Frequently</span> <span>asked</span> <span>questions</span>
+          <span>{language[lang].FAQ}</span> <span>{language[lang].FAQ1}</span> <span>{language[lang].FAQ2}</span>
         </h1>
       </div>
     </div>

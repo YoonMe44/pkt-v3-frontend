@@ -5,6 +5,6 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ["img.icons8.com"],
+    domains: ["img.icons8.com","127.0.0.1"],
   },
 };

@@ -1,11 +1,16 @@
 import PageTitle from "@/components/PageTitle";
 import Contact from "../../components/Contact"; // Rename the imported component
 import Image from "next/image";
+import { language } from "@/lang/lang";
+import { SidebarContext } from "@/Layouts/MainLayout";
+import { useContext } from "react";
 
 const ContactUsPage = () => {
+  let { lang } = useContext(SidebarContext);
+
   const pageTitle = {
-    title: "Contact Us",
-    content_1: "For Your Future",
+    title: language[lang].contact,
+    content_1: language[lang].future2,
     content_2: "",
   };
   return (

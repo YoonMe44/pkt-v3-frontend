@@ -1,9 +1,8 @@
-import {useRouter} from "next/router";
-import React from "react";
-import Nav from "./Nav"; // Import the Nav component
+import Nav from "./Nav"; 
+
 const Header: React.FC = () => {
   return (
-    <div>
+    <div className=" overflow-hidden">
       <div className="area">
         <ul className="circles">
           <li></li>

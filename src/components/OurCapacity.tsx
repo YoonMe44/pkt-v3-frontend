@@ -1,5 +1,7 @@
+import { SidebarContext } from "@/Layouts/MainLayout";
+import { language } from "@/lang/lang";
 import Image from "next/image";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 
 const CourseOutline = () => {
   const [registeredStu, setregisteredStu] = useState(0);
@@ -8,6 +10,7 @@ const CourseOutline = () => {
   const registeredStuNum = 500;
   const onlineStuNum = 1550;
   const trainersNum = 7;
+  let { lang } = useContext(SidebarContext);
 
   useEffect(() => {
     const timer1 = setInterval(() => {
@@ -46,6 +49,7 @@ const CourseOutline = () => {
     <div className="backdrop-blur-9 bg-transparent">
       <h2 className="text-2xl text-red-600	font-medium text-center mb-4">
         Our Courses & Batches
+        {language[lang].t3}
       </h2>
       <div className="md:flex mx-auto w-[82%]  p-4 m-4 justify-center shadow-card rounded-3xl">
         <div className="md:w-1/3 flex-1 p-4 flex flex-col items-center">
@@ -55,7 +59,7 @@ const CourseOutline = () => {
             height={70}
             alt="registered student"
           />
-          <label className="md:text-lg text-gray-800">Registred student</label>
+          <label className="md:text-lg text-gray-800"> {language[lang].cb1}</label>
           <p className="text-2xl text-orange-500 font-medium">
             {registeredStu}
           </p>
@@ -68,7 +72,7 @@ const CourseOutline = () => {
             height={70}
             alt="registered student"
           />
-          <label className="md:text-lg text-gray-800">Online Student</label>
+          <label className="md:text-lg text-gray-800"> {language[lang].cb2}</label>
           <p className="text-xl text-orange-500 font-medium">{onlineStudent}</p>
         </div>
 
@@ -79,7 +83,7 @@ const CourseOutline = () => {
             height={70}
             alt="registered student"
           />
-          <label className="md:text-lg text-gray-800">Trainers</label>
+          <label className="md:text-lg text-gray-800"> {language[lang].cb3}</label>
           <p className="text-xl text-orange-500 font-medium">{trainers}</p>
         </div>
       </div>

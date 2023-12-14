@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 // Import css files
@@ -7,14 +7,17 @@ import "slick-carousel/slick/slick-theme.css";
 import MoreBtn from "./MoreBtn";
 import InstructorCard from "./InstructorCard";
 
-import { Instructure } from "@/types";
+import { Instructors } from "@/types";
+import { language } from "@/lang/lang";
+import { SidebarContext } from "@/Layouts/MainLayout";
 
 interface InstructorProps{
-  instructures: Instructure[]
+  instructors: Instructors[]
 }
 
-const Instructor = ({instructures}: InstructorProps) => {
-    const showPost = instructures.length < 4 ? instructures.length : 4; 
+const Instructor = ({instructors}: InstructorProps) => {
+    const showPost = instructors.length < 4 ? instructors.length : 4; 
+    let { lang } = useContext(SidebarContext);
     const settings = {
       dots: false,
       autoplay: true,
@@ -70,10 +73,10 @@ const Instructor = ({instructures}: InstructorProps) => {
   return (
     <div className="">
       <p className="text-red-main text-2xl text-center font-medium mb-[30px] mt-[50px]">
-        Our Trainers
+        {language[lang].t4}
       </p>
       <Slider {...settings} className="w-[86%] mx-auto border-none!important">
-        {instructures.map(instructor => (
+        {instructors.map(instructor => (
           <>
             <InstructorCard instructureDetail={instructor} />
           </>

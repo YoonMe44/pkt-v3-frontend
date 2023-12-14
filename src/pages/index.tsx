@@ -11,32 +11,29 @@ import Instructor from "@/components/Instructor";
 import CourseOutline from "@/components/CourseOutline";
 import OurCapacity from "@/components/OurCapacity";
 import NewsCard from "@/components/NewsCard";
+import { GetServerSideProps, NextPage } from "next";
+import { News, Instructors } from "@/types";
+import axios from "axios";
+import { useContext } from "react";
+import { SidebarContext } from "@/Layouts/MainLayout";
+import { language } from "@/lang/lang";
+import RedButton from "@/components/RedButton";
 
-export default function Home() {
+
+interface HomeProps {
+  news: News[]
+  instructors: Instructors[]
+}
+
+
+const Home: NextPage<HomeProps> = ({ news,instructors }) => {
+  let { lang } = useContext(SidebarContext);
+
   const pageTitle = {
-    title: "PKT Education Center",
-    content_1: "Plan your",
-    content_2: "future with",
-  };
-
-  const instructures = [
-    {
-      name: "Naing Aung Linn",
-      category: "web trainer",
-    },
-    {
-      name: "Naing Aung Linn",
-      category: "web trainer",
-    },
-    {
-      name: "Naing Aung Linn",
-      category: "web trainer",
-    },
-    {
-      name: "Naing Aung Linn",
-      category: "web trainer",
-    },
-  ];
+    title: language[lang].center ,
+    content_1: language[lang].plan,
+    content_2: language[lang].future,
+  }; 
 
   return (
     <div>
@@ -44,6 +41,10 @@ export default function Home() {
       <div className="w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
         <div className="pb-20">
           <PageTitle pageTitle={pageTitle} />
+          <div className="mt-4">
+            <RedButton title="Application Form" link="/apply" />
+          </div>
+
         </div>
         <div className="absolute top-0 right-0 overflow-hidden z-[-1]">
           <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px] oval bg-slate-200 transform right-0 overflow-hidden ">
@@ -63,7 +64,7 @@ export default function Home() {
       </div>
       {/* About Us School */}
       <h2 className="text-red-600 text-2xl text-center font-medium mt-8">
-        About Us
+        {language[lang].t2}
       </h2>
 
       <div className="mb-10 mx-auto p-4 md:flex sm:flex flex justify-center space-x-4 rounded-3xl">
@@ -81,18 +82,12 @@ export default function Home() {
           <div>
             <div className="lg:pb-10 md:pb-0">
               <label className="text-red-main md:text-lg font-bold flex justify-center">
-                Welcome to PKT Education Center
+                {language[lang].abt}
               </label>
             </div>
             <div>
               <p className="text-base">
-                In addition to 4 years of work experience as a programmer after
-                attending a technical college in Japan, it is run by teachers
-                who have established a technology company in Myanmar. In
-                addition to the courses taught in the training school, there are
-                also online courses for students who want to attend online.
-                Currently, more than 1,500 participants who attended online have
-                been taught.
+                {language[lang].abc}
               </p>
             </div>
           </div>
@@ -106,7 +101,7 @@ export default function Home() {
 
       {/* Trainers */}
       <div>
-        <Instructor instructures={instructures} />
+        <Instructor instructors={instructors} />
       </div>
 
       {/* Managing Director */}
@@ -128,18 +123,14 @@ export default function Home() {
             <div className="lg:pb-10 pb-2 text-center">
               <label className="">
                 <span className="text-red-main md:text-lg font-bold">
-                  Poe Kyi Thar
+                  {language[lang].ceo_name}
                 </span>
-                <span className="text-gray-400 pl-4">Managing Director</span>
+                <span className="text-gray-400 pl-4">{language[lang].label}</span>
               </label>
             </div>
             <div>
               <p className="text-base">
-                In addition to 4 years of work experience as a programmer after
-                attending a technical college in Japan, it is run by teachers
-                who have established a technology company in Myanmar. In
-                addition to the courses taught in the training school, there are
-                also online courses for students who want to attend online.
+                {language[lang].ceo_content}
               </p>
             </div>
           </div>
@@ -147,8 +138,39 @@ export default function Home() {
       </div>
 
       <div>
-        <NewsCard />
+        <NewsCard news={news}/>
       </div>
     </div>
   );
+}
+
+export default Home;
+
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  let newsResponse: News[] = [];
+  let instructorsResponse: Instructors[] = [];
+  
+  try {
+    const res = await axios.get(`${baseUrl}/api/news`)
+    newsResponse = res.data.data;
+  } catch (e) {
+    console.log(e)
+  }
+
+  try{
+    const res = await axios.get(`${baseUrl}/api/users`)
+    instructorsResponse = res.data.data;
+
+  }catch (e) {
+    console.log(e)
+  }
+
+  return {
+    props: {
+      news: newsResponse,
+      instructors: instructorsResponse
+    }
+  }
 }

@@ -1,11 +1,15 @@
+import { SidebarContext } from "@/Layouts/MainLayout";
+import { language } from "@/lang/lang";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 
 const CourseOutline = () => {
+  let { lang } = useContext(SidebarContext);
+
   return (
     <>
       <h2 className="text-2xl text-red-600 font-medium text-center mb-4">
-        Course Outline
+        {language[lang].t1}
       </h2>
       <div className="grid  lg:grid-cols-3 md:grid-cols-3 lg:gap-[105px] md:gap-[20px] sm:gap-[30px] gap-[30px] p-4 lg:mx-[100px] md:mx-[60px] sm:mx-[150px] mx-[50px] justify-center rounded-3xl">
         <div className="flex-1 p-6 backdrop-blur-9 bg-transparent flex flex-col items-center rounded-2xl shadow-card">
@@ -17,9 +21,9 @@ const CourseOutline = () => {
               alt="registered student"
             />
           </div>
-          <label className="md:text-lg text-center text-red-main font-bold mt-4">Japanese Language</label>
+          <label className="md:text-lg text-center text-red-main font-bold mt-4"> {language[lang].ct1}</label>
           <p className="text-center text-sm font-medium">
-            From basic to advanced level, we are teaching to pass the JLPT exam recognized by Japan
+            {language[lang].cp1}
           </p>
         </div>
 
@@ -32,9 +36,9 @@ const CourseOutline = () => {
               alt="online student"
             />
           </div>
-          <label className="md:text-lg text-center text-red-main font-bold mt-4">Website Design and Coding</label>
+          <label className="md:text-lg text-center text-red-main font-bold mt-4"> {language[lang].ct2}</label>
           <p className="text-sm text-center font-medium">
-          It teaches you the basics of designing and coding so that you can design a website yourself
+            {language[lang].cp2}
           </p>
         </div>
 
@@ -47,9 +51,9 @@ const CourseOutline = () => {
               alt="trainer"
             />
           </div>
-          <label className="md:text-lg text-center text-red-main font-bold mt-4">ITPEC ( IT,FE )</label>
+          <label className="md:text-lg text-center text-red-main font-bold mt-4"> {language[lang].ct3}</label>
           <p className="text-sm text-center font-medium">
-          We are now teaching to obtain a Japan-accredited computer technician certificate
+            {language[lang].cp3}
           </p>
         </div>
       </div>
