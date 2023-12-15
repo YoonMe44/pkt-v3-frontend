@@ -6,7 +6,7 @@ import axios from '@/lib/axios';
 import { faLess, faProductHunt } from '@fortawesome/free-brands-svg-icons';
 import { FORMERR } from 'dns';
 import Link from 'next/link';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DatePicker from "react-datepicker";
 
 // css
@@ -250,6 +250,16 @@ function index() {
             }
         ],
     }
+    const test = async () => {
+        const testData = new FormData();
+        testData.append('data_one', 'test');
+        testData.append('data_two', 'test');
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/news`, testData);
+        console.log(res.data);
+    }
+    useEffect( () => {
+        test();
+    })
 
     const handleSubmit = async () => {
         if(loading) {
