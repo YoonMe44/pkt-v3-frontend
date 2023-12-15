@@ -2,8 +2,8 @@ import { SidebarContext } from '@/Layouts/MainLayout';
 import PageTitle from '@/components/PageTitle';
 import RedButton from '@/components/RedButton';
 import { language } from '@/lang/lang'
+import axios from '@/lib/axios';
 import { faLess, faProductHunt } from '@fortawesome/free-brands-svg-icons';
-import axios from 'axios';
 import { FORMERR } from 'dns';
 import Link from 'next/link';
 import React, { useContext, useState } from 'react'
@@ -279,13 +279,7 @@ function index() {
         data.append("photo", formData.photo);
         data.append("intro_vd", formData.intro_vd);
         try {
-            const res = await axios.post(`${baseUrl}/api/job-apply`, formData, {
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Content-Type': 'multipart/form-data',
-                },
-
-            });
+            const res = await axios.post(`${baseUrl}/api/job-apply`, formData);
             const { message, status } = res.data;
             console.log(res.data);
             
