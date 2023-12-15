@@ -281,6 +281,7 @@ function index() {
         try {
             const res = await axios.post(`${baseUrl}/api/job-apply`, formData, {
                 headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
                     'Content-Type': 'multipart/form-data',
                 },
 
