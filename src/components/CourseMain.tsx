@@ -32,7 +32,7 @@ const CourseMain = () => {
     <div>
       <div className=" w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
         <PageTitle pageTitle={pageTitle} />
-        <div className="absolute top-0 right-0 overflow-hidden z-[-1]">
+        <div className="absolute top-0 right-0 overflow-hidden z-[-1] bounce">
           <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
             <Image
               width={1000}
