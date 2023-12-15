@@ -265,6 +265,8 @@ function index() {
         if(loading) {
             return false;
         }
+        console.log('submitted');
+        
         setLoading(true);
         const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
         const data = new FormData();
@@ -494,8 +496,9 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> CV Form <br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> CV Form <br /></span> 
+                                                        </p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -512,8 +515,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> N3 Certificate<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> N3 Certificate<br /></span> </p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -530,8 +533,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload<br /> N2 Certificate<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload<br /> N2 Certificate<br /></span></p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -548,8 +551,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> N1 Certifcate<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> N1 Certifcate<br /></span></p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -568,8 +571,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />NRC Front Photo<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />NRC Front Photo<br /></span> </p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -586,8 +589,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> NRC Back Font<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> NRC Back Font<br /></span></p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -604,8 +607,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />Census Front<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />Census Front<br /></span> </p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -622,8 +625,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> Census Back Photo<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> Census Back Photo<br /></span></p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -642,8 +645,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />Passport Photo<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />Passport Photo<br /></span></p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -660,8 +663,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />User Photo<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />User Photo<br /></span> </p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -696,8 +699,8 @@ function index() {
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />Intro Video<br /></span> or drag and drop</p>
-                                                        <p className="text-[10px] text-center text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />Intro Video<br /></span> </p>
+                                                        <p className="text-[10px] text-center text-gray-500">Video (MAX SIZE. 25MB)</p>
                                                     </div>
                                                 }
                                             </label>
