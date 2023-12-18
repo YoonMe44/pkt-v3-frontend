@@ -49,10 +49,9 @@ type previewImageType = {
 }
 function index() {
     let { lang } = useContext(SidebarContext);
-    const [startDate, setStartDate] = useState<any>();
     const [currentStep, setCurrentStep] = useState<number>(1);
-    const [reported,setReported] = useState<boolean>(false);
-    const [loading,setLoading] = useState<boolean>(false);
+    const [reported, setReported] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
     const [previewImage, setPreviewImage] = useState<previewImageType>({
         cv: null,
         n3: null,
@@ -88,6 +87,48 @@ function index() {
         photo: null,
         intro_vd: null
     });
+
+
+    const resetFormData = () => {
+        setFromData({
+            name: "",
+            birthday: null,
+            gender: "male",
+            address: "",
+            phone: "",
+            email: "",
+            visa: "work",
+            job: "it",
+            cv: null,
+            n3: null,
+            n2: null,
+            n1: null,
+            nrc_front: null,
+            nrc_back: null,
+            census_front: null,
+            census_back: null,
+            passport: null,
+            photo: null,
+            intro_vd: null,
+        });
+
+        setPreviewImage({
+            cv: null,
+            n3: null,
+            n2: null,
+            n1: null,
+            nrc_front: null,
+            nrc_back: null,
+            census_front: null,
+            census_back: null,
+            passport: null,
+            photo: null,
+            intro_vd: null
+        });
+        setUploadProgress(0);
+        setCurrentStep(1);
+
+    };
 
     const pageTitle = {
         title: language[lang].pkt_education_center,
@@ -169,26 +210,26 @@ function index() {
                 console.log(e);
             }
         }
-        else if (type === 'intro_vd') {
-            try {
-                if (previewImage.intro_vd) {
-                    setFromData({ ...formData, intro_vd: null });
-                    setPreviewImage({ ...previewImage, intro_vd: null });
-                } else {
-                    setFromData({ ...formData, intro_vd: e.target.files ? e.target.files[0] : null });
-                    setPreviewImage({ ...previewImage, intro_vd: URL.createObjectURL(e.target.files[0]) });
-                }
-            } catch (e) {
-                console.log(e);
-            }
-        }
+        // else if (type === 'intro_vd') {
+        //     try {
+        //         if (previewImage.intro_vd) {
+        //             setFromData({ ...formData, intro_vd: null });
+        //             setPreviewImage({ ...previewImage, intro_vd: null });
+        //         } else {
+        //             setFromData({ ...formData, intro_vd: e.target.files ? e.target.files[0] : null });
+        //             setPreviewImage({ ...previewImage, intro_vd: URL.createObjectURL(e.target.files[0]) });
+        //         }
+        //     } catch (e) {
+        //         console.log(e);
+        //     }
+        // }
     }
 
     const handleNext = () => {
         if (formData.name === "" || formData.birthday === null || formData.gender === "" || formData.address === "" || formData.phone === "" || formData.email === "" || formData.visa === "" || formData.job === "") {
             return false;
         }
-        if (currentStep === 2 && (formData.n3 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
+        if (currentStep === 2 && (formData.n3 === null || formData.n3 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
             return false;
         }
         console.log(formData);
@@ -200,6 +241,36 @@ function index() {
     const getLineColor = (step: number) => {
         return step <= currentStep ? "bg-red-700" : "bg-gray-300";
     };
+
+    const [uploadProgress, setUploadProgress] = useState(0);
+
+    const handleVedioChange = (e: any) => {
+        const selectedFile = e.target.files[0];
+        // Check if a file is selected
+        if (selectedFile) {
+            // Check the file size
+            const maxFileSize = 150 * 1024 * 1024; // 150 MB in bytes
+            if (selectedFile.size > maxFileSize) {
+                // Display an error message or take appropriate action
+                alert('File size exceeds the maximum allowed (150 MB). Please choose a smaller file.');
+                // Clear the input field
+                e.target.value = '';
+                // Reset the file state (optional)
+                setFromData({ ...formData, intro_vd: null });
+                setPreviewImage({ ...previewImage, intro_vd: null });
+            } else {
+                // Update the file state
+                if (previewImage.intro_vd) {
+                    setFromData({ ...formData, intro_vd: null });
+                    setPreviewImage({ ...previewImage, intro_vd: null });
+                } else {
+                    setFromData({ ...formData, intro_vd: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, intro_vd: URL.createObjectURL(e.target.files[0]) });
+                }
+            }
+        }
+    };
+
     const job_types = {
         work: [
             {
@@ -250,25 +321,19 @@ function index() {
             }
         ],
     }
-    const test = async () => {
-        const testData = new FormData();
-        testData.append('data_one', 'test');
-        testData.append('data_two', 'test');
-        const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/news`, testData);
-        console.log(res.data);
-    }
-    useEffect( () => {
-        test();
-    })
 
-    const handleSubmit = async () => {
-        if(loading) {
+    const handleSubmit = async (e:any) => {
+        e.preventDefault();
+        const file = formData.intro_vd;
+
+        if (loading) {
             return false;
         }
         console.log('submitted');
-        
+
         setLoading(true);
         const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+       
         const data = new FormData();
 
         data.append("name", formData.name);
@@ -289,20 +354,73 @@ function index() {
         data.append("census_back", formData.census_back);
         data.append("passport", formData.passport);
         data.append("photo", formData.photo);
-        data.append("intro_vd", formData.intro_vd);
-        try {
-            const res = await axios.post(`${baseUrl}/api/job-apply`, formData);
+
+        if(file){
+            const CHUNK_SIZE = 1024 * 1024; // 1 MB chunks
+            const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+
+            // Initialize the upload
+            const res = await axios.post(`${baseUrl}/api/video/upload/init`, {
+                filename: file.name,
+                totalChunks,
+            });
+
+            const { uploadId } = res.data;
+
+            // Upload each chunk
+            for (let currentChunk = 0; currentChunk < totalChunks; currentChunk++) {
+                const start = currentChunk * CHUNK_SIZE;
+                const end = Math.min((currentChunk + 1) * CHUNK_SIZE, file.size);
+                const chunk = file.slice(start, end);
+
+                const formData = new FormData();
+                formData.append('chunk', chunk);
+                formData.append('uploadId', uploadId);
+                formData.append('currentChunk', currentChunk.toString());
+
+                await axios.post(`${baseUrl}/api/video/upload`, formData, {
+                    onUploadProgress: (progressEvent: any) => {
+                        const progress = Math.round(
+                            ((currentChunk * CHUNK_SIZE + progressEvent.loaded) / file.size) * 100
+                        );
+                        setUploadProgress(progress);
+                    },
+                });
+
+            }
+            axios.post(`${baseUrl}/api/video/upload/complete`, { uploadId }).then(async (response) => {
+                const {media} = response.data;
+                console.log(media);
+                data.append("intro_vd", media);
+
+
+                const res = await axios.post(`${baseUrl}/api/job-apply`, data);
+                const { message, status } = res.data;
+                console.log(res.data);
+
+                if (status === 201) {
+                    setReported(true);
+                }
+                resetFormData();
+                setLoading(false);
+            }).catch((error) => {
+                console.log(error);
+            });
+
+        }else {
+            data.append("intro_vd", "");
+            const res = await axios.post(`${baseUrl}/api/job-apply`, data);
             const { message, status } = res.data;
             console.log(res.data);
-            
+
             if (status === 201) {
                 setReported(true);
             }
-            setLoading(false);
-        } catch (e) {
-            console.log(e);
+           // resetFormData();
             setLoading(false);
         }
+        // Finalize the upload
+      
     }
     return (
         <div className="max-w-6xl mx-auto">
@@ -490,15 +608,15 @@ function index() {
                                         <label htmlFor="cv-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].cv_form}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="cv-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="cv-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.cv ? <img src={previewImage.cv} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> CV Form <br /></span> 
+                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> CV Form <br /></span>
                                                         </p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -509,14 +627,14 @@ function index() {
                                         <label htmlFor="n3-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n3_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="n3-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="n3-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.n3 ? <img src={previewImage.n3} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> N3 Certificate<br /></span> </p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -527,14 +645,14 @@ function index() {
                                         <label htmlFor="n2-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n2_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="n2-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="n2-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.n2 ? <img src={previewImage.n2} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload<br /> N2 Certificate<br /></span></p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -545,14 +663,14 @@ function index() {
                                         <label htmlFor="n1-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n1_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.n1 ? <img src={previewImage.n1} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> N1 Certifcate<br /></span></p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -565,14 +683,14 @@ function index() {
                                         <label htmlFor="nrc-front-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_front}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="nrc-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="nrc-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.nrc_front ? <img src={previewImage.nrc_front} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />NRC Front Photo<br /></span> </p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -583,14 +701,14 @@ function index() {
                                         <label htmlFor="nrc-back-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_back}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="nrc-back-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="nrc-back-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.nrc_back ? <img src={previewImage.nrc_back} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> NRC Back Font<br /></span></p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -601,14 +719,14 @@ function index() {
                                         <label htmlFor="census-front-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_front}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="census-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="census-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.census_front ? <img src={previewImage.census_front} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />Census Front<br /></span> </p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -619,14 +737,14 @@ function index() {
                                         <label htmlFor="census-back-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_back}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="census-back-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="census-back-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.census_back ? <img src={previewImage.census_back} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> Census Back Photo<br /></span></p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -639,14 +757,14 @@ function index() {
                                         <label htmlFor="passport-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].passport}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="passport-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="passport-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                                                 {previewImage.passport ? <img src={previewImage.passport} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />Passport Photo<br /></span></p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -657,14 +775,14 @@ function index() {
                                         <label htmlFor="user-photo-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].your_photo}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="user-photo-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label htmlFor="user-photo-upload" className="overflow-hidden flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                                 {previewImage.photo ? <img src={previewImage.photo} alt="Preview" /> :
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />User Photo<br /></span> </p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br/> (MAX. 800x400px)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
                                                     </div>
                                                 }
                                             </label>
@@ -675,12 +793,12 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].intro_vd}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="intro-vd-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 relative">
+                                            <label htmlFor="intro-vd-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 relative z">
                                                 {(previewImage.intro_vd && formData.intro_vd) &&
                                                     <button onClick={() => {
                                                         setFromData({ ...formData, intro_vd: null });
                                                         setPreviewImage({ ...previewImage, intro_vd: null });
-                                                    }} className='absolute z-10 -top-2 -right-12'>
+                                                    }} className='absolute z-10 -top-2 -right-2'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 24 24" fill='red'>
                                                             <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 8.7070312 7.2929688 L 7.2929688 8.7070312 L 10.585938 12 L 7.2929688 15.292969 L 8.7070312 16.707031 L 12 13.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13.414062 12 L 16.707031 8.7070312 L 15.292969 7.2929688 L 12 10.585938 L 8.7070312 7.2929688 z"></path>
                                                         </svg>
@@ -688,9 +806,9 @@ function index() {
                                                 }
 
                                                 {(previewImage.intro_vd && formData.intro_vd) ?
-                                                    <div className='w-[220px] h-[250px] overflow-hidden'>
+                                                    <div className='w-[125px] h-[250px] overflow-hidden rounded-lg'>
 
-                                                        <video width="450" controls>
+                                                        <video width="250" controls>
                                                             <source src={previewImage.intro_vd} type="video/mp4" />
                                                             Your browser does not support the video tag.
                                                         </video>
@@ -700,11 +818,11 @@ function index() {
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />Intro Video<br /></span> </p>
-                                                        <p className="text-[10px] text-center text-gray-500">Video (MAX SIZE. 25MB)</p>
+                                                        <p className="text-[10px] text-center text-gray-500">MP4 (MAX SIZE. 150MB)</p>
                                                     </div>
                                                 }
                                             </label>
-                                            <input id="intro-vd-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'intro_vd')} />
+                                            <input id="intro-vd-upload" type="file" className="hidden" onChange={handleVedioChange} max="50000" />
                                         </div>
                                     </div>
                                 </div>
@@ -772,12 +890,12 @@ function index() {
 
                                 <div className="grid sm:grid-cols-2 lg:grid-cols-4  grid-cols-1 md:gap-gap-0 lg:gap-6 gap-0">
                                     <div className='my-2'>
-                                        <label className="text-center mb-2 block text-md font-medium text-gray-900">
+                                        <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
                                             {language[lang].cv_form}
                                         </label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  ">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  overflow-hidden">
                                                 {previewImage.cv && <img src={previewImage.cv} alt="Preview" />}
                                             </label>
                                         </div>
@@ -786,7 +904,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n3_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 ">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 overflow-hidden">
                                                 {previewImage.n3 && <img src={previewImage.n3} alt="Preview" />}
                                             </label>
                                         </div>
@@ -795,7 +913,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n2_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 ">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 overflow-hidden">
                                                 {previewImage.n2 && <img src={previewImage.n2} alt="Preview" />
                                                 }
                                             </label>
@@ -805,7 +923,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n1_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  ">
+                                            <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 overflow-hidden ">
                                                 {previewImage.n1 && <img src={previewImage.n1} alt="Preview" />
                                                 }
                                             </label>
@@ -820,7 +938,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_front}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="nrc-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
+                                            <label htmlFor="nrc-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 overflow-hidden">
                                                 {previewImage.nrc_front && <img src={previewImage.nrc_front} alt="Preview" />}
                                             </label>
                                         </div>
@@ -829,7 +947,7 @@ function index() {
                                         <label htmlFor="name" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_back}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
+                                            <label className="flex overflow-hidden flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
                                                 {previewImage.nrc_back && <img src={previewImage.nrc_back} alt="Preview" />
                                                 }
                                             </label>
@@ -840,7 +958,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_front}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32  overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
                                                 {previewImage.census_front && <img src={previewImage.census_front} alt="Preview" />
                                                 }
                                             </label>
@@ -850,7 +968,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_back}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32 overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
                                                 {previewImage.census_back && <img src={previewImage.census_back} alt="Preview" />
                                                 }
                                             </label>
@@ -866,7 +984,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].passport}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32 overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                                 {previewImage.passport && <img src={previewImage.passport} alt="Preview" />
                                                 }
                                             </label>
@@ -876,7 +994,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].your_photo}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32 overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                                 {previewImage.photo && <img src={previewImage.photo} alt="Preview" />
                                                 }
                                             </label>
@@ -889,7 +1007,7 @@ function index() {
                                             <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
 
                                                 {previewImage.intro_vd &&
-                                                    <div className='w-[220px] h-[250px] overflow-hidden'>
+                                                    <div className='w-[125px] h-[250px] overflow-hidden rounded-lg'>
                                                         <video width="400" controls>
                                                             <source src={previewImage.intro_vd} type="video/mp4" />
                                                             Your browser does not support the video tag.
@@ -941,7 +1059,7 @@ function index() {
                                                     {language[lang].back}
                                                 </Link>
                                             </button>
-                                            <RedButton title={language[lang].submit_btn} onClick={handleSubmit} disabled={loading}/>
+                                            <RedButton title={language[lang].submit_btn} onClick={(e) => handleSubmit(e)} disabled={loading} uploadProgress={uploadProgress}/>
                                         </div>
                                     )}
                                 </div>
@@ -953,9 +1071,9 @@ function index() {
                         <p className="text-gray-600 text-[16px] text-center my-4">{language[lang].job_app_thanks_u_content_1}</p>
                         <p className="text-gray-600 text-[16px] text-center my-4">{language[lang].job_app_thanks_u_content_2}</p>
                         <p className="text-red-600 text-[16px] text-left my-4">{language[lang].job_app_thanks_u_content_3}</p>
-                       <div className=" justify-center flex">
+                        <div className=" justify-center flex">
                             <RedButton title={language[lang].home} link='/' />
-                       </div>
+                        </div>
                     </div>
                 }
             </div>
