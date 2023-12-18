@@ -229,7 +229,7 @@ function index() {
         if (formData.name === "" || formData.birthday === null || formData.gender === "" || formData.address === "" || formData.phone === "" || formData.email === "" || formData.visa === "" || formData.job === "") {
             return false;
         }
-        if (currentStep === 2 && (formData.n3 === null || formData.n3 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
+        if (currentStep === 2 && (formData.n3 === null || formData.n2 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
             return false;
         }
         console.log(formData);
@@ -392,12 +392,8 @@ function index() {
                 const {media} = response.data;
                 console.log(media);
                 data.append("intro_vd", media);
-
-
                 const res = await axios.post(`${baseUrl}/api/job-apply`, data);
                 const { message, status } = res.data;
-                console.log(res.data);
-
                 if (status === 201) {
                     setReported(true);
                 }
