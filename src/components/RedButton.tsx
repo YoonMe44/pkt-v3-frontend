@@ -8,12 +8,13 @@ interface RedButtonProps {
 const RedButton: React.FC<RedButtonProps> = ({ title,link,onClick,disabled}) => {
   return (
     <div className="">
-      <button className="redBtn" disabled={disabled} onClick={onClick}>
+      <button className="redBtn relative" disabled={disabled} onClick={onClick}>
         <span className="shadow"></span>
         <span className="edge"></span>
         <Link href={link || "#"} className="front">
-          {title}
+          {disabled ? "Uploading..." : title}
         </Link>
+       
       </button>
     </div>
   );
