@@ -35,9 +35,9 @@ const NewsPage: NextPage<NewsPageProps> = ({ news }) => {
           </div>
         </div>
       </div>
-      <div className="-mt-8 ">
+      {/* <div className="-mt-8 ">
         <NewsCard news={news}/>
-      </div>
+      </div> */}
     </div>
   );
 };
