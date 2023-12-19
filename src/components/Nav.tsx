@@ -169,17 +169,7 @@ const Nav: React.FC = () => {
             >
               {language[lang].home}
             </Link>
-            <Link
-              href={"/courses"}
-              className={`${
-                activeNav === "courses"
-                  ? "text-red-main border-b-[3px] border-red-main"
-                  : "text-black"
-              } text-sm font-medium`}
-              onClick={() => setActiveNav("courses")}
-            >
-              Courses
-            </Link>
+            
             <Link
               href={"/about"}
               className={`${

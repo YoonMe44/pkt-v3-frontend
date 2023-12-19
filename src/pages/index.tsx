@@ -38,15 +38,14 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
   return (
     <div>
       {/* MainVisual */}
-      <div className="w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
+      <div className="w-full right-0">
         <div className="pb-20">
           <PageTitle pageTitle={pageTitle} />
-          <div className="mt-4">
+          <div className="mt-4 bounce">
             <RedButton title="Application Form" link="/apply" />
           </div>
-
         </div>
-        <div className="absolute top-0 right-0 overflow-hidden z-[-1]">
+        <div className="absolute top-0 right-0 overflow-hidden z-[-1] bounce bounce">
           <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px] oval bg-slate-200 transform right-0 overflow-hidden ">
             <Image
               width={1000}
@@ -86,9 +85,7 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
               </label>
             </div>
             <div>
-              <p className="text-base">
-                {language[lang].abc}
-              </p>
+              <p className="text-base">{language[lang].abc}</p>
             </div>
           </div>
         </div>
@@ -125,13 +122,13 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
                 <span className="text-red-main md:text-lg font-bold">
                   {language[lang].ceo_name}
                 </span>
-                <span className="text-gray-400 pl-4">{language[lang].label}</span>
+                <span className="text-gray-400 pl-4">
+                  {language[lang].label}
+                </span>
               </label>
             </div>
             <div>
-              <p className="text-base">
-                {language[lang].ceo_content}
-              </p>
+              <p className="text-base">{language[lang].ceo_content}</p>
             </div>
           </div>
         </div>
