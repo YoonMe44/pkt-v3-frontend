@@ -22,7 +22,7 @@ const NewsPage: NextPage<NewsPageProps> = ({ news }) => {
     <div>
       <div className="pb-20  w-full right-0 animate__animated animate__bounceInDown animate__duration-8000 animate__fill-both">
         <PageTitle pageTitle={pageTitle} />
-        <div className="absolute top-0 right-0 z-[-1] overflow-hidden">
+        <div className="absolute top-0 right-0 z-[-1] overflow-hidden bounce">
           <div className=" relative  w-[85%] h-[30%] left-[30%] bottom-[100px]  md:bottom-[250px] lg:bottom-[200px]  oval bg-slate-200 transform right-0 overflow-hidden ">
             <Image
               width={1000}

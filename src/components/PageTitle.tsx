@@ -10,7 +10,7 @@ const PageTitle = ({pageTitle}: PageTitleProps) => {
   const {title, content_1, content_2} = pageTitle;
   return (
     <div>
-      <div>
+      <div className="bounce">
         {/* <h1>{title}</h1> */}
 
         <i className="lg:text-[48px] md:text-[38px] text-[28px] text-black font-medium">
