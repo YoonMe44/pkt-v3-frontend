@@ -25,6 +25,8 @@ const Nav: React.FC = () => {
       setActiveNav("courses");
     } else if (router.asPath.includes("/news")) {
       setActiveNav("news");
+    } else if (router.asPath.includes("/applications")) {
+      setActiveNav("app");
     } else if (router.asPath) {
       setActiveNav("home");
     }
@@ -211,6 +213,16 @@ const Nav: React.FC = () => {
             >
               {language[lang].news}
             </Link>
+            <Link
+              href={"/applications"}
+              className={`${activeNav === "app"
+                  ? "text-red-main border-b-[3px] border-red-main"
+                  : "text-black"
+                } text-sm font-medium`}
+              onClick={() => setActiveNav("app")}
+            >
+              {language[lang].applications}
+            </Link>
 
            <div className="flex space-x-3">
               <button onClick={() => setLang(2)}>
@@ -325,6 +337,18 @@ const Nav: React.FC = () => {
                 onClick={() => handleNavLinkClick("news")}
               >
                 {language[lang].news}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/applications"
+                className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "app"
+                    ? "text-red-main border-b-[3px] border-red-500"
+                    : " text-black"
+                  } md:bg-transparent hover:text-red-main`}
+                onClick={() => handleNavLinkClick("app")}
+              >
+                {language[lang].applications}
               </Link>
             </li>
             <li>

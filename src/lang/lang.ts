@@ -8,10 +8,14 @@ export const language = [
         "local": "Local Classroom",
         "online": "Online Classroom",
         "news": "News",
+        "applications": "Applications",
         "newsdtil": "New Detail",
         "future2": "For Your Future",
         "contact": "Contact Us",
         "faq": "FAQ",
+
+        // pages
+        'appDetails': 'Application Details',
 
         //for header
         "plan": "Plan your ",
@@ -175,9 +179,13 @@ export const language = [
         "local": "地元クラス",
         "online": "オンラインクラス",
         "news": "ニュース",
+        "applications": "アプリケーション",
         "contact": "お問い合わせ",
         "future2": "あなたの未来のために",
         "faq": "質問",
+
+        // pages
+        'appDetails': 'アプリケーション詳細',
 
         //for header
         "plan": "計画を立てる",
@@ -333,8 +341,12 @@ export const language = [
         "local": "အပြင်တန်း",
         "online": "အွန်လိုင်းတန်း",
         "news": "သတင်း",
+        "applications":"လျှောက်လွှာများ",
         "contact": "ဆက်သွယ်ရန်",
         "faq": "မေးခွန်းများ",
+
+        // pages
+        'appDetails': 'လျှောက်လွှာအသေးစိတ်',
 
         // for header
         "readmore": "",

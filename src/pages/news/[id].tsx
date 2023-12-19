@@ -118,8 +118,6 @@ export const getServerSideProps: GetServerSideProps<NewsDetailProps> = async ({
   } catch (e) {
     console.log(e)
   }
-
-  // Pass data to the page via props
   return {
     props: {
       news: newsResponse

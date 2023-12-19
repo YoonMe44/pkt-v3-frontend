@@ -1,6 +1,6 @@
 import PageTitle from "@/components/PageTitle";
 
-import NewsCard from "../../components/NewsCard";
+import NewsCard from "../../components/ApplicationForms";
 import Image from "next/image";
 import { GetServerSideProps, NextPage } from "next";
 

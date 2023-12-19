@@ -1,40 +1,40 @@
 import Image from "next/image";
-import {Inter} from "next/font/google";
+import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TopPage from "@/components/TopPage";
 import PageTitle from "@/components/PageTitle";
 import MoreBtn from "@/components/MoreBtn";
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 import Instructor from "@/components/Instructor";
 import CourseOutline from "@/components/CourseOutline";
 import OurCapacity from "@/components/OurCapacity";
-import NewsCard from "@/components/NewsCard";
 import { GetServerSideProps, NextPage } from "next";
-import { News, Instructors } from "@/types";
+import { News, Instructors, ApplicationForm } from "@/types";
 import axios from "axios";
 import { useContext } from "react";
 import { SidebarContext } from "@/Layouts/MainLayout";
 import { language } from "@/lang/lang";
 import RedButton from "@/components/RedButton";
+import ApplicationForms from "@/components/ApplicationForms";
 
 
 interface HomeProps {
-  news: News[]
+  applicationForms: ApplicationForm[]
   instructors: Instructors[]
 }
 
 
-const Home: NextPage<HomeProps> = ({ news,instructors }) => {
+const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
   let { lang } = useContext(SidebarContext);
 
   const pageTitle = {
-    title: language[lang].center ,
+    title: language[lang].center,
     content_1: language[lang].plan,
     content_2: language[lang].future,
-  }; 
-
+  };
+  
   return (
     <div>
       {/* MainVisual */}
@@ -138,7 +138,7 @@ const Home: NextPage<HomeProps> = ({ news,instructors }) => {
       </div>
 
       <div>
-        <NewsCard news={news}/>
+        <ApplicationForms applicationForms={applicationForms} />
       </div>
     </div>
   );
@@ -149,27 +149,26 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  let newsResponse: News[] = [];
   let instructorsResponse: Instructors[] = [];
-  
+  let applicationForms: ApplicationForm[] = [];
+
   try {
-    const res = await axios.get(`${baseUrl}/api/news`)
-    newsResponse = res.data.data;
+    const res = await axios.get(`${baseUrl}/api/job-apply`)
+    applicationForms = res.data.data;
   } catch (e) {
     console.log(e)
   }
 
-  try{
+  try {
     const res = await axios.get(`${baseUrl}/api/users`)
     instructorsResponse = res.data.data;
-
-  }catch (e) {
+  } catch (e) {
     console.log(e)
   }
 
   return {
     props: {
-      news: newsResponse,
+      applicationForms: applicationForms,
       instructors: instructorsResponse
     }
   }

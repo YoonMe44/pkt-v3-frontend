@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Instructor.jsx", "src/components/NewsCard.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Instructor.jsx", "src/components/ApplicationForms.tsx"],
   "exclude": ["node_modules"]
 }
