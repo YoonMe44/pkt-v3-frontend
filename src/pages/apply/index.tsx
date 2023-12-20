@@ -22,6 +22,9 @@ type formDataType = {
     visa: string,
     job: string,
     cv: any,
+    jft: any,
+    edu: any,
+    n4: any,
     n3: any,
     n2: any,
     n1: any,
@@ -36,6 +39,9 @@ type formDataType = {
 
 type previewImageType = {
     cv: any,
+    jft: any,
+    edu: any,
+    n4: any,
     n3: any,
     n2: any,
     n1: any,
@@ -54,6 +60,9 @@ function index() {
     const [loading, setLoading] = useState<boolean>(false);
     const [previewImage, setPreviewImage] = useState<previewImageType>({
         cv: null,
+        jft: null,
+        edu: null,
+        n4: null,
         n3: null,
         n2: null,
         n1: null,
@@ -76,6 +85,9 @@ function index() {
         visa: "work",
         job: "it",
         cv: null,
+        jft: null,
+        edu: null,
+        n4: null,
         n3: null,
         n2: null,
         n1: null,
@@ -88,6 +100,63 @@ function index() {
         intro_vd: null
     });
 
+    const resetUpload = () => {
+        setPreviewImage({
+            ...previewImage,
+            jft: null,
+            edu: null,
+            n4: null,
+            n3: null,
+            n2: null,
+            n1: null,
+        });
+        setFromData({
+            ...formData,
+            jft: null,
+            edu: null,
+            n4: null,
+            n3: null,
+            n2: null,
+            n1: null,
+        });
+    }
+
+    const resetAllUpload = () => {
+        setPreviewImage({
+            ...previewImage,
+            cv: null,
+            jft: null,
+            edu: null,
+            n4: null,
+            n3: null,
+            n2: null,
+            n1: null,
+            nrc_front: null,
+            nrc_back: null,
+            census_front: null,
+            census_back: null,
+            passport: null,
+            photo: null,
+            intro_vd: null
+        });
+        setFromData({
+            ...formData,
+            cv: null,
+            jft: null,
+            edu: null,
+            n4: null,
+            n3: null,
+            n2: null,
+            n1: null,
+            nrc_front: null,
+            nrc_back: null,
+            census_front: null,
+            census_back: null,
+            passport: null,
+            photo: null,
+            intro_vd: null
+        });
+    }
 
     const resetFormData = () => {
         setFromData({
@@ -100,6 +169,9 @@ function index() {
             visa: "work",
             job: "it",
             cv: null,
+            jft: null,
+            edu: null,
+            n4: null,
             n3: null,
             n2: null,
             n1: null,
@@ -114,6 +186,9 @@ function index() {
 
         setPreviewImage({
             cv: null,
+            jft: null,
+            edu: null,
+            n4: null,
             n3: null,
             n2: null,
             n1: null,
@@ -137,99 +212,199 @@ function index() {
     };
 
     const handleFile = (e: any, type: string) => {
+        const selectedFile = e.target.files[0];
+        const fileExtension = selectedFile ? selectedFile.name.split('.').pop().toLowerCase() : null;
+        const fielPreview = e.target.files[0] ? URL.createObjectURL(e.target.files[0]) : null;
+        if (!fileExtension) {
+            resetAllUpload();
+            console.log('no file');
+            return false;
+        }
+        const maxFileSize = 5 * 1024 * 1024; // 150 MB in bytes
+        if (fileExtension && fileExtension.size > maxFileSize) {
+            alert('File size exceeds the maximum allowed (5 MB). Please choose a smaller file.');
+            return false;
+        }
+
         if (type === 'cv') {
             try {
-                setFromData({ ...formData, cv: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, cv: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, cv: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, cv: 'pdf' });
+                } else {
+                    setFromData({ ...formData, cv: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, cv: fielPreview });
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        } else if (type === 'n4') {
+            try {
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, n4: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, n4: 'pdf' });
+                } else {
+                    setFromData({ ...formData, n4: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, n4: fielPreview });
+                }
             } catch (e) {
                 console.log(e);
             }
         } else if (type === 'n3') {
             try {
-                setFromData({ ...formData, n3: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, n3: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setPreviewImage({ ...previewImage, n3: 'pdf' });
+                    setFromData({ ...formData, n3: e.target.files ? e.target.files[0] : null });
+                } else {
+                    setFromData({ ...formData, n3: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, n3: fielPreview });
+                }
+
+
+            } catch (e) {
+                console.log(e);
+            }
+        } else if (type === 'jft') {
+            try {
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, jft: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, jft: 'pdf' });
+                } else {
+                    setFromData({ ...formData, jft: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, jft: fielPreview });
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        } else if (type === 'edu') {
+            try {
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, edu: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, edu: 'pdf' });
+                } else {
+                    setFromData({ ...formData, edu: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, edu: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         } else if (type === 'n2') {
             try {
-                setFromData({ ...formData, n2: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, n2: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, n2: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, n2: 'pdf' });
+                } else {
+                    setFromData({ ...formData, n2: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, n2: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         } else if (type === 'n1') {
             try {
-                setFromData({ ...formData, n1: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, n1: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, n1: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, n1: 'pdf' });
+                } else {
+                    setFromData({ ...formData, n1: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, n1: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         } else if (type === 'nrc_front') {
             try {
-                setFromData({ ...formData, nrc_front: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, nrc_front: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, nrc_front: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, nrc_front: 'pdf' });
+                } else {
+                    setFromData({ ...formData, nrc_front: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, nrc_front: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         } else if (type === 'nrc_back') {
             try {
-                setFromData({ ...formData, nrc_back: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, nrc_back: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, nrc_back: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, nrc_back: 'pdf' });
+                } else {
+                    setFromData({ ...formData, nrc_back: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, nrc_back: fielPreview });
+                }
             } catch (e) {
                 console.log(e);
             }
         } else if (type === 'census_front') {
             try {
-                setFromData({ ...formData, census_front: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, census_front: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, census_front: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, census_front: 'pdf' });
+                } else {
+                    setFromData({ ...formData, census_front: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, census_front: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         } else if (type === 'census_back') {
             try {
-                setFromData({ ...formData, census_back: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, census_back: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, census_back: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, census_back: 'pdf' });
+                } else {
+                    setFromData({ ...formData, census_back: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, census_back: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         }
         else if (type === 'passport') {
             try {
-                setFromData({ ...formData, passport: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, passport: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, passport: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, passport: 'pdf' });
+                } else {
+                    setFromData({ ...formData, passport: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, passport: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         }
         else if (type === 'photo') {
             try {
-                setFromData({ ...formData, photo: e.target.files ? e.target.files[0] : null });
-                setPreviewImage({ ...previewImage, photo: URL.createObjectURL(e.target.files[0]) });
+                if (fileExtension === 'pdf') {
+                    setFromData({ ...formData, photo: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, photo: 'pdf' });
+                } else {
+                    setFromData({ ...formData, photo: e.target.files ? e.target.files[0] : null });
+                    setPreviewImage({ ...previewImage, photo: fielPreview });
+                }
+
             } catch (e) {
                 console.log(e);
             }
         }
-        // else if (type === 'intro_vd') {
-        //     try {
-        //         if (previewImage.intro_vd) {
-        //             setFromData({ ...formData, intro_vd: null });
-        //             setPreviewImage({ ...previewImage, intro_vd: null });
-        //         } else {
-        //             setFromData({ ...formData, intro_vd: e.target.files ? e.target.files[0] : null });
-        //             setPreviewImage({ ...previewImage, intro_vd: URL.createObjectURL(e.target.files[0]) });
-        //         }
-        //     } catch (e) {
-        //         console.log(e);
-        //     }
-        // }
     }
 
     const handleNext = () => {
         if (formData.name === "" || formData.birthday === null || formData.gender === "" || formData.address === "" || formData.phone === "" || formData.email === "" || formData.visa === "" || formData.job === "") {
             return false;
         }
-        if (currentStep === 2 && (formData.n3 === null || formData.n2 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
+        if (currentStep === 2 && formData.visa === "work" && (formData.n2 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
+            return false;
+        }
+        if (currentStep === 2 && formData.visa === "tokutei" && (formData.jft === null || formData.n4 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
             return false;
         }
         console.log(formData);
@@ -246,26 +421,20 @@ function index() {
 
     const handleVedioChange = (e: any) => {
         const selectedFile = e.target.files[0];
-        // Check if a file is selected
         if (selectedFile) {
-            // Check the file size
             const maxFileSize = 150 * 1024 * 1024; // 150 MB in bytes
             if (selectedFile.size > maxFileSize) {
-                // Display an error message or take appropriate action
                 alert('File size exceeds the maximum allowed (150 MB). Please choose a smaller file.');
-                // Clear the input field
                 e.target.value = '';
-                // Reset the file state (optional)
                 setFromData({ ...formData, intro_vd: null });
                 setPreviewImage({ ...previewImage, intro_vd: null });
             } else {
-                // Update the file state
                 if (previewImage.intro_vd) {
                     setFromData({ ...formData, intro_vd: null });
                     setPreviewImage({ ...previewImage, intro_vd: null });
                 } else {
                     setFromData({ ...formData, intro_vd: e.target.files ? e.target.files[0] : null });
-                    setPreviewImage({ ...previewImage, intro_vd: URL.createObjectURL(e.target.files[0]) });
+                    setPreviewImage({ ...previewImage, intro_vd: URL.createObjectURL(selectedFile) });
                 }
             }
         }
@@ -322,7 +491,7 @@ function index() {
         ],
     }
 
-    const handleSubmit = async (e:any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         const file = formData.intro_vd;
 
@@ -333,7 +502,7 @@ function index() {
 
         setLoading(true);
         const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-       
+
         const data = new FormData();
 
         data.append("name", formData.name);
@@ -345,6 +514,9 @@ function index() {
         data.append("visa", formData.visa);
         data.append("job", formData.job);
         data.append("cv", formData.cv);
+        data.append("edu", formData.edu);
+        data.append("jft", formData.jft);
+        data.append("n4", formData.n4);
         data.append("n3", formData.n3);
         data.append("n2", formData.n2);
         data.append("n1", formData.n1);
@@ -355,7 +527,7 @@ function index() {
         data.append("passport", formData.passport);
         data.append("photo", formData.photo);
 
-        if(file){
+        if (file) {
             const CHUNK_SIZE = 1024 * 1024; // 1 MB chunks
             const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
 
@@ -389,21 +561,23 @@ function index() {
 
             }
             axios.post(`${baseUrl}/api/video/upload/complete`, { uploadId }).then(async (response) => {
-                const {media} = response.data;
+                const { media } = response.data;
                 console.log(media);
                 data.append("intro_vd", media);
                 const res = await axios.post(`${baseUrl}/api/job-apply`, data);
                 const { message, status } = res.data;
+                console.log(res.data);
+
                 if (status === 201) {
                     setReported(true);
                 }
-                resetFormData();
+                //  resetFormData();
                 setLoading(false);
             }).catch((error) => {
                 console.log(error);
             });
 
-        }else {
+        } else {
             data.append("intro_vd", "");
             const res = await axios.post(`${baseUrl}/api/job-apply`, data);
             const { message, status } = res.data;
@@ -412,11 +586,11 @@ function index() {
             if (status === 201) {
                 setReported(true);
             }
-           // resetFormData();
+            // resetFormData();
             setLoading(false);
         }
         // Finalize the upload
-      
+
     }
     return (
         <div className="max-w-6xl mx-auto">
@@ -561,17 +735,23 @@ function index() {
 
                                 <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1  lg:gap-6 gap-3 my-4">
                                     <div className="">
-                                        <label htmlFor="visa" className="block text-md font-medium text-gray-900 mb-3">{language[lang].visa_type} <span className='text-red-main'>( {language[lang].must_be_n2_n1} )</span></label>
+                                        <label htmlFor="visa" className="block text-md font-medium text-gray-900 mb-3">{language[lang].visa_type} {formData.visa === 'work' && <span className='text-red-main'>( {language[lang].must_be_n2_n1} )</span>}</label>
 
                                         <div className='grid grid-cols-1 sm:grid-cols-2'>
                                             <div>
-                                                <input id="visa-1" type="radio" value="tokutei" name="visa" className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2 dark:bg-gray-700" checked={formData.visa === 'tokutei'} onChange={(e) => setFromData({ ...formData, visa: e.target.value })} />
+                                                <input id="visa-1" type="radio" value="tokutei" name="visa" className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2 dark:bg-gray-700" checked={formData.visa === 'tokutei'} onChange={(e) => {
+                                                    resetUpload();
+                                                    setFromData({ ...formData, visa: e.target.value })
+                                                }} />
                                                 <label htmlFor="visa-1" className="ms-2 mr-4 text-md font-medium text-gray-900 dark:text-gray-300">{language[lang].tokutei_visa}</label>
                                             </div>
 
 
                                             <div>
-                                                <input id="visa-2" type="radio" value="work" name="visa" className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2 dark:bg-gray-700 " checked={formData.visa === 'work'} onChange={(e) => setFromData({ ...formData, visa: e.target.value })} />
+                                                <input id="visa-2" type="radio" value="work" name="visa" className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2 dark:bg-gray-700 " checked={formData.visa === 'work'} onChange={(e) => {
+                                                    resetUpload();
+                                                    setFromData({ ...formData, visa: e.target.value })
+                                                }} />
                                                 <label htmlFor="visa-2" className="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">{language[lang].work_visa}</label>
                                             </div>
                                         </div>
@@ -605,90 +785,223 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="cv-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.cv ? <img src={previewImage.cv} alt="Preview" /> :
-                                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                                        <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                {previewImage.cv === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
                                                         </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> CV Form <br /></span>
-                                                        </p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.cv} alt="Preview" />
                                                 }
+                                                {!previewImage.cv && <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                    <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                    </svg>
+                                                    <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> CV Form <br /></span>
+                                                    </p>
+                                                    <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
+                                                </div>}
                                             </label>
                                             <input id="cv-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'cv')} />
                                         </div>
                                     </div>
-                                    <div className='my-2'>
-                                        <label htmlFor="n3-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n3_certificate}</label>
+                                    {formData.visa !== 'work' &&
+                                        <div className='my-2'>
+                                            <label htmlFor="edu-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].edu_certificate}</label>
 
-                                        <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="n3-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.n3 ? <img src={previewImage.n3} alt="Preview" /> :
-                                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                                        <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                                        </svg>
-                                                        <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> N3 Certificate<br /></span> </p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
-                                            </label>
-                                            <input id="n3-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'n3')} />
+                                            <div className="flex items-center justify-center w-full">
+                                                <label htmlFor="edu-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
+
+                                                    {previewImage.edu === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.edu} alt="Preview" />
+                                                    }
+                                                    {!previewImage.edu &&
+                                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                            <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                            </svg>
+                                                            <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> Edu Certificate<br /></span> </p>
+                                                            <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
+                                                        </div>}
+
+
+                                                </label>
+                                                <input id="edu-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'edu')} />
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
+                                    {formData.visa !== 'work' &&
+                                        <div className='my-2'>
+                                            <label htmlFor="jft-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].JFT}</label>
+
+                                            <div className="flex items-center justify-center w-full">
+                                                <label htmlFor="jft-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
+
+
+                                                    {previewImage.jft === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.jft} alt="Preview" />
+                                                    }
+                                                    {!previewImage.jft &&
+                                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                            <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                            </svg>
+                                                            <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> JFT Certificate<br /></span> </p>
+                                                            <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
+                                                        </div>}
+                                                </label>
+                                                <input id="jft-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'jft')} />
+                                            </div>
+                                        </div>
+                                    }
+                                    {formData.visa !== 'work' &&
+                                        <div className='my-2'>
+                                            <label htmlFor="n4-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n4_certificate}</label>
+
+                                            <div className="flex items-center justify-center w-full">
+                                                <label htmlFor="n4-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
+
+                                                    {previewImage.n4 === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.n4} alt="Preview" />
+                                                    }
+                                                    {!previewImage.n4 &&
+                                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                            <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                            </svg>
+                                                            <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> N4 Certificate<br /></span> </p>
+                                                            <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
+                                                        </div>}
+
+                                                </label>
+                                                <input id="n4-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'n4')} />
+                                            </div>
+                                        </div>
+                                    }
+                                    {formData.visa !== 'work' &&
+                                        <div className='my-2'>
+                                            <label htmlFor="n3-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n3_certificate}</label>
+
+                                            <div className="flex items-center justify-center w-full">
+                                                <label htmlFor="n3-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
+                                                    {previewImage.n3 === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.n3} alt="Preview" />
+                                                    }
+                                                    {!previewImage.n3 &&
+                                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                            <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                            </svg>
+                                                            <p className="mb-2 text-xs text-center text-gray-500 "><span className="font-semibold">Click to upload<br /> N3 Certificate<br /></span> </p>
+                                                            <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
+                                                        </div>}
+                                                </label>
+                                                <input id="n3-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'n3')} />
+                                            </div>
+                                        </div>
+                                    }
                                     <div className='my-2'>
                                         <label htmlFor="n2-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n2_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="n2-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.n2 ? <img src={previewImage.n2} alt="Preview" /> :
+                                                {previewImage.n2 === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.n2} alt="Preview" />
+                                                }
+                                                {!previewImage.n2 &&
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload<br /> N2 Certificate<br /></span></p>
                                                         <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
+                                                    </div>}
                                             </label>
                                             <input id="n2-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'n2')} />
                                         </div>
                                     </div>
-                                    <div className='my-2'>
-                                        <label htmlFor="n1-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n1_certificate}</label>
+                                    {formData.visa !== 'tokutei' &&
+                                        <div className='my-2'>
+                                            <label htmlFor="n1-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n1_certificate}</label>
 
-                                        <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.n1 ? <img src={previewImage.n1} alt="Preview" /> :
-                                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                                        <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                                        </svg>
-                                                        <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> N1 Certifcate<br /></span></p>
-                                                        <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
-                                            </label>
-                                            <input id="n1-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'n1')} />
+                                            <div className="flex items-center justify-center w-full">
+                                                <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
+                                                    {previewImage.n1 === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.n1} alt="Preview" />
+                                                    }
+                                                    {!previewImage.n1 &&
+                                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                            <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                            </svg>
+                                                            <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> N1 Certifcate<br /></span></p>
+                                                            <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
+                                                        </div>}
+                                                </label>
+                                                <input id="n1-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'n1')} />
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="grid md:grid-cols-2 mt-6 lg:grid-cols-4 sm:grid-cols-1 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
+                                    }
+
                                     <div className='my-2'>
                                         <label htmlFor="nrc-front-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_front}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="nrc-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.nrc_front ? <img src={previewImage.nrc_front} alt="Preview" /> :
+                                                {previewImage.nrc_front === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.nrc_front} alt="Preview" />
+                                                }
+                                                {!previewImage.nrc_front &&
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />NRC Front Photo<br /></span> </p>
                                                         <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
+                                                    </div>}
                                             </label>
                                             <input id="nrc-front-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'nrc_front')} />
                                         </div>
@@ -698,15 +1011,23 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="nrc-back-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.nrc_back ? <img src={previewImage.nrc_back} alt="Preview" /> :
+                                                {previewImage.nrc_back === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.nrc_back} alt="Preview" />
+                                                }
+                                                {!previewImage.nrc_back &&
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> NRC Back Font<br /></span></p>
                                                         <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
+                                                    </div>}
                                             </label>
                                             <input id="nrc-back-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'nrc_back')} />
                                         </div>
@@ -716,15 +1037,25 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="census-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.census_front ? <img src={previewImage.census_front} alt="Preview" /> :
+                                                {previewImage.census_front === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.census_front} alt="Preview" />
+                                                }
+                                                {!previewImage.census_front &&
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />Census Front<br /></span> </p>
                                                         <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
+                                                    </div>}
+
+
                                             </label>
                                             <input id="census-front-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'census_front')} />
                                         </div>
@@ -734,35 +1065,52 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="census-back-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.census_back ? <img src={previewImage.census_back} alt="Preview" /> :
+
+                                                {previewImage.census_back === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.census_back} alt="Preview" />
+                                                }
+                                                {!previewImage.census_back &&
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br /> Census Back Photo<br /></span></p>
                                                         <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
+                                                    </div>}
+
+
                                             </label>
                                             <input id="census-back-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'census_back')} />
                                         </div>
                                     </div>
-                                </div>
-                                <div className="grid mt-6 md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-0 lg:gap-6 ">
                                     <div className='my-2'>
                                         <label htmlFor="passport-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].passport}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="passport-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                                                {previewImage.passport ? <img src={previewImage.passport} alt="Preview" /> :
+                                                {previewImage.passport === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.passport} alt="Preview" />
+                                                }
+                                                {!previewImage.passport &&
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-center text-xs text-gray-500 "><span className="font-semibold">Click to upload <br />Passport Photo<br /></span></p>
                                                         <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
+                                                    </div>}
                                             </label>
                                             <input id="passport-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'passport')} />
                                         </div>
@@ -772,15 +1120,23 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="user-photo-upload" className="overflow-hidden flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                                {previewImage.photo ? <img src={previewImage.photo} alt="Preview" /> :
+                                                {previewImage.photo === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.photo} alt="Preview" />
+                                                }
+                                                {!previewImage.photo &&
                                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg className="w-6 h-6 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                                         </svg>
                                                         <p className="mb-2 text-xs text-gray-500 text-center"><span className="font-semibold">Click to upload<br />User Photo<br /></span> </p>
                                                         <p className="text-[10px] text-center text-gray-500">PNG, JPG or JPEG <br /> (MAX. 800x400px)</p>
-                                                    </div>
-                                                }
+                                                    </div>}
                                             </label>
                                             <input id="user-photo-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'photo')} />
                                         </div>
@@ -892,50 +1248,146 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  overflow-hidden">
-                                                {previewImage.cv && <img src={previewImage.cv} alt="Preview" />}
+                                                {previewImage.cv === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.cv} alt="Preview" />
+                                                }
                                             </label>
                                         </div>
                                     </div>
-                                    <div className='my-2'>
+                                    {formData.visa !== 'work' && <div className='my-2'>
+                                        <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
+                                            {language[lang].edu_certificate}
+                                        </label>
+
+                                        <div className="flex items-center justify-center w-full">
+                                            <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  overflow-hidden">
+                                                {previewImage.edu === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.edu} alt="Preview" />
+                                                }
+                                            </label>
+                                        </div>
+                                    </div>
+                                    }
+                                    {formData.visa !== 'work' &&
+                                        <div className='my-2'>
+                                            <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
+                                                {language[lang].JFT}
+                                            </label>
+
+                                            <div className="flex items-center justify-center w-full">
+                                                <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  overflow-hidden">
+                                                    {previewImage.jft === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.jft} alt="Preview" />
+                                                    }
+                                                </label>
+                                            </div>
+                                        </div>
+                                    }
+                                    {formData.visa !== 'work' &&
+                                        <div className='my-2'>
+                                            <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n4_certificate}</label>
+
+                                            <div className="flex items-center justify-center w-full">
+                                                <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 overflow-hidden">
+                                                    {previewImage.n4 === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.n4} alt="Preview" />
+                                                    }
+                                                </label>
+                                            </div>
+                                        </div>
+                                    }
+                                    {formData.visa !== 'work' && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n3_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 overflow-hidden">
-                                                {previewImage.n3 && <img src={previewImage.n3} alt="Preview" />}
+                                                {previewImage.n3 === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.n3} alt="Preview" />
+                                                }
                                             </label>
                                         </div>
-                                    </div>
+                                    </div>}
                                     <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n2_certificate}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 overflow-hidden">
-                                                {previewImage.n2 && <img src={previewImage.n2} alt="Preview" />
+                                                {previewImage.n2 === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.n2} alt="Preview" />
                                                 }
                                             </label>
                                         </div>
                                     </div>
-                                    <div className='my-2'>
-                                        <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n1_certificate}</label>
+                                    {formData.visa !== 'tokutei' &&
+                                        <div className='my-2'>
+                                            <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n1_certificate}</label>
 
-                                        <div className="flex items-center justify-center w-full">
-                                            <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 overflow-hidden ">
-                                                {previewImage.n1 && <img src={previewImage.n1} alt="Preview" />
-                                                }
-                                            </label>
+                                            <div className="flex items-center justify-center w-full">
+                                                <label htmlFor="n1-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 overflow-hidden ">
+                                                    {previewImage.n1 === 'pdf' ?
+                                                        <div className="flex justify-center items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                                <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                            </svg>
+                                                            <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                        </div> :
+                                                        <img src={previewImage.n1} alt="Preview" />
+                                                    }
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
 
-
-
-                                </div>
-                                <div className="grid sm:grid-cols-2 mt-6 lg:grid-cols-4 grid-cols-1 md:gap-0 sm:gap-0 lg:gap-6 gap-0">
                                     <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_front}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="nrc-front-upload" className="flex flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 overflow-hidden">
-                                                {previewImage.nrc_front && <img src={previewImage.nrc_front} alt="Preview" />}
+                                                {previewImage.nrc_front === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.nrc_front} alt="Preview" />
+                                                }
                                             </label>
                                         </div>
                                     </div>
@@ -944,7 +1396,14 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex overflow-hidden flex-col items-center justify-center w-32 h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
-                                                {previewImage.nrc_back && <img src={previewImage.nrc_back} alt="Preview" />
+                                                {previewImage.nrc_back === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.nrc_back} alt="Preview" />
                                                 }
                                             </label>
 
@@ -955,7 +1414,14 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex flex-col items-center justify-center w-32 h-32  overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
-                                                {previewImage.census_front && <img src={previewImage.census_front} alt="Preview" />
+                                                {previewImage.census_front === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.census_front} alt="Preview" />
                                                 }
                                             </label>
                                         </div>
@@ -965,23 +1431,33 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex flex-col items-center justify-center w-32 h-32 overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
-                                                {previewImage.census_back && <img src={previewImage.census_back} alt="Preview" />
+                                                {previewImage.census_back === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.census_back} alt="Preview" />
                                                 }
                                             </label>
                                             <input id="census-back-upload" type="file" className="hidden" onChange={(e) => handleFile(e, 'census_back')} />
                                         </div>
                                     </div>
 
-
-
-                                </div>
-                                <div className="grid  grid-cols-1 md:grid-cols-2 mt-6 lg:grid-cols-3  lg:gap-6 gap-0">
                                     <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].passport}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex flex-col items-center justify-center w-32 h-32 overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                                {previewImage.passport && <img src={previewImage.passport} alt="Preview" />
+                                                {previewImage.passport === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.passport} alt="Preview" />
                                                 }
                                             </label>
                                         </div>
@@ -991,7 +1467,14 @@ function index() {
 
                                         <div className="flex items-center justify-center w-full">
                                             <label className="flex flex-col items-center justify-center w-32 h-32 overflow-hidden border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                                {previewImage.photo && <img src={previewImage.photo} alt="Preview" />
+                                                {previewImage.photo === 'pdf' ?
+                                                    <div className="flex justify-center items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 24 24" fill='green'>
+                                                            <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 16.292969 8.2929688 L 10 14.585938 L 7.7070312 12.292969 L 6.2929688 13.707031 L 10 17.414062 L 17.707031 9.7070312 L 16.292969 8.2929688 z"></path>
+                                                        </svg>
+                                                        <p className="text-md ml-1 text-green-600 ">Uploaded</p>
+                                                    </div> :
+                                                    <img src={previewImage.photo} alt="Preview" />
                                                 }
                                             </label>
                                         </div>
@@ -1055,7 +1538,7 @@ function index() {
                                                     {language[lang].back}
                                                 </Link>
                                             </button>
-                                            <RedButton title={language[lang].submit_btn} onClick={(e) => handleSubmit(e)} disabled={loading} uploadProgress={uploadProgress}/>
+                                            <RedButton title={language[lang].submit_btn} onClick={(e) => handleSubmit(e)} disabled={loading} uploadProgress={uploadProgress} />
                                         </div>
                                     )}
                                 </div>

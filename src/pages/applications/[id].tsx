@@ -32,9 +32,9 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
             <div className=" w-full lg:w-[30%] mx-auto  bg-transparent shadow-custom backdrop-blur-9 rounded-3xl md:p-8 p-4 pt-[20%]">
                 <p className='text-2xl pb-2 text-center font-semibold text-red-600'>Profile</p>
 
-                <div className='w-40 h-40 rounded-[5rem] relative overflow-hidden flex justify-center mx-auto'>
+                <div className='w-40 h-40  relative overflow-hidden flex justify-center mx-auto'>
 
-                    <Image fill src={applicationDetails.photo.public_path} alt="profile.png" className='rounded-3xl' />
+                    <Image fill src={applicationDetails.photo.public_path} alt="profile.png"  />
                 </div>
                 <div className='mt-4 justify-center flex'>
                     <div>

@@ -24,8 +24,6 @@ export const language = [
         "login": "Login",
         "readmore": "Read More",
 
-
-
         //for titles
         "t1": "Course Outline",
         "t2": "About Us",
@@ -138,6 +136,9 @@ export const language = [
         "enter_your_address": "Enter your address",
         "enter_your_email": "Enter your email address",
         "cv_form": "CV Form",
+        "JFT": "JFT Certificate", 
+        "edu_certificate": "Edu Certificate",
+        "n4_certificate": "N4 Certificate",
         "n3_certificate": "N3 Certificate",
         "n2_certificate": "N2 Certificate",
         "n1_certificate": "N1 Certificate",
@@ -301,6 +302,9 @@ export const language = [
         "enter_your_address": "住所を入力してください",
         "enter_your_email": "メールアドレスを入力してください",
         "cv_form": "履歴書フォーム",
+        "JFT": "JFT証明書",
+        "edu_certificate": "教育証明書",
+        "n4_certificate": "N4証明書",
         "n3_certificate": "N3証明書",
         "n2_certificate": "N2証明書",
         "n1_certificate": "N1証明書",
@@ -466,6 +470,9 @@ export const language = [
         "enter_your_address": "လိပ်စာထည့်ပါ",
         "enter_your_email": "အီးမေးလ်ထည့်ပါ",
         "cv_form": "CVဖောင်",
+        "JFT": "JFT အောင်လက်မှတ်",
+        "edu_certificate": "အတန်းပညာရေး",
+        "n4_certificate": "N4 အောင်လက်မှတ်",
         "n3_certificate": "N3 အောင်လက်မှတ်",
         "n2_certificate": "N2 အောင်လက်မှတ်",
         "n1_certificate": "N1 အောင်လက်မှတ်",
