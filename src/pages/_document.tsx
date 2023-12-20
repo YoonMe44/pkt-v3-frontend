@@ -5,7 +5,9 @@ import Footer from '@/components/Footer'
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <link rel="shortcut icon" href="pkt.ico" />
+      </Head>
       <body>
         <Main />
         <NextScript />
