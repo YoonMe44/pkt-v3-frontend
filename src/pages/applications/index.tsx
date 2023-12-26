@@ -26,10 +26,10 @@ function index({ applicationForms }: ApplicationsProps) {
             <div className="pb-8 -mt-24">
                 <PageTitle pageTitle={pageTitle} />
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-11/12 gap-10 mx-auto container'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-11/12 gap-5 xl:gap-10 mx-auto container'>
                 {
                     applicationForms.map((applicationForm, index) => (
-                        <div className=" max-w-72" key={index}>
+                        <div className=" max-w-[18rem]" key={index}>
                             <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] shadow-card">
                                <div className="h-56 relative">
                                     <Image
