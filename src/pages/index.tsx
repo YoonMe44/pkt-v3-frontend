@@ -41,7 +41,7 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
       <div className="w-full right-0">
         <div className="pb-20">
           <PageTitle pageTitle={pageTitle} />
-          <div className="mt-4 bounce">
+          <div className="mt-4 bounce container mx-auto">
             <RedButton title="Application Form" link="/apply" />
           </div>
         </div>
