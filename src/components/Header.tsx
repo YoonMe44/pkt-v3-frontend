@@ -2,7 +2,7 @@ import Nav from "./Nav";
 
 const Header: React.FC = () => {
   return (
-    <div className=" ">
+    <div>
       <div className="area">
         <ul className="circles">
           <li></li>

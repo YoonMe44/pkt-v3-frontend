@@ -9,7 +9,7 @@ interface PageTitleProps {
 const PageTitle = ({pageTitle}: PageTitleProps) => {
   const {title, content_1, content_2} = pageTitle;
   return (
-    <div>
+    <div className=" container mx-auto">
       <div className="bounce">
         {/* <h1>{title}</h1> */}
 
