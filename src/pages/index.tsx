@@ -96,10 +96,11 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
         <OurCapacity />
       </div>
 
-      {/* Trainers */}
+      {/* Trainers 
       <div>
         <Instructor instructors={instructors} />
       </div>
+      */}
 
       {/* Managing Director */}
 
@@ -134,9 +135,11 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
         </div>
       </div>
 
+      {/* 
       <div>
         <ApplicationForms applicationForms={applicationForms} />
       </div>
+       */}
     </div>
   );
 }

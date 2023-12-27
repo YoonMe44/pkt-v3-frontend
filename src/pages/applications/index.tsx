@@ -30,7 +30,16 @@ function index({ applicationForms }: ApplicationsProps) {
                 {
                     applicationForms.map((applicationForm, index) => (
                         <div className=" max-w-[18rem]" key={index}>
-                            <div className="w-full bg-custom-white-4 rounded-[30px] pb-[20px] shadow-card">
+                            <div className="w-full relative bg-custom-white-4 rounded-[30px] pb-[20px] shadow-card overflow-hidden">
+                                <div className="absolute right-0 top-0 h-16 w-16">
+                                    <div
+                                        className={`${applicationForm.status === '1' ? "bg-red-600 text-white" : "bg-white text-red-600"} text-center shadow-md absolute transform rotate-45  font-semibold py-1 right-[-35px] top-[32px] w-[170px] z-50`}>
+                                        {
+                                            applicationForm.status === '1' ? 'Available' : 'Unavailable'
+                                        }
+                                        
+                                    </div>
+                                </div>
                                <div className="h-56 relative">
                                     <Image
                                         fill
