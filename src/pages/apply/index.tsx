@@ -1,4 +1,4 @@
-import { SidebarContext } from '@/Layouts/MainLayout';
+import { SidebarContext } from '@/components/Layouts/MainLayout';
 import FileHandler from '@/components/FileHandler';
 import FilePreview from '@/components/FilePreview';
 import PageTitle from '@/components/PageTitle';
@@ -33,6 +33,7 @@ type formDataType = {
     census_front: any,
     census_back: any,
     passport: any,
+    tokutei_certificate:any,
     photo: any,
     intro_vd: any
 }
@@ -41,7 +42,7 @@ function index() {
     const [currentStep, setCurrentStep] = useState<number>(1);
     const [reported, setReported] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
-    
+
     const [formData, setFromData] = useState<formDataType>({
         name: "",
         birthday: null,
@@ -63,6 +64,7 @@ function index() {
         census_front: null,
         census_back: null,
         passport: null,
+        tokutei_certificate:null,
         photo: null,
         intro_vd: null
     });
@@ -105,6 +107,7 @@ function index() {
             nrc_front: null,
             nrc_back: null,
             census_front: null,
+            tokutei_certificate: null,
             census_back: null,
             passport: null,
             photo: null,
@@ -118,10 +121,10 @@ function index() {
         if (formData.name === "" || formData.birthday === null || formData.gender === "" || formData.address === "" || formData.phone === "" || formData.email === "" || formData.visa === "" || formData.job === "") {
             return false;
         }
-        if (currentStep === 2 && formData.visa === "work" && (formData.n2 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
+        if (currentStep === 2 && formData.visa === "work" && (formData.n2 === null || formData.cv === null || formData.nrc_front === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
             return false;
         }
-        if (currentStep === 2 && formData.visa === "tokutei" && (formData.jft === null || formData.n4 === null || formData.cv === null || formData.nrc_back === null || formData.nrc_front === null || formData.census_back === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
+        if (currentStep === 2 && formData.visa === "tokutei" && (formData.cv === null || formData.tokutei_certificate === null || formData.nrc_front === null || formData.census_front === null || formData.passport === null || formData.photo === null || formData.intro_vd === null)) {
             return false;
         }
         console.log(formData);
@@ -216,6 +219,7 @@ function index() {
         data.append("n3", formData.n3);
         data.append("n2", formData.n2);
         data.append("n1", formData.n1);
+        data.append("tokutei_certificate", formData.tokutei_certificate);
         data.append("nrc_front", formData.nrc_front);
         data.append("nrc_back", formData.nrc_back);
         data.append("census_front", formData.census_front);
@@ -479,18 +483,29 @@ function index() {
                                         <label htmlFor="cv-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].cv_form}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <FileHandler preview={formData.cv} file={formData} name="cv" setFile={setFromData}/>
+                                            <FileHandler preview={formData.cv} file={formData} name="cv" setFile={setFromData} />
                                         </div>
                                     </div>
+
+                                    <div className='my-2'>
+                                        <label htmlFor="edu-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].edu_certificate}</label>
+
+                                        <div className="flex items-center justify-center w-full">
+                                            <FileHandler preview={formData.edu} file={formData} name="edu" setFile={setFromData} />
+                                        </div>
+                                    </div>
+
                                     {formData.visa !== 'work' &&
                                         <div className='my-2'>
-                                            <label htmlFor="edu-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].edu_certificate}</label>
+                                            <label htmlFor="tokutei_certificate" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].tokutei}</label>
 
                                             <div className="flex items-center justify-center w-full">
-                                                <FileHandler preview={formData.edu} file={formData} name="edu" setFile={setFromData}/>
+                                                <FileHandler preview={formData.tokutei_certificate} file={formData} name="tokutei_certificate" setFile={setFromData} />
                                             </div>
                                         </div>
                                     }
+
+
                                     {formData.visa !== 'work' &&
                                         <div className='my-2'>
                                             <label htmlFor="jft-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].JFT}</label>
@@ -536,38 +551,38 @@ function index() {
                                     }
 
                                     <div className='my-2'>
-                                        <label htmlFor="nrc-front-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_front}</label>
+                                        <label htmlFor="nrc-front-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <FileHandler preview={formData.nrc_front} file={formData} name="nrc_front" setFile={setFromData} />
                                         </div>
                                     </div>
-                                    <div className='my-2'>
+                                    {/* <div className='my-2'>
                                         <label htmlFor="nrc-back-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_back}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <FileHandler preview={formData.nrc_back} file={formData} name="nrc_back" setFile={setFromData} />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className='my-2'>
-                                        <label htmlFor="census-front-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_front}</label>
+                                        <label htmlFor="census-front-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <FileHandler preview={formData.census_front} file={formData} name="census_front" setFile={setFromData} />
                                         </div>
                                     </div>
-                                    <div className='my-2'>
+                                    {/* <div className='my-2'>
                                         <label htmlFor="census-back-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_back}</label>
 
                                         <div className="flex items-center justify-center w-full">
                                             <FileHandler preview={formData.census_back} file={formData} name="census_back" setFile={setFromData} />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className='my-2'>
                                         <label htmlFor="passport-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].passport}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                          
+
                                             <FileHandler preview={formData.passport} file={formData} name="passport" setFile={setFromData} />
                                         </div>
                                     </div>
@@ -582,7 +597,7 @@ function index() {
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].intro_vd}</label>
 
                                         <div className="flex items-center justify-center w-full">
-                                            <FileHandler preview={formData.intro_vd} file={formData} name="intro_vd" setFile={setFromData} type='video'/>
+                                            <FileHandler preview={formData.intro_vd} file={formData} name="intro_vd" setFile={setFromData} type='video' />
                                         </div>
                                     </div>
                                 </div>
@@ -655,10 +670,10 @@ function index() {
                                         </label>
 
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
-                                            <FilePreview file={formData.cv}/>
+                                            <FilePreview file={formData.cv} />
                                         </div>
                                     </div>
-                                    {formData.visa !== 'work' && <div className='my-2'>
+                                    {formData.edu && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
                                             {language[lang].edu_certificate}
                                         </label>
@@ -667,7 +682,7 @@ function index() {
                                         </div>
                                     </div>
                                     }
-                                    {formData.visa !== 'work' &&
+                                    {formData.visa !== 'work' && formData.jft &&
                                         <div className='my-2'>
                                             <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
                                                 {language[lang].JFT}
@@ -678,7 +693,7 @@ function index() {
                                             </div>
                                         </div>
                                     }
-                                    {formData.visa !== 'work' &&
+                                    {formData.visa !== 'work' && formData.n4 && 
                                         <div className='my-2'>
                                             <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n4_certificate}</label>
 
@@ -687,19 +702,19 @@ function index() {
                                             </div>
                                         </div>
                                     }
-                                    {formData.visa !== 'work' && <div className='my-2'>
+                                    {formData.visa !== 'work' && formData.n3 && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n3_certificate}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.n3} />
                                         </div>
                                     </div>}
-                                    <div className='my-2'>
+                                    {formData.n2 && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n2_certificate}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.n2} />
                                         </div>
-                                    </div>
-                                    {formData.visa !== 'tokutei' &&
+                                    </div>}
+                                    {formData.visa !== 'tokutei' && formData.n1 &&
                                         <div className='my-2'>
                                             <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].n1_certificate}</label>
                                             <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
@@ -708,52 +723,51 @@ function index() {
                                         </div>
                                     }
 
-                                    <div className='my-2'>
-                                        <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_front}</label>
+                                    {formData.nrc_front  && <div className='my-2'>
+                                        <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.nrc_front} />
                                         </div>
 
-                                    </div>
-                                    <div className='my-2'>
+                                    </div>}
+                                    {/* <div className='my-2'>
                                         <label htmlFor="name" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].nrc_back}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.nrc_back} />
                                         </div>
-                                    </div>
-                                    <div className='my-2'>
-                                        <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_front}</label>
+                                    </div> */}
+                                    {formData.census_front && <div className='my-2'>
+                                        <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.census_front} />
                                         </div>
-                                    </div>
-                                    <div className='my-2'>
+                                    </div>}
+                                    {/* <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].census_back}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.census_back} />
                                         </div>
-                                    </div>
+                                    </div> */}
 
-                                    <div className='my-2'>
+                                    {formData.passport  && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].passport}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.passport} />
                                         </div>
-                                    </div>
-                                    <div className='my-2'>
+                                    </div>}
+                                    {formData.photo  && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].your_photo}</label>
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.photo} />
                                         </div>
-
-                                    </div>
-                                    <div className='my-2 '>
+                                    </div>}
+                                    {formData.intro_vd  && <div className='my-2 '>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].intro_vd}</label>
 
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
-                                            <FilePreview file={formData.intro_vd} type='video'/>
+                                            <FilePreview file={formData.intro_vd} type='video' />
                                         </div>
-                                    </div>
+                                    </div>}
                                 </div>
 
                             </div>

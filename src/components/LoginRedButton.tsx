@@ -20,7 +20,7 @@ const LoginRedButton: React.FC<LoginRedButtonProps> = ({ title }) => {
       <button className="redBtn">
         <span className="shadow"></span>
         <span className="edge"></span>
-        <Link href={"/login"} className="front">
+        <Link href={"/register"} className="front">
           <GoogleLoginDynamic
             clientId="753695289374-b99bdu9aspgrcu6vtpltgc7bhbjhglki.apps.googleusercontent.com"
             onSuccess={responseGoogle}

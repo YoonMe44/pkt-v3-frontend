@@ -2,7 +2,7 @@ import PageTitle from "@/components/PageTitle";
 import Contact from "../../components/Contact"; // Rename the imported component
 import Image from "next/image";
 import { language } from "@/lang/lang";
-import { SidebarContext } from "@/Layouts/MainLayout";
+import { SidebarContext } from "@/components/Layouts/MainLayout";
 import { useContext } from "react";
 
 const ContactUsPage = () => {
