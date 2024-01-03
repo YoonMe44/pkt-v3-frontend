@@ -32,13 +32,8 @@
     "react-dom": "18.2.0",
     "react-google-login": "^5.2.2",
     "react-slick": "^0.29.0",
-<<<<<<< HEAD
-    "sharp": "^0.33.0",
-    "slick-carousel": "^1.8.1"
-=======
     "slick-carousel": "^1.8.1",
     "swr": "^2.2.4"
->>>>>>> bf83ad967ab1df13ef0689d42a6d146fb85b23f2
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
