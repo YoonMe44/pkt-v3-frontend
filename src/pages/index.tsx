@@ -14,10 +14,12 @@ import { GetServerSideProps, NextPage } from "next";
 import { News, Instructors, ApplicationForm } from "@/types";
 import axios from "axios";
 import { useContext } from "react";
-import { SidebarContext } from "@/Layouts/MainLayout";
+import { SidebarContext } from "@/components/Layouts/MainLayout";
 import { language } from "@/lang/lang";
 import RedButton from "@/components/RedButton";
 import ApplicationForms from "@/components/ApplicationForms";
+import { useAuth } from "@/hooks/auth";
+import GuestLayout from "@/components/Layouts/GuestLayout";
 
 
 interface HomeProps {
@@ -34,9 +36,10 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
     content_1: language[lang].plan,
     content_2: language[lang].future,
   };
-  
+
+
   return (
-    <div>
+    <GuestLayout>
       {/* MainVisual */}
       <div className="w-full right-0">
         <div className="pb-20">
@@ -140,7 +143,7 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
         <ApplicationForms applicationForms={applicationForms} />
       </div>
        */}
-    </div>
+    </GuestLayout>
   );
 }
 

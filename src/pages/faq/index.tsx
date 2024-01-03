@@ -4,7 +4,7 @@ import Instructor from "@/components/Instructor";
 import OurCapacity from "@/components/OurCapacity";
 import { language } from "@/lang/lang";
 import { useContext } from "react";
-import { SidebarContext } from "@/Layouts/MainLayout";
+import { SidebarContext } from "@/components/Layouts/MainLayout";
 
 const FAQ = () => {
   let { lang } = useContext(SidebarContext);

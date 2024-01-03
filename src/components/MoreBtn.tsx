@@ -1,4 +1,4 @@
-import { SidebarContext } from "@/Layouts/MainLayout";
+import { SidebarContext } from "@/components/Layouts/MainLayout";
 import { language } from "@/lang/lang";
 import Link from "next/link";
 import { useContext } from "react";

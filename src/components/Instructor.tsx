@@ -9,7 +9,7 @@ import InstructorCard from "./InstructorCard";
 
 import { Instructors } from "@/types";
 import { language } from "@/lang/lang";
-import { SidebarContext } from "@/Layouts/MainLayout";
+import { SidebarContext } from "@/components/Layouts/MainLayout";
 
 interface InstructorProps{
   instructors: Instructors[]

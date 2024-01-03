@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import Image from "next/image";
 import RedButton from "./RedButton";
 import { language } from "@/lang/lang";
-import { SidebarContext } from "@/Layouts/MainLayout";
+import { SidebarContext } from "@/components/Layouts/MainLayout";
 
 const Contact = () => {
   let { lang } = useContext(SidebarContext);

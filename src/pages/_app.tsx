@@ -4,7 +4,7 @@ import "../../public/floatingCircle.css"
 import "../../public/datepicker.css";
 import React from 'react'
 import type { AppProps } from 'next/app'
-import MainLayout from '@/Layouts/MainLayout'
+import MainLayout from '@/components/Layouts/MainLayout'
 
 function App({ Component, pageProps }: AppProps) {
     // suppress useLayoutEffect warnings when running outside a browser

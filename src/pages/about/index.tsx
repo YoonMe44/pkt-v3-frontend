@@ -7,7 +7,7 @@ import CourseOutline from "@/components/CourseOutline";
 import { GetServerSideProps, NextPage } from "next";
 import { Instructors } from "@/types";
 import axios from "axios";
-import { SidebarContext } from "@/Layouts/MainLayout";
+import { SidebarContext } from "@/components/Layouts/MainLayout";
 import { useContext } from "react";
 import { language } from "@/lang/lang";
 

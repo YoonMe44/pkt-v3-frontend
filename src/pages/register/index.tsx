@@ -16,7 +16,7 @@ const Register = () => {
           <div className="relative px-4 py-16 bg-gray-100 shadow-lg sm:rounded-3xl sm:p-20">
             <div className="max-w-md mx-auto">
               <div>
-                <Link href={"/login"}>
+                <Link href={"/register"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
