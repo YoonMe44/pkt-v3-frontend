@@ -111,6 +111,13 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
                         </div>
                     </div>}
 
+                    {applicationDetails.tokutei_certificate?.public_path && applicationDetails.visa === 'tokutei' && <div>
+                        <p className='text-[1rem] pb-2 text-center font-semibold text-red-600'>Tokutei Certificate</p>
+                        <div className='w-32 h-32  relative overflow-hidden flex justify-center mx-auto'>
+                            <FilePreview file={applicationDetails.tokutei_certificate.public_path} title='Tokutei Certificate' />
+                        </div>
+                    </div>}
+
                     {applicationDetails.n4?.public_path && <div>
                         <p className='text-[1rem] pb-2 text-center font-semibold text-red-600'>N4 Certificate</p>
                         <div className='w-32 h-32  relative overflow-hidden flex justify-center mx-auto'>
