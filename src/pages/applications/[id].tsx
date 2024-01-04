@@ -31,7 +31,7 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
                 <PageTitle pageTitle={pageTitle} />
             </div>
 
-            <div className="w-[80%] md:w-[65%] lg:w-[45%] mx-auto  bg-transparent shadow-custom backdrop-blur-9 rounded-3xl md:p-8 p-4 pt-[20%] relative overflow-hidden">
+            <div className="w-[80%] md:w-[65%] lg:w-[45%] mx-auto  bg-transparent shadow-custom  rounded-3xl md:p-8 p-4 pt-[20%] relative overflow-hidden">
                 <div className="absolute right-0 top-0 h-16 w-16">
                     <div
                         className={`${applicationDetails.status === '1' ? "bg-red-600 text-white" : "bg-white text-red-600"} shadow-md text-center absolute transform rotate-45  font-semibold py-1 right-[-46px] top-[24px] w-[170px] z-50`}>
