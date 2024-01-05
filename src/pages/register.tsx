@@ -90,9 +90,9 @@ function register() {
 
     return (
         <div className="max-w-6xl mx-auto">
-            <div className='mb-12'>
+            {/* <div className='mb-12'>
                 <PageTitle pageTitle={pageTitle} />
-            </div>
+            </div> */}
             <div className={`w-full mx-auto bg-custom-white-17 backdrop-blur-9  shadow-custom rounded-[30px] md:p-8 p-4 py-12  ${isLogin ? " xl:w-1/2" : "xl:w-3/4"} `}>
                 <p className='text-center font-semibold text-red-600 text-[30px]'>
                     {isLogin ? "Sign In" : "Sign Up"}

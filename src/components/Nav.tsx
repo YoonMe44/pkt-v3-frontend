@@ -11,7 +11,7 @@ const Nav: React.FC = () => {
   const path = router.route;
   const [activeNav, setActiveNav] = useState("");
   let { lang, setLang, user } = useContext(SidebarContext);
-  
+
   useEffect(() => {
     if (router.asPath.includes("/faq")) {
       setActiveNav("faq");
@@ -35,7 +35,7 @@ const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showClassroom, setShowClassRoom] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
-   console.log(user);
+  console.log(user);
   const handleNavLinkClick = (navItem: string) => {
     setActiveNav(navItem);
   };
@@ -90,15 +90,17 @@ const Nav: React.FC = () => {
                 {/* <RedButton title="Login" link="/login" /> */}
                 {/* <button type="button" className="text-white text-md bg-gradient-to-r from-[#aa0a11] via-red-300 to-[#ffcb08] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-[#aa0a11] dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button> */}
 
-                <Link href={user?.email_verified_at ? "/profile" : user && !user?.email_verified_at ? "/email-verify" : "/register"} className=" rounded-full relative">
-                  <Image
-                    src={"/statics/images/default.jpg"}
-                    width={35}
-                    height={35}
-                    alt="user-img"
-                    className="rounded-full border-solid border-2 border-gray-400"
-                  />
-                </Link>
+                <div className="w-8 h-8 rounded-full relative overflow-hidden hover:border-red-500 border-2 border-gray-300">
+                  <Link href={user?.email_verified_at ? "/profile" : user && !user?.email_verified_at ? "/email-verify" : "/register"} >
+                    <Image
+                      src={user?.profile_photo_path?.public_path ? user?.profile_photo_path?.public_path : "/statics/images/default.jpg"}
+                      fill
+                      alt="profile.png"
+                    />
+                  </Link>
+                </div>
+
+
 
               </li>
             </ul>
@@ -127,8 +129,8 @@ const Nav: React.FC = () => {
           >
             <div
               className={`w-7 h-0.5 bg-red-main ${isMenuOpen
-                  ? " -rotate-45 delay-75 ease-in duration-300 translate-y-1"
-                  : "i -rotate-0 delay-75 ease-in duration-300 "
+                ? " -rotate-45 delay-75 ease-in duration-300 translate-y-1"
+                : "i -rotate-0 delay-75 ease-in duration-300 "
                 } `}
             ></div>
             <div
@@ -136,24 +138,24 @@ const Nav: React.FC = () => {
             ></div>
             <div
               className={`w-7 h-0.5 bg-red-main ${isMenuOpen
-                  ? "rotate-45 delay-75 ease-in duration-300 -translate-y-0.5"
-                  : "rotate-0 delay-75 ease-in duration-300 "
+                ? "rotate-45 delay-75 ease-in duration-300 -translate-y-0.5"
+                : "rotate-0 delay-75 ease-in duration-300 "
                 } `}
             ></div>
           </button>
 
           <div
             className={`${isMenuOpen
-                ? "flex  ease-in-out duration-[1000ms]  translate-x-0 "
-                : " flex ease-in-out duration-[1000ms]  -translate-y-[500px] "
+              ? "flex  ease-in-out duration-[1000ms]  translate-x-0 "
+              : " flex ease-in-out duration-[1000ms]  -translate-y-[500px] "
               } z-40 space-y-6 lg:hidden md:hidden  backdrop-blur-[3px] shadow-custom bg-custom-white-17  flex-col px-4 py-6 rounded-b-xl absolute top-0 right-0  items-center`}
           >
             <div className="h-7"></div>
             <Link
               href={"/"}
               className={`${activeNav === "home"
-                  ? "text-red-main border-b-[3px] border-red-main"
-                  : "text-black"
+                ? "text-red-main border-b-[3px] border-red-main"
+                : "text-black"
                 } text-sm font-medium`}
               onClick={() => setActiveNav("/")}
             >
@@ -163,8 +165,8 @@ const Nav: React.FC = () => {
             <Link
               href={"/about"}
               className={`${activeNav === "about"
-                  ? "text-red-main border-b-[3px] border-red-main"
-                  : "text-black"
+                ? "text-red-main border-b-[3px] border-red-main"
+                : "text-black"
                 } text-sm font-medium`}
               onClick={() => setActiveNav("about")}
             >
@@ -173,8 +175,8 @@ const Nav: React.FC = () => {
             <Link
               href={"/contact"}
               className={`${activeNav === "contact us"
-                  ? "text-red-main border-b-[3px] border-red-main"
-                  : "text-black"
+                ? "text-red-main border-b-[3px] border-red-main"
+                : "text-black"
                 } text-sm font-medium`}
               onClick={() => setActiveNav("contact us")}
             >
@@ -183,8 +185,8 @@ const Nav: React.FC = () => {
             <Link
               href={"/news"}
               className={`${activeNav === "news"
-                  ? "text-red-main border-b-[3px] border-red-main"
-                  : "text-black"
+                ? "text-red-main border-b-[3px] border-red-main"
+                : "text-black"
                 } text-sm font-medium`}
               onClick={() => setActiveNav("news")}
             >
@@ -241,8 +243,8 @@ const Nav: React.FC = () => {
               <Link
                 href="/"
                 className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "home"
-                    ? "text-red-main border-b-[3px] border-red-500"
-                    : "text-black"
+                  ? "text-red-main border-b-[3px] border-red-500"
+                  : "text-black"
                   } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("home")}
               >
@@ -253,8 +255,8 @@ const Nav: React.FC = () => {
               <Link
                 href="/about"
                 className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "about"
-                    ? "text-red-main !important border-b-[3px] border-red-500 !important"
-                    : "text-black"
+                  ? "text-red-main !important border-b-[3px] border-red-500 !important"
+                  : "text-black"
                   } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("about")}
               >
@@ -263,8 +265,8 @@ const Nav: React.FC = () => {
             </li>
             <li
               className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "courses"
-                  ? "text-red-main border-b-[3px] border-red-500"
-                  : "text-black"
+                ? "text-red-main border-b-[3px] border-red-500"
+                : "text-black"
                 } md:bg-transparent hover:text-red-main`}
               onMouseEnter={() => setShowClassRoom(true)}
               onMouseLeave={() => setShowClassRoom(false)}
@@ -301,8 +303,8 @@ const Nav: React.FC = () => {
               <Link
                 href="/news"
                 className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "news"
-                    ? "text-red-main border-b-[3px] border-red-500"
-                    : " text-black"
+                  ? "text-red-main border-b-[3px] border-red-500"
+                  : " text-black"
                   } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("news")}
               >
@@ -325,8 +327,8 @@ const Nav: React.FC = () => {
               <Link
                 href="/contact"
                 className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "contact"
-                    ? "text-red-main border-b-[3px] border-red-500"
-                    : " text-black"
+                  ? "text-red-main border-b-[3px] border-red-500"
+                  : " text-black"
                   } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("contact")}
               >
@@ -337,8 +339,8 @@ const Nav: React.FC = () => {
               <Link
                 href="/faq"
                 className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "faq"
-                    ? "text-red-main border-b-[3px] border-red-500"
-                    : " text-black"
+                  ? "text-red-main border-b-[3px] border-red-500"
+                  : " text-black"
                   } md:bg-transparent hover:text-red-main`}
                 onClick={() => handleNavLinkClick("faq")}
               >

@@ -9,6 +9,21 @@ export interface imageMedia{
     storage_path: string
 }
 
+export interface Client {
+    id:string
+    name: string,
+    email: string,
+    email_verified_at: string,
+    password: string,
+    phone: string,
+    birthday: string,
+    address: string,
+    country: string,
+    business: string,
+    description: string,
+    profile_photo_path: imageMedia
+}
+
 export interface News {
     id: string,
     title: string,
