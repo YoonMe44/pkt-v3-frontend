@@ -158,6 +158,12 @@ export const useAuth = ({ redirectIfAuthenticated, redirectIfNoAuth, middleware 
         )
             router.push('/')
 
+        if (
+            window.location.pathname === '/profile' &&
+            !user
+        )
+            router.push('/')
+
     }, [router, logout, redirectIfNoAuth, redirectIfAuthenticated, user])
 
     return {
