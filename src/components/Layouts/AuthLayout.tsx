@@ -3,7 +3,7 @@ import Head from 'next/head'
 import React, { PropsWithChildren, useContext, useEffect } from 'react'
 import { SidebarContext } from './MainLayout';
 
-const GuestLayout = ({ children }: PropsWithChildren) => {
+const AuthLayout = ({ children }: PropsWithChildren) => {
     const { user } = useAuth({ middleware: 'guest' });
     let { setUser, resetInitialState} = useContext(SidebarContext);
     useEffect(() => {
@@ -25,4 +25,4 @@ const GuestLayout = ({ children }: PropsWithChildren) => {
     )
 }
 
-export default GuestLayout
+export default AuthLayout

@@ -35,7 +35,6 @@ const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showClassroom, setShowClassRoom] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
-  console.log(user);
   const handleNavLinkClick = (navItem: string) => {
     setActiveNav(navItem);
   };
@@ -192,7 +191,7 @@ const Nav: React.FC = () => {
             >
               {language[lang].news}
             </Link>
-            <Link
+        { user &&    <Link
               href={"/applications"}
               className={`${activeNav === "app"
                 ? "text-red-main border-b-[3px] border-red-main"
@@ -201,7 +200,7 @@ const Nav: React.FC = () => {
               onClick={() => setActiveNav("app")}
             >
               {language[lang].applications}
-            </Link>
+            </Link>}
 
             <div className="flex space-x-3">
               <button onClick={() => setLang(2)}>
@@ -311,7 +310,7 @@ const Nav: React.FC = () => {
                 {language[lang].news}
               </Link>
             </li>
-            <li>
+          {user &&  <li>
               <Link
                 href="/applications"
                 className={`mr-5 md:mr-0 block py-2 lg:text-lg text-sm font-semibold pb-[10px] ${activeNav === "app"
@@ -322,7 +321,7 @@ const Nav: React.FC = () => {
               >
                 {language[lang].applications}
               </Link>
-            </li>
+            </li>}
             <li>
               <Link
                 href="/contact"

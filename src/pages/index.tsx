@@ -19,7 +19,7 @@ import { language } from "@/lang/lang";
 import RedButton from "@/components/RedButton";
 import ApplicationForms from "@/components/ApplicationForms";
 import { useAuth } from "@/hooks/auth";
-import GuestLayout from "@/components/Layouts/GuestLayout";
+import AuthLayout from "@/components/Layouts/AuthLayout";
 
 
 interface HomeProps {
@@ -39,7 +39,7 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
 
 
   return (
-    <GuestLayout>
+    <AuthLayout>
       {/* MainVisual */}
       <div className="w-full right-0">
         <div className="pb-20">
@@ -143,7 +143,7 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
         <ApplicationForms applicationForms={applicationForms} />
       </div>
        */}
-    </GuestLayout>
+    </AuthLayout>
   );
 }
 
