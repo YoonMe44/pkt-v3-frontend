@@ -68,8 +68,10 @@ function CartItem({ interview, fetchData }: CartItemProps) {
                 <button className='bg-red-600 p-2 px-4 mr-4 md:mr-0 text-white font-semibold rounded-md shadow-gray-500 hover:bg-red-500  flex items-center shadow-md my-2' onClick={viewDetails}>
                     {interview.completed === '1' ? 'Completed' : interview.status === '0' ? 'Pending' : 'View Details'}
                 </button>
-
-                <button className='bg-gray-400 p-2 h-fit px-4 text-white font-semibold rounded-md shadow-gray-400 hover:opacity-80  flex items-center shadow-md' onClick={changeStatus}>Cancel</button>
+                {
+                    interview.completed !== '1' &&
+                    <button className='bg-gray-400 p-2 h-fit px-4 text-white font-semibold rounded-md shadow-gray-400 hover:opacity-80  flex items-center shadow-md' onClick={changeStatus}>Cancel</button>
+                }
             </div>
 
             <div className={`${show ? 'flex' : 'hidden'}  fixed top-0 right-0 left-0 z-50 justify-center items-center mx-auto md:inset-0 h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden`}>
