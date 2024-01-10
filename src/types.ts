@@ -36,6 +36,7 @@ export interface InterviewProps {
     invitation_time: string,
     time_zone:string,
     meeting_id: string,
+    completed:string,
     pass_code: string,
     description: string,
     created_by: string,

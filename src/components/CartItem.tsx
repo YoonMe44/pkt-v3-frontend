@@ -44,7 +44,7 @@ function CartItem({ interview, fetchData }: CartItemProps) {
     }
 
     const viewDetails = () => {
-        if (interview.status === '0') {
+        if (interview.status === '0' || interview.completed === '1') {
             return false;
         }
         setShow(true);
@@ -66,7 +66,7 @@ function CartItem({ interview, fetchData }: CartItemProps) {
             </div>
             <div className='ml-4 flex justify-center items-center md:flex-col md:items-end'>
                 <button className='bg-red-600 p-2 px-4 mr-4 md:mr-0 text-white font-semibold rounded-md shadow-gray-500 hover:bg-red-500  flex items-center shadow-md my-2' onClick={viewDetails}>
-                    {interview.status === '0' ? 'Pending' : 'View Details'}
+                    {interview.completed === '1' ? 'Completed' : interview.status === '0' ? 'Pending' : 'View Details'}
                 </button>
 
                 <button className='bg-gray-400 p-2 h-fit px-4 text-white font-semibold rounded-md shadow-gray-400 hover:opacity-80  flex items-center shadow-md' onClick={changeStatus}>Cancel</button>
