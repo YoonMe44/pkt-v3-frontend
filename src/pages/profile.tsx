@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import "react-datepicker/dist/react-datepicker.css";
 import { useAuth } from '@/hooks/auth';
 import moment from 'moment';
+import RequestedInterviews from '@/components/RequestedInterviews';
 
 interface formDataType {
     id: string
@@ -115,7 +116,7 @@ function profile() {
         <div className="max-w-6xl mx-auto">
 
             <div className={`w-full mx-auto bg-custom-white-17 backdrop-blur-9  shadow-custom rounded-[30px] md:p-8 p-4 py-12  xl:w-3/4`}>
-                <div className='grid grid-cols-1 md:grid-cols-3'>
+                <div className='grid grid-cols-1 md:grid-cols-3 justify-items-center md:justify-items-start'>
                     <div>
                         <div className='overflow-hidden relative w-44 h-44 mb-2'>
                             <Image
@@ -136,7 +137,7 @@ function profile() {
                             {user?.business}
                         </p>
                     </div>
-                    <div className='col-span-2'>
+                    <div className='col-span-2 w-full'>
                         {/* <p className='text-md font-semibold text-red-600'>Description</p>
                         <p className='text-sm text-black'>
                             {user?.description}
@@ -297,13 +298,16 @@ function profile() {
                                             <button className={`inline-block p-4 border-b-2 rounded-t-lg ${tab === 'tab_1' ? 'text-red-600 hover:text-red-500 border-red-600' : 'text-gray-600 border-gray-300 hover:text-gray-500'}`} id="profile-tab" type="button" onClick={() => setTab('tab_1')}>Information</button>
                                         </li>
                                         <li className="me-2">
-                                            <button className={`inline-block p-4 border-b-2 rounded-t-lg ${tab === 'tab_2' ? 'text-red-600 hover:text-red-500 border-red-600' : 'text-gray-600 border-gray-300 hover:text-gray-500'} `} type="button" onClick={() => setTab('tab_2')}>Settings</button>
+                                            <button className={`inline-block p-4 border-b-2 rounded-t-lg ${tab === 'tab_2' ? 'text-red-600 hover:text-red-500 border-red-600' : 'text-gray-600 border-gray-300 hover:text-gray-500'} `} type="button" onClick={() => setTab('tab_2')}>Interviews</button>
+                                        </li>
+                                        <li className="me-2">
+                                            <button className={`inline-block p-4 border-b-2 rounded-t-lg ${tab === 'tab_3' ? 'text-red-600 hover:text-red-500 border-red-600' : 'text-gray-600 border-gray-300 hover:text-gray-500'} `} type="button" onClick={() => setTab('tab_3')}>Settings</button>
                                         </li>
 
                                     </ul>
                                 </div>
                                 <div id="default-tab-content">
-                                    <div className={`${tab === 'tab_1' ? 'block' : 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab`}>
+                                    <div className={`${tab === 'tab_1' ? 'block' : 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800`} id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <table className='text-sm text-gray-500 dark:text-gray-400'>
                                             <tbody>
                                                 <tr>
@@ -360,7 +364,10 @@ function profile() {
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div className={`${tab === 'tab_2' ? 'block' : 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab`}>
+                                    <div className={`${tab === 'tab_2' ? 'block' : 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800 h-[28rem] overflow-y-auto`} id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                                        <RequestedInterviews />
+                                    </div>
+                                    <div className={`${tab === 'tab_3' ? 'block' : 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800`} id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
 
                                         <div className='text-yellow-500 underline py-1 border-b-[1px] border-b-gray-300 w-full ps-2 bg-gray-100 text-sm'>
                                             <div onClick={() => setShowEdit(true)} className=' flex align-middle items-center '>
@@ -382,11 +389,12 @@ function profile() {
                                             </div>
                                         </div>
                                     </div>
+                                  
 
                                 </div>
                             </div>
                         }
-
+                     
                     </div>
                 </div>
 

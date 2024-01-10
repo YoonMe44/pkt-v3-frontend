@@ -24,6 +24,25 @@ export interface Client {
     profile_photo_path: imageMedia
 }
 
+export interface InterviewProps {
+    id: string,
+    client_id: string,
+    client: Client,
+    applicant_id: string,
+    applicant:ApplicationForm,
+    client_status: string,
+    status: string,
+    invite_link: string,
+    invitation_time: string,
+    time_zone:string,
+    meeting_id: string,
+    pass_code: string,
+    description: string,
+    created_by: string,
+    updated_by: string,
+    created_at: string,
+    updated_at: string
+}
 export interface News {
     id: string,
     title: string,
