@@ -1,0 +1,13 @@
+:root{
+    --toastify-color-progress-success: #ED1C24 !important;
+    --toastify-icon-color-success:#ED1C24 !important;
+    --toastify-color-progress-info: #2573a8 !important;
+    --toastify-icon-color-info:#2573a8 !important;
+
+}
+
+.Toastify__toast-body{
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(24, 22, 22);
+}

@@ -2,6 +2,7 @@ import AuthLayout from '@/components/Layouts/AuthLayout';
 import { SidebarContext } from '@/components/Layouts/MainLayout';
 import PageTitle from '@/components/PageTitle'
 import RedButton from '@/components/RedButton';
+import { useAuth } from '@/hooks/auth';
 import { language } from '@/lang/lang';
 import axios from '@/lib/axios';
 import { ApplicationForm } from '@/types';
@@ -16,6 +17,9 @@ interface ApplicationsProps {
 
 function index({ applicationForms }: ApplicationsProps) {
     let { lang, user } = useContext(SidebarContext);
+    const { resentMail } = useAuth({
+        redirectIfNoAuth: '/'
+    });
     const pageTitle = {
         title: language[lang].applications,
         content_1: "",
@@ -55,6 +59,7 @@ function index({ applicationForms }: ApplicationsProps) {
                                         {applicationForm.name}
                                     </p>
                                     <p className="text-center m-[10px]">
+                                        {applicationForm.job === 'it' && 'IT'}
                                         {applicationForm.job === 'be' && 'Be'}
                                         {applicationForm.job === 'translator' && 'Translator'}
                                         {applicationForm.job === 'hotel' && 'Hotel'}

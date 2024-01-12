@@ -23,7 +23,7 @@ interface IApiRequest {
 
 export const useAuth = ({ redirectIfAuthenticated, redirectIfNoAuth, middleware }: IUseAuth) => {
     const router = useRouter();
-    let { resetInitialState } = useContext(SidebarContext);
+    let { resetInitialState, user:isUser } = useContext(SidebarContext);
     const {
         data: user,
         error,
@@ -152,23 +152,17 @@ export const useAuth = ({ redirectIfAuthenticated, redirectIfNoAuth, middleware 
         )
             router.push('/')
 
+            
         if (
-            window.location.pathname === '/email-verify' &&
-            !user
-        )
-            router.push('/')
+            redirectIfNoAuth &&
+            !isUser
+        ){
+            router.push(redirectIfNoAuth)
+        }
 
-        if (
-            window.location.pathname === '/profile' &&
-            !user
-        )
-            router.push('/')
+        console.log(user);
+        
 
-        if (
-            window.location.pathname === '/applications' &&
-            !user
-        )
-            router.push('/')
 
     }, [router, logout, redirectIfNoAuth, redirectIfAuthenticated, user])
 

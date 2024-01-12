@@ -11,6 +11,7 @@ import DatePicker from "react-datepicker";
 
 // css
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from 'react-toastify';
 
 type formDataType = {
     name: string,
@@ -31,6 +32,7 @@ type formDataType = {
     nrc_front: any,
     nrc_back: any,
     census_front: any,
+    medical_certificate:any,
     census_back: any,
     passport: any,
     tokutei_certificate:any,
@@ -62,6 +64,7 @@ function index() {
         nrc_front: null,
         nrc_back: null,
         census_front: null,
+        medical_certificate:null,
         census_back: null,
         passport: null,
         tokutei_certificate:null,
@@ -106,6 +109,7 @@ function index() {
             n1: null,
             nrc_front: null,
             nrc_back: null,
+            medical_certificate:null,
             census_front: null,
             tokutei_certificate: null,
             census_back: null,
@@ -220,6 +224,7 @@ function index() {
         data.append("n2", formData.n2);
         data.append("n1", formData.n1);
         data.append("tokutei_certificate", formData.tokutei_certificate);
+        data.append("medical_certificate", formData.medical_certificate);
         data.append("nrc_front", formData.nrc_front);
         data.append("nrc_back", formData.nrc_back);
         data.append("census_front", formData.census_front);
@@ -290,6 +295,10 @@ function index() {
             resetFormData();
             setLoading(false);
         }
+        toast.success("Application submitted successfully!", {
+            theme: 'light',
+            autoClose: 4000,
+        })
     }
     return (
         <div className="max-w-6xl mx-auto">
@@ -494,6 +503,14 @@ function index() {
                                             <FileHandler preview={formData.edu} file={formData} name="edu" setFile={setFromData} />
                                         </div>
                                     </div>
+                                    <div className='my-2'>
+                                        <label htmlFor="medical_certificate-upload" className="text-center mb-2 block text-md font-medium text-gray-900">{language[lang].medical_certificate}</label>
+
+                                        <div className="flex items-center justify-center w-full">
+                                            <FileHandler preview={formData.medical_certificate} file={formData} name="medical_certificate" setFile={setFromData} />
+                                        </div>
+                                    </div>
+                                    
 
                                     {formData.visa !== 'work' &&
                                         <div className='my-2'>
@@ -664,7 +681,7 @@ function index() {
                                 </div>
 
                                 <div className="grid sm:grid-cols-2 lg:grid-cols-4  grid-cols-1 md:gap-gap-0 lg:gap-6 gap-0">
-                                    <div className='my-2'>
+                                    {formData.cv  && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
                                             {language[lang].cv_form}
                                         </label>
@@ -672,7 +689,7 @@ function index() {
                                         <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
                                             <FilePreview file={formData.cv} />
                                         </div>
-                                    </div>
+                                    </div>}
                                     {formData.edu && <div className='my-2'>
                                         <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
                                             {language[lang].edu_certificate}
@@ -682,6 +699,16 @@ function index() {
                                         </div>
                                     </div>
                                     }
+                                    {formData.medical_certificate && <div className='my-2'>
+                                        <label className="text-center mb-2 block text-md font-medium text-gray-900 ">
+                                            {language[lang].medical_certificate}
+                                        </label>
+                                        <div className="flex items-center justify-center w-32 h-32 overflow-hidden">
+                                            <FilePreview file={formData.medical_certificate} />
+                                        </div>
+                                    </div>
+                                    }
+                                    
                                     {formData.visa !== 'work' && formData.jft &&
                                         <div className='my-2'>
                                             <label className="text-center mb-2 block text-md font-medium text-gray-900 ">

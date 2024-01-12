@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useAuth } from '@/hooks/auth';
 import moment from 'moment';
 import RequestedInterviews from '@/components/RequestedInterviews';
+import { toast } from 'react-toastify';
 
 interface formDataType {
     id: string
@@ -73,6 +74,10 @@ function profile() {
             setErrors,
             setStatus
         });
+        toast.success("Profile updated successfully", {
+            theme: 'light',
+            autoClose: 4000,
+        });
     }
 
     const clearForm = () => {
@@ -93,6 +98,14 @@ function profile() {
         setShowEdit(false);
         setProfilePreview(null);
         setErrors([]);
+    }
+
+    const handleLogout = () => {
+        logout();
+        toast.info("Logged out", {
+            theme: 'light',
+            autoClose: 4000,
+        });
     }
 
     useEffect(() => {
@@ -381,7 +394,7 @@ function profile() {
 
                                         </div>
                                         <div className='text-red-600 underline py-1 border-b-[1px] border-b-gray-300 w-full ps-2 bg-gray-100 text-sm'>
-                                            <div onClick={logout} className=' flex align-middle items-center '>
+                                            <div onClick={handleLogout} className=' flex align-middle items-center '>
                                                 <img src='/statics/images/logout-svgrepo-com.svg' alt='logout.png' />
                                                 <span className='hover:cursor-pointer ml-2'>
                                                     Logout

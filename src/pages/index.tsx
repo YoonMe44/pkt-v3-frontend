@@ -36,7 +36,7 @@ const Home: NextPage<HomeProps> = ({ applicationForms, instructors }) => {
     content_1: language[lang].plan,
     content_2: language[lang].future,
   };
-
+  
 
   return (
     <AuthLayout>

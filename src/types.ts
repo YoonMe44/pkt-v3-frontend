@@ -68,6 +68,7 @@ export interface ApplicationForm {
     jft: imageMedia,
     edu: imageMedia,
     tokutei_certificate:imageMedia,
+    medical_certificate: imageMedia,
     n4: imageMedia,
     n3: imageMedia,
     n2: imageMedia,

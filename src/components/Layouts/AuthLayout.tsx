@@ -12,7 +12,7 @@ const AuthLayout = ({ children }: PropsWithChildren) => {
         }
         setUser(user);
     }, [user,setUser,resetInitialState]);
-
+    
     return (
         <div>
             <Head>

@@ -1,5 +1,4 @@
 import { SidebarContext } from '@/components/Layouts/MainLayout';
-import PageTitle from '@/components/PageTitle'
 import { language } from '@/lang/lang';
 import DatePicker from "react-datepicker";
 import React, { useContext, useState } from 'react'
@@ -8,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import RedButton from '@/components/RedButton';
 import { useAuth } from '@/hooks/auth';
 import Button from '@/components/Button';
+import { toast } from 'react-toastify';
 interface formDataType {
     name: string
     email: string
@@ -77,6 +77,10 @@ function register() {
                 setErrors,
                 setStatus
             })
+            toast.success("Successfully logged in.", {
+                theme: 'light',
+                autoClose: 4000,
+            });
         } else {
             register({
                 ...data,
@@ -84,7 +88,13 @@ function register() {
                 setStatus,
 
             });
+            toast.success("Registration completed successfully.", {
+                theme: 'light',
+                autoClose: 4000,
+            });
         }
+
+        
 
     }
 

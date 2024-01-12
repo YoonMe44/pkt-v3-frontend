@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react'
 import AuthLayout from '@/components/Layouts/AuthLayout';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 
 interface ApplicationDetailsProps {
     applicationDetails: ApplicationForm
@@ -69,7 +70,12 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
             });
             console.log(res.status);
             console.log(res.data);
+            const {message} = res.data;
             getInterviewInfo();
+            toast.success("Interview requested successfully!", {
+                theme: 'light',
+                autoClose: 4000,
+            })
             resetState();
         } catch (e) {
             console.log(e);
@@ -101,7 +107,6 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
             console.log(e);
         }
     }
-
     return (
         <AuthLayout>
             {user &&
@@ -159,6 +164,7 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
                                             <tr>
                                                 <td>Job </td>
                                                 <td className='whitespace-nowrap'><span className='mx-2'>-</span>
+                                                    {applicationDetails.job === 'it' && 'IT'}
                                                     {applicationDetails.job === 'be' && 'Be'}
                                                     {applicationDetails.job === 'translator' && 'Translator'}
                                                     {applicationDetails.job === 'hotel' && 'Hotel'}
@@ -189,7 +195,13 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
                                     <FilePreview file={applicationDetails.edu.public_path} title='Education' />
                                 </div>
                             </div>}
-
+                            {applicationDetails.medical_certificate?.public_path && <div>
+                                <p className='text-[1rem] pb-2 text-center font-semibold text-red-600'>Medical Certificate</p>
+                                <div className='w-32 h-32  relative overflow-hidden flex justify-center mx-auto'>
+                                    <FilePreview file={applicationDetails.medical_certificate.public_path} title='Medical Certificate' />
+                                </div>
+                            </div>}
+                            
                             {applicationDetails.tokutei_certificate?.public_path && applicationDetails.visa === 'tokutei' && <div>
                                 <p className='text-[1rem] pb-2 text-center font-semibold text-red-600'>Tokutei Certificate</p>
                                 <div className='w-32 h-32  relative overflow-hidden flex justify-center mx-auto'>
