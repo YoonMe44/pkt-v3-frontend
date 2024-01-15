@@ -244,7 +244,7 @@ const applicationDetails: NextPage<ApplicationDetailsProps> = ({ applicationDeta
                         </div>
 
                         <div className='mt-8 flex justify-center w-full'>
-                            <button className='bg-gray-400 p-2 px-4 text-white font-semibold rounded-md shadow-gray-400 hover:opacity-80  flex items-center shadow-md' onClick={() => router.back()} >Back</button>
+                            <button className='bg-gray-400 p-2 px-4 text-white font-semibold rounded-md shadow-gray-400 hover:opacity-80  flex items-center shadow-md' onClick={() => router.replace('/applications')} >Back</button>
                             <button className='ml-4 bg-red-600 p-2 px-4 text-white font-semibold rounded-md shadow-gray-500 hover:bg-red-500  flex items-center shadow-md' onClick={() => interviewInfo ? router.push(`/profile`) : setShow(true)} >{interviewInfo ? "View Details" : "Request Interview"}</button>
                         </div>
                     </div>
